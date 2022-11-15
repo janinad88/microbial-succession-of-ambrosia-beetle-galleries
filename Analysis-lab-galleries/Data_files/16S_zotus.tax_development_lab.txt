@@ -1,0 +1,1231 @@
+		ID	Domain	Phylum	Class	Order	Family	Genus	Species
+16Szotu2	zotu2	AM418384_S000768523	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Pseudoxanthomonas	s:Pseudoxanthomonas_spadix
+16Szotu6	zotu6	FJ717338_S002156657	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacteriales	f:Enterobacteriaceae	g:Yersinia	s:Yersinia_nurmii
+16Szotu7	zotu7	Z93440_S000381585	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	s:Acinetobacter_johnsonii
+16Szotu5	zotu5	JN175337_S002916781	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacteriales	f:Enterobacteriaceae	g:Erwinia	
+16Szotu9	zotu9	CP076232.1	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacteriales	f:Enterobacteriaceae	g:Escherichia	s:Escherichia_coli
+16Szotu10	zotu10	EU189132_S001020373	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu11	zotu11	JN175332_S002916776	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacteriales	f:Enterobacteriaceae	g:Pantoea	
+16Szotu12	zotu12	CP084532.1	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacteriales	f:Enterobacteriaceae	g:Salmonella	s:Salmonella_enterica
+16Szotu14	zotu14	DQ359689_S001020519	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu17	zotu17	OK360620.1	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Staphylococcaceae	g:Staphylococcus	s:Staphylococcus_aureus
+16Szotu18	zotu18	OK360923.1	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Enterococcaceae	g:Enterococcus	s:Enterococcus_faecalis
+16Szotu22	zotu22	OK428682.1	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillaceae_1	g:Bacillus	s:Bacillus_subtilis
+16Szotu21	zotu21	JN175337_S002916781	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacteriales	f:Enterobacteriaceae	g:Erwinia	
+16Szotu23	zotu23	JN175331_S002916775	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Lactobacillus	s:Lactobacillus_fermentum
+16Szotu24	zotu24	AF268968_S000390413	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_brenneri
+16Szotu25	zotu25	DQ442560_S000775896	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Streptomycetaceae	g:Streptomyces	s:Streptomyces_xanthophaeus
+16Szotu26	zotu26	MW857131.2	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_aeruginosa
+16Szotu27	zotu27	MT633107.1	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Listeriaceae	g:Listeria	s:Listeria_monocytogenes
+16Szotu28	zotu28	DQ359689_S001020519	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu29	zotu29	AB248875_S000711011	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Microbacteriaceae	g:Microbacterium	s:Microbacterium_pygmaeum
+16Szotu31	zotu31	JF295055_S002910969	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacteriales	f:Enterobacteriaceae	g:Pantoea	s:Pantoea_rwandensis
+16Szotu32	zotu32	EF688010_S001187454	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacteriales	f:Enterobacteriaceae	g:Pantoea	s:Pantoea_anthophila
+16Szotu33	zotu33	AB680380_S003262271	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacteriales	f:Enterobacteriaceae	g:Salmonella	
+16Szotu35	zotu35	AB004748_S000381743	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacteriales	f:Enterobacteriaceae	g:Pluralibacter	
+16Szotu37	zotu37	AM501435_S000964798	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae	g:Pelomonas	s:Pelomonas_aquatica
+16Szotu39	zotu39	AJ250801_S000007789	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Methylobacteriaceae	g:Methylobacterium	s:Methylobacterium_fujisawaense
+16Szotu42	zotu42	AB042240_S000495537	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu45	zotu45	AB190217_S000376345	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillaceae_1	g:Bacillus	s:Bacillus_anthracis
+16Szotu44	zotu44	GQ379228_S001610569	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Oxalobacteraceae	g:Undibacterium	s:Undibacterium_oligocarboniphilum
+16Szotu47	zotu47	HM047743_S002167808	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	s:Acinetobacter_indicus
+16Szotu48	zotu48	HQ157192_S002234067	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Nocardiaceae	g:Williamsia	s:Williamsia_limnetica
+16Szotu50	zotu50	X92417_S000021340	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Oceanospirillales	f:Halomonadaceae	g:Halomonas	s:Halomonas_desiderata
+16Szotu54	zotu54	HE978271_S003288366	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_aeruginosa
+16Szotu55	zotu55	HQ844973_S002410689	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Microbacteriaceae	g:Microbacterium	s:Microbacterium_panaciterrae
+16Szotu58	zotu58	AJ640133_S000324025	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Oceanospirillales	f:Halomonadaceae	g:Halomonas	s:Halomonas_alkaliphila
+16Szotu60	zotu60	EF380351_S001020332	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu59	zotu59	EF178282_S000776602	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Alteromonadales	f:Shewanellaceae	g:Shewanella	s:Shewanella_haliotis
+16Szotu62	zotu62	AJ550856_S000117304	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Enhydrobacter	s:Enhydrobacter_aerosaccus
+16Szotu63	zotu63	AY741342_S000425929	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Ralstonia	s:Ralstonia_pickettii
+16Szotu66	zotu66	AB030583_S000010130	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_alcaliphila
+16Szotu65	zotu65	Y10764_S000012797	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Xanthomonas	s:Xanthomonas_bromi
+16Szotu67	zotu67	AF177666_S000388692	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Alcaligenaceae	g:Bordetella	s:Bordetella_avium
+16Szotu68	zotu68	AB248875_S000711011	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Microbacteriaceae	g:Microbacterium	s:Microbacterium_pygmaeum
+16Szotu71	zotu71	AJ250801_S000007789	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Methylobacteriaceae	g:Methylobacterium	s:Methylobacterium_fujisawaense
+16Szotu76	zotu76	KM206131_S004232789	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	s:Acinetobacter_gandensis
+16Szotu75	zotu75	AF233877_S000389731	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae	g:Comamonas	s:Comamonas_denitrificans
+16Szotu77	zotu77	AJ227801_S000112774	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae	g:Brevundimonas	s:Brevundimonas_mediterranea
+16Szotu80	zotu80	AB041885_S000002852	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_psychrophila
+16Szotu78	zotu78	AF233877_S000389731	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae	g:Comamonas	s:Comamonas_denitrificans
+16Szotu84	zotu84	FJ865215_S001417386	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Microbacteriaceae	g:Microbacterium	s:Microbacterium_humi
+16Szotu86	zotu86	X81665_S000003452	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	s:Acinetobacter_lwoffii
+16Szotu87	zotu87	AJ492826_S000146818	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_tremae
+16Szotu90	zotu90	AJ242581_S000446569	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Brucellaceae	g:Ochrobactrum	s:Ochrobactrum_grignonense
+16Szotu91	zotu91	GQ161989_S001575467	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingomonas	s:Sphingomonas_alpina
+16Szotu94	zotu94	BA000040_S002288820	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae	g:Bradyrhizobium	
+16Szotu96	zotu96	HG315101_S003803508	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Streptococcaceae	g:Streptococcus	s:Streptococcus_dentisani
+16Szotu99	zotu99	AY636000_S000548442	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Phyllobacteriaceae	g:Phyllobacterium	s:Phyllobacterium_catacumbae
+16Szotu97	zotu97	AF035052_S000427920	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiales_incertae_sedis	g:Aquabacterium	s:Aquabacterium_parvum
+16Szotu100	zotu100	FR749905_S002350768	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Hydrogenophilales	f:Hydrogenophilaceae	g:Hydrogenophilus	s:Hydrogenophilus_hirschii
+16Szotu98	zotu98	AF064459_S000013342	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	
+16Szotu102	zotu102	AB030583_S000010130	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_alcaliphila
+16Szotu105	zotu105	AB021406_S000009493	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Stenotrophomonas	s:Pseudomonas_beteli
+16Szotu106	zotu106	AB294553_S000824093	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Stenotrophomonas	s:Stenotrophomonas_maltophilia
+16Szotu109	zotu109	AJ316309_S000446637	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillaceae_1	g:Bacillus	s:Bacillus_muralis
+16Szotu110	zotu110	JN411093_S002956087	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_zeshuii
+16Szotu113	zotu113	FR733721_S002304678	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Nocardiaceae	g:Nocardia	s:Nocardia_coeliaca
+16Szotu117	zotu117	AJ575430_S001168701	d:Bacteria	p:Bacteroidetes	c:Flavobacteriia	o:Flavobacteriales	f:Flavobacteriaceae	g:Cloacibacterium	s:Cloacibacterium_normanense
+16Szotu116	zotu116	KU667110.1	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacteriales	f:Enterobacteriaceae	g:Enterobacter	
+16Szotu121	zotu121	AJ294412_S000017300	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Intrasporangiaceae	g:Knoellia	s:Knoellia_sinensis
+16Szotu123	zotu123	AJ438050_S000128467	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Corynebacteriaceae	g:Corynebacterium	s:Corynebacterium_tuberculostearicum
+16Szotu124	zotu124	JX444565_S003744977	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacteriales	f:Enterobacteriaceae	g:Sodalis	s:Sodalis_praecaptivus
+16Szotu126	zotu126	AY014173_S000434392	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodobacterales	f:Rhodobacteraceae	g:Paracoccus	s:Paracoccus_yeei
+16Szotu129	zotu129	AB075017_S000146281	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae	g:Delftia	
+16Szotu131	zotu131	Y18616_S000020603	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae	g:Acidovorax	s:Acidovorax_defluvii
+16Szotu134	zotu134	FJ817397_S002906658	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Pseudonocardiaceae	g:Pseudonocardia	s:Pseudonocardia_xishanensis
+16Szotu137	zotu137	AY152824_S000842174	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae	g:Schlegelella	s:Schlegelella_thermodepolymerans
+16Szotu138	zotu138	EU808006_S001153808	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Oxalobacteraceae	g:Massilia	s:Massilia_niabensis
+16Szotu143	zotu143	AJ575816_S000416841	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_psychrotolerans
+16Szotu145	zotu145	HE995762_S003722322	d:Bacteria	p:Bacteroidetes	c:Flavobacteriia	o:Flavobacteriales	f:Flavobacteriaceae	g:Flavobacterium	s:Flavobacterium_aquaticum
+16Szotu146	zotu146	X82140_S000000030	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Alteromonadales	f:Pseudoalteromonadaceae	g:Pseudoalteromonas	s:Pseudoalteromonas_undina
+16Szotu151	zotu151	AJ227801_S000112774	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae	g:Brevundimonas	s:Brevundimonas_mediterranea
+16Szotu147	zotu147	EU560979_S001096730	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Cellulomonadaceae	g:Cellulomonas	s:Cellulomonas_aerilata
+16Szotu155	zotu155	FJ423600_S001241590	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Corynebacteriaceae	g:Corynebacterium	s:Corynebacterium_maris
+16Szotu161	zotu161	AJ542508_S000323277	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillaceae_1	g:Bacillus	s:Bacillus_bataviensis
+16Szotu162	zotu162	D13728_S000413467	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingobium	s:Sphingobium_yanoikuyae
+16Szotu164	zotu164	AM072764_S000571530	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillales_Incertae_Sedis_XII	g:Exiguobacterium	s:Exiguobacterium_mexicanum
+16Szotu165	zotu165	AJ270258_S000129405	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Ralstonia	s:Ralstonia_mannitolilytica
+16Szotu167	zotu167	AF094748_S000428789	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	
+16Szotu166	zotu166	GU138377_S001746336	d:Bacteria	p:Bacteroidetes	c:Flavobacteriia	o:Flavobacteriales	f:Flavobacteriaceae	g:Flavobacterium	s:Flavobacterium_ginsenosidimutans
+16Szotu168	zotu168	AF513979_S000430917	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Alkanindiges	s:Alkanindiges_illinoisensis
+16Szotu170	zotu170	EF654664_S000893255	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillaceae_1	g:Anoxybacillus	s:Anoxybacillus_mongoliensis
+16Szotu173	zotu173	AJ536198_S000110436	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Micrococcaceae	g:Micrococcus	s:Micrococcus_luteus
+16Szotu176	zotu176	JQ936674_S003612978	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Orbales	f:Orbaceae	g:Gilliamella	s:Gilliamella_apicola
+16Szotu177	zotu177	GQ250442_S001576416	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodobacterales	f:Rhodobacteraceae	g:Paracoccus	s:Paracoccus_caeni
+16Szotu181	zotu181	AB094401_S000334724	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Oxalobacteraceae	g:Herbaspirillum	s:Herbaspirillum_chlorophenolicum
+16Szotu180	zotu180	EU625664_S001240710	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Hydrogenophilales	f:Hydrogenophilaceae	g:Hydrogenophilus	s:Hydrogenophilus_islandicus
+16Szotu185	zotu185	GQ161989_S001575467	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingomonas	s:Sphingomonas_alpina
+16Szotu192	zotu192	HF558366_S003722557	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Neisseriales	f:Neisseriaceae	g:Neisseria	
+16Szotu196	zotu196	AJ626712_S000323980	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	s:Acinetobacter_beijerinckii
+16Szotu197	zotu197	AB033947_S000005649	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingomonas	s:Sphingomonas_azotifigens
+16Szotu204	zotu204	AJ011504_S000260088	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_abietaniphila
+16Szotu211	zotu211	AB030583_S000010130	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_alcaliphila
+16Szotu218	zotu218	JN693496_S003612251	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sneathiellales	f:Sneathiellaceae	g:Taonella	s:Taonella_mepensis
+16Szotu222	zotu222	JF937067_S002914445	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Brevibacteriaceae	g:Brevibacterium	s:Brevibacterium_ammoniilyticum
+16Szotu231	zotu231	KC010298_S003749935	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae	g:Xenophilus	s:Xenophilus_arseniciresistens
+16Szotu235	zotu235	KC757057_S004077037	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Ralstonia	s:Ralstonia_syzygii_subsp._indonesiensis
+16Szotu237	zotu237	AY608605_S000331995	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillaceae_1	g:Bacillus	s:Bacillus_litoralis
+16Szotu243	zotu243	AB109889_S000439510	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae	g:Curvibacter	s:Curvibacter_gracilis
+16Szotu245	zotu245	AF273082_S000322431	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Pseudoxanthomonas	s:Pseudoxanthomonas_mexicana
+16Szotu246	zotu246	KC560021_S003719248	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Chitinophagaceae	g:Cnuella	s:Cnuella_takakiae
+16Szotu247	zotu247	HM448033_S002229627	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Pedobacter	s:Pedobacter_antarcticus
+16Szotu251	zotu251	AF273082_S000322431	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Pseudoxanthomonas	s:Pseudoxanthomonas_mexicana
+16Szotu252	zotu252	EF457350_S000834775	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp6			g:Gp6	
+16Szotu254	zotu254	JF799985_S002913220	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Oxalobacteraceae	g:Massilia	s:Massilia_namucuonensis
+16Szotu256	zotu256	AF512827_S000430787	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Burkholderia	s:Burkholderia_sordidicola
+16Szotu255	zotu255	JQ946365_S003299030	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae	g:Acidovorax	s:Acidovorax_wautersii
+16Szotu262	zotu262	HQ657322_S002909599	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Nocardioidaceae	g:Nocardioides	s:Nocardioides_lianchengensis
+16Szotu266	zotu266	KF494338_S004077889	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Rubrobacterales	f:Rubrobacteraceae	g:Rubrobacter	s:Rubrobacter_calidifluminis
+16Szotu270	zotu270	AJ430827_S000137020	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Psychrobacter	s:Psychrobacter_fozii
+16Szotu269	zotu269	FJ593906_S001743800	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodobacterales	f:Rhodobacteraceae	g:Paracoccus	s:Paracoccus_isoporae
+16Szotu273	zotu273	AM084341_S000629296	d:Bacteria	p:Bacteroidetes	c:Flavobacteriia	o:Flavobacteriales	f:Flavobacteriaceae	g:Empedobacter	s:Empedobacter_falsenii
+16Szotu278	zotu278	AY468448_S000572729	d:Bacteria	p:Bacteroidetes	c:Flavobacteriia	o:Flavobacteriales	f:Flavobacteriaceae	g:Chryseobacterium	s:Chryseobacterium_indoltheticum
+16Szotu280	zotu280	JN591313_S002957617	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingobium	s:Sphingobium_limneticum
+16Szotu283	zotu283	AY099095_S000395972	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Streptococcaceae	g:Streptococcus	s:Streptococcus_oligofermentans
+16Szotu284	zotu284	AJ429236_S000145110	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingomonas	s:Sphingomonas_aurantiaca
+16Szotu285	zotu285	EF457375_S000834800	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp16			g:Gp16	
+16Szotu288	zotu288	JN015213_S002953847	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Sphingobacterium	s:Sphingobacterium_detergens
+16Szotu289	zotu289	EU729366_S001046177	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Mucilaginibacter	s:Mucilaginibacter_ximonensis
+16Szotu294	zotu294	AB035460_S000383070	d:Bacteria	p:Bacteroidetes	c:Bacteroidia	o:Bacteroidales	f:Porphyromonadaceae	g:Tannerella	s:Tannerella_forsythia
+16Szotu302	zotu302	AJ415376_S000446669	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Dermabacteraceae	g:Brachybacterium	s:Brachybacterium_rhamnosum
+16Szotu303	zotu303	AB075017_S000146281	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae	g:Delftia	
+16Szotu307	zotu307	FJ261956_S001574265	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Micromonosporaceae	g:Micromonospora	s:Micromonospora_rhizosphaerae
+16Szotu309	zotu309	AJ400704_S000129173	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodobacterales	f:Rhodobacteraceae	g:Pannonibacter	s:Pannonibacter_phragmitetus
+16Szotu315	zotu315	AB023427_S000382669	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae	g:Caulobacter	s:Caulobacter_segnis
+16Szotu317	zotu317	GU322905_S002907327	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Rhizobiaceae	g:Rhizobium	s:Rhizobium_halophytocola
+16Szotu318	zotu318	AF427039_S000499737	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Pseudoxanthomonas	s:Pseudoxanthomonas_taiwanensis
+16Szotu322	zotu322	AF257097_S000390171	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Lactobacillus	s:Lactobacillus_crispatus
+16Szotu324	zotu324	EU808006_S001153808	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Oxalobacteraceae	g:Massilia	s:Massilia_niabensis
+16Szotu326	zotu326	X82065_S000010365	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Corynebacteriaceae	g:Corynebacterium	s:Corynebacterium_matruchotii
+16Szotu327	zotu327	JN713899_S002961371	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiales_incertae_sedis	g:Tepidimonas	s:Tepidimonas_fonticaldi
+16Szotu329	zotu329	Y12703_S000012400	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodobacterales	f:Rhodobacteraceae	g:Paracoccus	s:Paracoccus_marcusii
+16Szotu334	zotu334	X60407_S000145852	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Aeromonadales	f:Aeromonadaceae	g:Aeromonas	s:Aeromonas_salmonicida_subsp._achromogenes
+16Szotu338	zotu338	HG798294_S003918536	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Oxalobacteraceae	g:Massilia	s:Massilia_norwichensis
+16Szotu337	zotu337	L40614_S000435941	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Geodermatophilaceae	g:Blastococcus	s:Blastococcus_aggregatus
+16Szotu340	zotu340	AB110421_S000439512	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Acetobacteraceae	g:Saccharibacter	s:Saccharibacter_floricola
+16Szotu341	zotu341	JN695619_S002960972	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Novosphingobium	s:Novosphingobium_barchaimii
+16Szotu342	zotu342	X82453_S000003458	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Actinomycetaceae	g:Actinomyces	s:Actinomyces_viscosus
+16Szotu351	zotu351	AF542227_S000432293	d:Bacteria	p:Firmicutes	c:Clostridia	o:Clostridiales	f:Clostridiales_Incertae_Sedis_XI	g:Finegoldia	s:Finegoldia_magna
+16Szotu350	zotu350	GQ494034_S001589689	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Geodermatophilaceae	g:Blastococcus	s:Blastococcus_endophyticus
+16Szotu352	zotu352	JF799985_S002913220	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Oxalobacteraceae	g:Massilia	s:Massilia_namucuonensis
+16Szotu353	zotu353	AF439639_S000348929	d:Bacteria	p:Firmicutes	c:Negativicutes	o:Selenomonadales	f:Veillonellaceae	g:Veillonella	s:Veillonella_dispar
+16Szotu355	zotu355	AB021196_S000010695	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillaceae_1	g:Geobacillus	s:Geobacillus_stearothermophilus
+16Szotu366	zotu366	DQ166169_S001872723	d:Bacteria	p:Bacteroidetes	c:Flavobacteriia	o:Flavobacteriales	f:Flavobacteriaceae	g:Chryseobacterium	s:Chryseobacterium_xinjiangense
+16Szotu368	zotu368	JX827729_S003618452	d:Bacteria	p:Bacteroidetes	c:Flavobacteriia	o:Flavobacteriales	f:Flavobacteriaceae	g:Epilithonimonas	s:Epilithonimonas_ginsengisoli
+16Szotu372	zotu372	AJ275038_S000127903	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	s:Acinetobacter_ursingii
+16Szotu373	zotu373	CP002042_S002150940	d:Bacteria	p:Deinococcus-Thermus	c:Deinococci	o:Thermales	f:Thermaceae	g:Meiothermus	s:Meiothermus_silvanus
+16Szotu385	zotu385	AB488693_S001328038	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Burkholderia	s:Burkholderia_oxyphila
+16Szotu383	zotu383	AB042094_S000003377	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Microbacteriaceae	g:Okibacterium	s:Okibacterium_fritillariae
+16Szotu390	zotu390	FJ434127_S001350836	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingomonas	s:Sphingomonas_oligoaromativorans
+16Szotu391	zotu391	GQ871934_S001612974	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Corynebacteriaceae	g:Corynebacterium	s:Corynebacterium_canis
+16Szotu397	zotu397	JX099551_S004044229	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Lactobacillus	s:Lactobacillus_melliventris
+16Szotu402	zotu402	GQ161989_S001575467	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingomonas	s:Sphingomonas_alpina
+16Szotu414	zotu414	GQ161989_S001575467	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingomonas	s:Sphingomonas_alpina
+16Szotu419	zotu419	Y08845_S000008887	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Oxalobacteraceae	g:Janthinobacterium	s:Janthinobacterium_agaricidamnosum
+16Szotu420	zotu420	FN295567_S001353127	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Corynebacteriaceae	g:Corynebacterium	s:Corynebacterium_pilbarense
+16Szotu421	zotu421	DQ471331_S000654175	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Methylobacteriaceae	g:Methylobacterium	s:Methylobacterium_jeotgali
+16Szotu422	zotu422	AF273082_S000322431	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Pseudoxanthomonas	s:Pseudoxanthomonas_mexicana
+16Szotu424	zotu424	AF512827_S000430787	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Burkholderia	s:Burkholderia_sordidicola
+16Szotu429	zotu429	GQ250442_S001576416	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodobacterales	f:Rhodobacteraceae	g:Paracoccus	s:Paracoccus_caeni
+16Szotu433	zotu433	JX402203_S003614830	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	s:Acinetobacter_apis
+16Szotu432	zotu432	DQ178975_S000603877	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingomonas	s:Sphingomonas_dokdonensis
+16Szotu437	zotu437	AB488693_S001328038	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Burkholderia	s:Burkholderia_oxyphila
+16Szotu442	zotu442	AF180950_S001416052	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Micrococcaceae	g:Renibacterium	s:Renibacterium_salmoninarum
+16Szotu447	zotu447	AJ227758_S000112393	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae	g:Caulobacter	s:Caulobacter_henricii
+16Szotu450	zotu450	M29568_S000436189	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Mycobacteriaceae	g:Mycobacterium	s:Mycobacterium_terrae
+16Szotu451	zotu451	FJ589031_S001293072	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Alteromonadales	f:Shewanellaceae	g:Shewanella	s:Shewanella_xiamenensis
+16Szotu452	zotu452	DQ335215_S000639496	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae	g:Brevundimonas	s:Brevundimonas_terrae
+16Szotu458	zotu458	AF111948_S000429051	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Leuconostocaceae	g:Leuconostoc	s:Leuconostoc_citreum
+16Szotu459	zotu459	JN175352_S002916796	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Neisseriales	f:Neisseriaceae	g:Morococcus	
+16Szotu460	zotu460	AY273185_S000473557	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Promicromonosporaceae	g:Xylanibacterium	s:Xylanibacterium_ulmi
+16Szotu461	zotu461	AF541999_S000500280	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rickettsiales	f:Rickettsiaceae	g:Rickettsia	s:Rickettsia_conorii
+16Szotu468	zotu468	GU585671_S002035498	d:Bacteria	p:Tenericutes	c:Mollicutes	o:Entomoplasmatales	f:Spiroplasmataceae	g:Spiroplasma	s:Spiroplasma_ixodetis
+16Szotu469	zotu469	FJ194436_S001188468	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingomonas	s:Sphingomonas_hankookensis
+16Szotu474	zotu474	AJ438050_S000128467	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Corynebacteriaceae	g:Corynebacterium	s:Corynebacterium_tuberculostearicum
+16Szotu478	zotu478	GQ161989_S001575467	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingomonas	s:Sphingomonas_alpina
+16Szotu483	zotu483	FJ155589_S001588208	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Methylobacteriaceae	g:Methylobacterium	s:Methylobacterium_dankookense
+16Szotu484	zotu484	JX878306_S003746688	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Orbales	f:Orbaceae	g:Frischella	s:Frischella_perrara
+16Szotu487	zotu487	AF445248_S000429374	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Carnobacteriaceae	g:Atopostipes	s:Atopostipes_suicloacalis
+16Szotu493	zotu493	AJ493583_S000134746	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Cellvibrio	s:Cellvibrio_ostraviensis
+16Szotu495	zotu495	AB936273_S004126170	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Streptococcaceae	g:Streptococcus	s:Streptococcus_parasuis
+16Szotu497	zotu497	AF542234_S000432300	d:Bacteria	p:Firmicutes	c:Clostridia	o:Clostridiales	f:Clostridiales_Incertae_Sedis_XI	g:Anaerococcus	s:Anaerococcus_tetradius
+16Szotu498	zotu498	FJ860878_S001352652	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	s:Acinetobacter_seifertii
+16Szotu506	zotu506	JN175335_S002916779	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pasteurellales	f:Pasteurellaceae	g:Haemophilus	
+16Szotu509	zotu509	KJ406703_S004088382	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Roseiarcaceae	g:Roseiarcus	s:Roseiarcus_fermentans
+16Szotu507	zotu507	HE654550_S003941254	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Geodermatophilaceae	g:Geodermatophilus	s:Geodermatophilus_africanus
+16Szotu508	zotu508	L08169_S000414330	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Mycobacteriaceae	g:Mycobacterium	s:Mycobacterium_celatum
+16Szotu511	zotu511	AM084341_S000629296	d:Bacteria	p:Bacteroidetes	c:Flavobacteriia	o:Flavobacteriales	f:Flavobacteriaceae	g:Empedobacter	s:Empedobacter_falsenii
+16Szotu516	zotu516	AJ557887_S000264514	d:Bacteria	p:Bacteroidetes	c:Flavobacteriia	o:Flavobacteriales	f:Flavobacteriaceae	g:Flavobacterium	s:Flavobacterium_frigoris
+16Szotu523	zotu523	AY543023_S000369470	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Listeriaceae	g:Brochothrix	s:Brochothrix_thermosphacta
+16Szotu526	zotu526	KC251737_S003753587	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Actinomycetaceae	g:Flaviflexus	s:Flaviflexus_salsibiostraticola
+16Szotu533	zotu533	JX444565_S003744977	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacteriales	f:Enterobacteriaceae	g:Sodalis	s:Sodalis_praecaptivus
+16Szotu543	zotu543	X74913_S000015049	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Rhodocyclales	f:Rhodocyclaceae	g:Zoogloea	s:Zoogloea_ramigera
+16Szotu547	zotu547	FJ871122_S001873160	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Micrococcaceae	g:Enteractinococcus	s:Enteractinococcus_fodinae
+16Szotu548	zotu548	AM261868_S000730508	d:Bacteria	p:Bacteroidetes	c:Flavobacteriia	o:Flavobacteriales	f:Flavobacteriaceae	g:Chryseobacterium	s:Chryseobacterium_hominis
+16Szotu555	zotu555	HF674459_S003723522	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_guariconensis
+16Szotu556	zotu556	Y16329_S001910616	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Lactobacillus	s:Lactobacillus_iners
+16Szotu560	zotu560	AJ306297_S000000066	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Lactobacillus	s:Lactobacillus_paraplantarum
+16Szotu562	zotu562	FJ237390_S002032680	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Staphylococcaceae	g:Jeotgalicoccus	s:Jeotgalicoccus_nanhaiensis
+16Szotu566	zotu566	AF445248_S000429374	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Carnobacteriaceae	g:Atopostipes	s:Atopostipes_suicloacalis
+16Szotu567	zotu567	AB588633_S002236309	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Micrococcaceae	g:Arthrobacter	s:Arthrobacter_psychrochitiniphilus
+16Szotu570	zotu570	AJ314919_S000095332	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Corynebacteriaceae	g:Corynebacterium	s:Corynebacterium_appendicis
+16Szotu571	zotu571	FN600641_S001794056	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Geodermatophilaceae	g:Blastococcus	s:Blastococcus_saxobsidens
+16Szotu572	zotu572	JQ762275_S004255209	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_zhaodongensis
+16Szotu578	zotu578	JX046042_S003300944	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Sphingobacterium	s:Sphingobacterium_caeni
+16Szotu584	zotu584	AJ622907_S000471704	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Micrococcaceae	g:Kocuria	s:Kocuria_carniphila
+16Szotu586	zotu586	AF039489_S000427988	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_knackmussii
+16Szotu589	zotu589	HQ111524_S002233746	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Chromatiales	f:Chromatiaceae	g:Rheinheimera	s:Rheinheimera_tilapiae
+16Szotu594	zotu594	AF439639_S000348929	d:Bacteria	p:Firmicutes	c:Negativicutes	o:Selenomonadales	f:Veillonellaceae	g:Veillonella	s:Veillonella_dispar
+16Szotu603	zotu603	L14326_S000414422	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillales_Incertae_Sedis_XI	g:Gemella	s:Gemella_haemolysans
+16Szotu606	zotu606	EU781656_S001548991	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Rhizobiaceae	g:Rhizobium	s:Rhizobium_rosettiformans
+16Szotu607	zotu607	GU166344_S001746535	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Erythrobacteraceae	g:Altererythrobacter	s:Altererythrobacter_dongtanensis
+16Szotu622	zotu622	AB267716_S000721196	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Olivibacter	s:Olivibacter_ginsengisoli
+16Szotu627	zotu627	HF674459_S003723522	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_guariconensis
+16Szotu628	zotu628	AJ575430_S001168701	d:Bacteria	p:Bacteroidetes	c:Flavobacteriia	o:Flavobacteriales	f:Flavobacteriaceae	g:Cloacibacterium	s:Cloacibacterium_normanense
+16Szotu641	zotu641	AB712348_S003277148	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Hyphomicrobiaceae	g:Devosia	s:Devosia_submarina
+16Szotu646	zotu646	D87677_S000414169	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Aerococcaceae	g:Aerococcus	s:Aerococcus_urinaeequi
+16Szotu643	zotu643	L27478_S000414555	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillaceae_1	g:Bacillus	s:Bacillus_thermoamylovorans
+16Szotu659	zotu659	KF663871_S004215351	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Microbacteriaceae	g:Clavibacter	s:Clavibacter_michiganensis_subsp._californiensis
+16Szotu660	zotu660	X79290_S000009618	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Dietziaceae	g:Dietzia	s:Dietzia_maris
+16Szotu665	zotu665	Y17300_S000007305	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Carnobacteriaceae	g:Desemzia	s:Desemzia_incerta
+16Szotu669	zotu669	AF448514_S000394290	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Cellvibrio	s:Cellvibrio_fulvus
+16Szotu682	zotu682	AF061872_S000007669	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Burkholderia	s:Burkholderia_sartisoli
+16Szotu687	zotu687	AB679109_S003286659	d:Bacteria	p:Firmicutes	c:Negativicutes	o:Selenomonadales	f:Veillonellaceae	g:Veillonella	s:Veillonella_tobetsuensis
+16Szotu691	zotu691	AB361248_S000925513	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Sphingobacterium	s:Sphingobacterium_kitahiroshimense
+16Szotu694	zotu694	FJ765415_S001330940	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Planococcaceae	g:Planococcus	s:Planococcus_salinarum
+16Szotu697	zotu697	AY769083_S000444042	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingomonas	s:Sphingomonas_kaistensis
+16Szotu702	zotu702	Y17820_S000021549	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Aerococcaceae	g:Facklamia	s:Facklamia_tabacinasalis
+16Szotu717	zotu717	KJ406703_S004088382	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Roseiarcaceae	g:Roseiarcus	s:Roseiarcus_fermentans
+16Szotu722	zotu722	HQ111524_S002233746	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Chromatiales	f:Chromatiaceae	g:Rheinheimera	s:Rheinheimera_tilapiae
+16Szotu723	zotu723	M75076_S000436705	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pasteurellales	f:Pasteurellaceae	g:Haemophilus	s:Haemophilus_paraphrohaemolyticus
+16Szotu726	zotu726	AF542234_S000432300	d:Bacteria	p:Firmicutes	c:Clostridia	o:Clostridiales	f:Clostridiales_Incertae_Sedis_XI	g:Anaerococcus	s:Anaerococcus_tetradius
+16Szotu730	zotu730	L06171_S000414309	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Neisseriales	f:Neisseriaceae	g:Neisseria	s:Neisseria_elongata_subsp._elongata
+16Szotu742	zotu742	KC565667_S003808951	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Oceanospirillales	f:Oceanospirillaceae	g:Marinomonas	s:Marinomonas_profundimaris
+16Szotu743	zotu743	HE654011_S003277708	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Psychrobacter	
+16Szotu747	zotu747	AJ250796_S000020181	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae	g:Bosea	s:Bosea_thiooxidans
+16Szotu750	zotu750	HM777012_S002988382	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae	g:Brevundimonas	s:Brevundimonas_viscosa
+16Szotu748	zotu748	HQ698908_S002410135	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Burkholderia	s:Burkholderia_dilworthii
+16Szotu753	zotu753	FJ984869_S001575020	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Alteromonadales	f:Alteromonadaceae	g:Marinobacter	s:Marinobacter_daqiaonensis
+16Szotu759	zotu759	X60611_S000130255	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillaceae_1	g:Bacillus	s:Bacillus_benzoevorans
+16Szotu762	zotu762	L08169_S000414330	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Mycobacteriaceae	g:Mycobacterium	s:Mycobacterium_celatum
+16Szotu775	zotu775	KJ406703_S004088382	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Roseiarcaceae	g:Roseiarcus	s:Roseiarcus_fermentans
+16Szotu776	zotu776	AY099095_S000395972	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Streptococcaceae	g:Streptococcus	s:Streptococcus_oligofermentans
+16Szotu778	zotu778	AB523780_S002235747	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Lactobacillus	s:Lactobacillus_floricola
+16Szotu782	zotu782	HQ335006_S003288434	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Streptococcaceae	g:Streptococcus	s:Streptococcus_hongkongensis
+16Szotu786	zotu786	JQ039191_S002965239	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Micrococcineae_incertae_sedis	g:Luteimicrobium	s:Luteimicrobium_xylanilyticum
+16Szotu788	zotu788	AJ415376_S000446669	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Dermabacteraceae	g:Brachybacterium	s:Brachybacterium_rhamnosum
+16Szotu793	zotu793	AJ250801_S000007789	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Methylobacteriaceae	g:Methylobacterium	s:Methylobacterium_fujisawaense
+16Szotu797	zotu797	FR775448_S002906919	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae	g:Brevundimonas	s:Brevundimonas_faecalis
+16Szotu795	zotu795	AJ234040_S000015295	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Actinomycetaceae	g:Actinomyces	s:Actinomyces_odontolyticus
+16Szotu796	zotu796	AF078756_S000428512	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae	g:Curvibacter	s:Curvibacter_delicatus
+16Szotu800	zotu800	AJ488504_S000141396	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Acetobacteraceae	g:Roseomonas	s:Roseomonas_ludipueritiae
+16Szotu801	zotu801	KF663871_S004215351	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Microbacteriaceae	g:Clavibacter	s:Clavibacter_michiganensis_subsp._californiensis
+16Szotu806	zotu806	AJ626712_S000323980	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	s:Acinetobacter_beijerinckii
+16Szotu814	zotu814	AJ313425_S000376605	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Psychrobacter	s:Psychrobacter_nivimaris
+16Szotu815	zotu815	Z36274_S000013431	d:Bacteria	p:Firmicutes	c:Clostridia	o:Clostridiales	f:Eubacteriaceae	g:Eubacterium	s:Eubacterium_nodatum
+16Szotu828	zotu828	X94098_S000128764	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingobium	s:Sphingobium_xenophagum
+16Szotu832	zotu832	KJ406703_S004088382	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Roseiarcaceae	g:Roseiarcus	s:Roseiarcus_fermentans
+16Szotu834	zotu834	EU833988_S001154119	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Lysobacter	s:Lysobacter_xinjiangensis
+16Szotu839	zotu839	AB075017_S000146281	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae	g:Delftia	
+16Szotu844	zotu844	D84023_S000011995	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_straminea
+16Szotu853	zotu853	JQ936674_S003612978	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Orbales	f:Orbaceae	g:Gilliamella	s:Gilliamella_apicola
+16Szotu855	zotu855	AF094748_S000428789	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	
+16Szotu862	zotu862	Y14309_S000013901	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Hyphomicrobiaceae	g:Hyphomicrobium	s:Hyphomicrobium_facile_subsp._facile
+16Szotu865	zotu865	FJ765415_S001330940	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Planococcaceae	g:Planococcus	s:Planococcus_salinarum
+16Szotu866	zotu866	JX444565_S003744977	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacteriales	f:Enterobacteriaceae	g:Sodalis	s:Sodalis_praecaptivus
+16Szotu874	zotu874	AJ550672_S001187305	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Polynucleobacter	s:Polynucleobacter_cosmopolitanus
+16Szotu892	zotu892	AY204889_S000417782	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Lactobacillus	s:Lactobacillus_sakei_subsp._carnosus
+16Szotu908	zotu908	JX046042_S003300944	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Sphingobacterium	s:Sphingobacterium_caeni
+16Szotu916	zotu916	Y17152_S000018588	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Enterococcaceae	g:Vagococcus	
+16Szotu930	zotu930	EF090267_S000752320	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Sphingobacterium	s:Sphingobacterium_spiritivorum
+16Szotu933	zotu933	AB245358_S000627894	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae	g:Variovorax	s:Variovorax_ginsengisoli
+16Szotu936	zotu936	AB108826_S000334739	d:Bacteria	p:Bacteroidetes	c:Bacteroidia	o:Bacteroidales	f:Prevotellaceae	g:Prevotella	s:Prevotella_salivae
+16Szotu962	zotu962	EU909459_S001156287	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Alteromonadales	f:Alteromonadaceae	g:Alishewanella	s:Alishewanella_agri
+16Szotu964	zotu964	AF445248_S000429374	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Carnobacteriaceae	g:Atopostipes	s:Atopostipes_suicloacalis
+16Szotu969	zotu969	Y07839_S000003547	d:Bacteria	p:Firmicutes	c:Clostridia	o:Clostridiales	f:Peptoniphilaceae	g:Peptoniphilus	s:Peptoniphilus_harei
+16Szotu972	zotu972	L08169_S000414330	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Mycobacteriaceae	g:Mycobacterium	s:Mycobacterium_celatum
+16Szotu976	zotu976	AJ536884_S000141888	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu987	zotu987	X55404_S000259986	d:Bacteria	p:Fusobacteria	c:Fusobacteriia	o:Fusobacteriales	f:Fusobacteriaceae	g:Fusobacterium	s:Fusobacterium_nucleatum_subsp._animalis
+16Szotu997	zotu997	AY099095_S000395972	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Streptococcaceae	g:Streptococcus	s:Streptococcus_oligofermentans
+16Szotu1021	zotu1021	AJ302312_S000130044	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Burkholderia	s:Burkholderia_phymatum
+16Szotu1034	zotu1034	AJ277984_S000104372	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Planococcaceae	g:Planococcaceae_incertae_sedis	s:Psychrobacillus_psychrodurans
+16Szotu1035	zotu1035	AF061006_S000428245	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Enterococcaceae	g:Enterococcus	s:Enterococcus_columbae
+16Szotu1040	zotu1040	AY570988_S000540580	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Mycobacteriaceae	g:Mycobacterium	
+16Szotu1041	zotu1041	GQ250442_S001576416	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodobacterales	f:Rhodobacteraceae	g:Paracoccus	s:Paracoccus_caeni
+16Szotu1043	zotu1043	KJ816861_S004222650	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Chromatiales	f:Chromatiaceae	g:Rheinheimera	s:Rheinheimera_arenilitoris
+16Szotu1048	zotu1048	AF287793_S000390719	d:Bacteria	p:Firmicutes	c:Negativicutes	o:Selenomonadales	f:Veillonellaceae	g:Selenomonas	s:Selenomonas_sputigena
+16Szotu1049	zotu1049	AB304808_S000964257	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Alteromonadales	f:Psychromonadaceae	g:Psychromonas	s:Psychromonas_ossibalaenae
+16Szotu1051	zotu1051	KC876052_S003811197	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Dermabacteraceae	g:Brachybacterium	s:Brachybacterium_ginsengisoli
+16Szotu1058	zotu1058	AF100321_S000428886	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	s:Pseudomonas_brassicacearum_subsp._brassicacearum
+16Szotu1066	zotu1066	KF733462_S003924323	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Burkholderia	s:Burkholderia_insulsa
+16Szotu1103	zotu1103	HM362433_S002229124	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Methylobacteriaceae	g:Microvirga	s:Microvirga_zambiensis
+16Szotu1102	zotu1102	AJ504663_S000351771	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Hydrogenophilales	f:Hydrogenophilaceae	g:Tepidiphilus	s:Tepidiphilus_margaritifer
+16Szotu1107	zotu1107	HM212668_S002227145	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Psychrobacter	s:Psychrobacter_sanguinis
+16Szotu1108	zotu1108	EU181225_S000966508	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Geodermatophilaceae	g:Modestobacter	s:Modestobacter_marinus
+16Szotu1116	zotu1116	DQ092871_S000599486	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Pedobacter	s:Pedobacter_koreensis
+16Szotu1117	zotu1117	KF386017_S003920900	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Lactobacillus	s:Lactobacillus_apis
+16Szotu1119	zotu1119	FR874223_S002907207	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Corynebacteriaceae	g:Corynebacterium	s:Corynebacterium_epidermidicanis
+16Szotu1126	zotu1126	GU295938_S001873903	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Staphylococcaceae	g:Jeotgalicoccus	s:Jeotgalicoccus_coquinae
+16Szotu1129	zotu1129	AJ633647_S000447386	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Paenibacillaceae_1	g:Paenibacillus	s:Paenibacillus_wynnii
+16Szotu1142	zotu1142	X72869_S000008489	d:Bacteria	p:Firmicutes	c:Clostridia	o:Clostridiales	f:Clostridiaceae_1	g:Clostridium_sensu_stricto	s:Clostridium_thermopalmarium
+16Szotu1144	zotu1144	AJ877015_S000571184	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Enterococcaceae	g:Enterococcus	s:Enterococcus_aquimarinus
+16Szotu1153	zotu1153	EF457390_S000834815	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu1155	zotu1155	D32224_S000469010	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Methylobacteriaceae	g:Methylobacterium	
+16Szotu1162	zotu1162	EF204450_S000805862	d:Bacteria	p:Bacteroidetes	c:Flavobacteriia	o:Flavobacteriales	f:Flavobacteriaceae	g:Chryseobacterium	s:Chryseobacterium_haifense
+16Szotu1164	zotu1164	AF137505_S000387924	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae	g:Acidovorax	s:Acidovorax_avenae
+16Szotu1167	zotu1167	FJ860878_S001352652	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	s:Acinetobacter_seifertii
+16Szotu1171	zotu1171	DQ401093_S000651227	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Nocardioidaceae	g:Nocardioides	s:Nocardioides_marinus
+16Szotu1172	zotu1172	AJ302312_S000130044	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Burkholderia	s:Burkholderia_phymatum
+16Szotu1175	zotu1175	JQ771141_S003291678	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	s:Acinetobacter_boissieri
+16Szotu1176	zotu1176	AJ227783_S000112623	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae	g:Brevundimonas	s:Brevundimonas_variabilis
+16Szotu1181	zotu1181	AJ227782_S000112622	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae	g:Brevundimonas	s:Brevundimonas_bacteroides
+16Szotu1193	zotu1193	AY570988_S000540580	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Mycobacteriaceae	g:Mycobacterium	
+16Szotu1195	zotu1195	CP006842_S004443166	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Corynebacteriaceae	g:Corynebacterium	s:Corynebacterium_glyciniphilum
+16Szotu1202	zotu1202	KC843488_S004044709	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	s:Acinetobacter_harbinensis
+16Szotu1203	zotu1203	X76337_S000003988	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Vibrionales	f:Vibrionaceae	g:Vibrio	s:Vibrio_cholerae
+16Szotu1205	zotu1205	KJ451483_S004088788	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodobacterales	f:Rhodobacteraceae	g:Paracoccus	s:Paracoccus_lutimaris
+16Szotu1204	zotu1204	AM939778_S001019509	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Dyella	s:Dyella_marensis
+16Szotu1214	zotu1214	AJ278868_S000130611	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Micrococcaceae	g:Kocuria	s:Kocuria_polaris
+16Szotu1218	zotu1218	AB547686_S002235868	d:Bacteria	p:Bacteroidetes	c:Bacteroidia	o:Bacteroidales	f:Prevotellaceae	g:Prevotella	s:Prevotella_intermedia
+16Szotu1225	zotu1225	AF032127_S000427881	d:Bacteria	p:Deinococcus-Thermus	c:Deinococci	o:Thermales	f:Thermaceae	g:Thermus	s:Thermus_scotoductus
+16Szotu1226	zotu1226	HQ612241_S002444847	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Corynebacteriaceae	g:Corynebacterium	s:Corynebacterium_deserti
+16Szotu1235	zotu1235	Y14152_S000003905	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Actinomycetales	f:Dermacoccaceae	g:Demetria	s:Demetria_terragena
+16Szotu1243	zotu1243	HQ455786_S002306039	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Mucilaginibacter	s:Mucilaginibacter_lutimaris
+16Szotu1247	zotu1247	KJ000691_S004084293	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Paenibacillaceae_1	g:Paenibacillus	s:Paenibacillus_guangzhouensis
+16Szotu1257	zotu1257	AB561874_S002165198	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Burkholderia	s:Burkholderia_bannensis
+16Szotu3	zotu3	Zotu3	d:Bacteria						
+16Szotu4	zotu4	Zotu4	d:Bacteria						
+16Szotu1	zotu1	Zotu1	d:Bacteria						
+16Szotu15	zotu15	Zotu15	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu13	zotu13	Zotu13	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu8	zotu8	MN123175.1	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rickettsiales	f:Rickettsiaceae	g:Wolbachia	
+16Szotu19	zotu19	Zotu19	d:Bacteria						
+16Szotu30	zotu30	Zotu30	d:Bacteria						
+16Szotu34	zotu34	Zotu34	d:Bacteria						
+16Szotu16	zotu16	MN733054.1	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Brucellaceae	g:Ochrobactrum	
+16Szotu20	zotu20	MT588740.1	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rickettsiales	f:Rickettsiaceae	g:Wolbachia	
+16Szotu41	zotu41	Zotu41							
+16Szotu38	zotu38	Zotu38	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu40	zotu40	Zotu40	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu51	zotu51	Zotu51	d:Bacteria						
+16Szotu36	zotu36	Zotu36	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Oceanospirillales	f:Halomonadaceae		
+16Szotu43	zotu43	Zotu43	d:Bacteria	p:Bacteroidetes	c:Chitinophagia	o:Chitinophagales	f:Chitinophagaceae	g:Sediminibacterium	
+16Szotu46	zotu46	Zotu46	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu49	zotu49	Zotu49	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Lactobacillus	
+16Szotu52	zotu52	Zotu52	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae	g:Bradyrhizobium	
+16Szotu53	zotu53	Zotu53	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Pseudoxanthomonas	
+16Szotu56	zotu56	Zotu56	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu57	zotu57	Zotu57	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae	g:Microbacterium	
+16Szotu64	zotu64	Zotu64	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae	g:Microbacterium	
+16Szotu70	zotu70	Zotu70	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Acetobacteraceae		
+16Szotu69	zotu69	Zotu69	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	
+16Szotu73	zotu73	Zotu73	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Oceanospirillales	f:Halomonadaceae		
+16Szotu72	zotu72	Zotu72	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu74	zotu74	Zotu74	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Acetobacteraceae		
+16Szotu79	zotu79	Zotu79	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae		
+16Szotu85	zotu85	Zotu85	d:Bacteria						
+16Szotu82	zotu82	Zotu82	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Methylobacteriaceae	g:Methylobacterium	
+16Szotu81	zotu81	Zotu81	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	
+16Szotu88	zotu88	Zotu88	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu83	zotu83	Zotu83	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Oceanospirillales	f:Halomonadaceae		
+16Szotu101	zotu101	Zotu101	d:Bacteria						
+16Szotu92	zotu92	Zotu92	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae		
+16Szotu103	zotu103	Zotu103	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu104	zotu104	Zotu104	d:Bacteria						
+16Szotu89	zotu89	Zotu89	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae	g:Microbacterium	
+16Szotu107	zotu107	Zotu107	d:Bacteria						
+16Szotu93	zotu93	Zotu93	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu95	zotu95	Zotu95	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales			
+16Szotu111	zotu111	Zotu111	d:Bacteria						
+16Szotu114	zotu114	Zotu114	d:Bacteria						
+16Szotu118	zotu118	Zotu118	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu108	zotu108	Zotu108	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Bombilactobacillus	
+16Szotu112	zotu112	LT857060.1	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Stenotrophomonas	
+16Szotu115	zotu115	Zotu115	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu119	zotu119	Zotu119	d:Bacteria	p:Proteobacteria					
+16Szotu120	zotu120	Zotu120	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Bombilactobacillus	
+16Szotu122	zotu122	Zotu122	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Acetobacteraceae	g:Acidisoma	
+16Szotu128	zotu128	KX656655.1	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Apilactobacillus	
+16Szotu127	zotu127	Zotu127	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria				
+16Szotu130	zotu130	Zotu130	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Pedobacter	
+16Szotu135	zotu135	Zotu135	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu139	zotu139	Zotu139	d:Bacteria						
+16Szotu133	zotu133	Zotu133	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae	g:Phenylobacterium	
+16Szotu140	zotu140	Zotu140	d:Bacteria						
+16Szotu136	zotu136	Zotu136	d:Bacteria	p:Chlamydiae					
+16Szotu141	zotu141	Zotu141	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Olivibacter	
+16Szotu142	zotu142	Zotu142	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Pseudoxanthomonas	
+16Szotu148	zotu148	Zotu148	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu152	zotu152	Zotu152	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu144	zotu144	Zotu144	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu150	zotu150	Zotu150	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu149	zotu149	Zotu149	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Aurantimonadaceae		
+16Szotu153	zotu153	Zotu153	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu154	zotu154	Zotu154	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae		
+16Szotu156	zotu156	Zotu156	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu160	zotu160	Zotu160	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae	g:Phenylobacterium	
+16Szotu169	zotu169	Zotu169	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Acetobacteraceae		
+16Szotu159	zotu159	Zotu159	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu163	zotu163	Zotu163	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu171	zotu171	Zotu171	d:Bacteria	p:Acidobacteria	c:Blastocatellia	o:Blastocatellales	f:Blastocatellaceae	g:Stenotrophobacter	
+16Szotu174	zotu174	Zotu174	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu182	zotu182	Zotu182	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Isosphaeraceae		
+16Szotu175	zotu175	Zotu175	d:Bacteria	p:Planctomycetes					
+16Szotu179	zotu179	Zotu179	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Planctomycetaceae		
+16Szotu172	zotu172	Zotu172	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Orbales	f:Orbaceae		
+16Szotu178	zotu178	Zotu178	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae		
+16Szotu183	zotu183	Zotu183	d:Bacteria						
+16Szotu188	zotu188	Zotu188	d:Bacteria	p:candidate_division_WPS-1				g:WPS-1_genera_incertae_sedis	
+16Szotu186	zotu186	Zotu186	d:Bacteria	p:Bacteroidetes	c:Cytophagia	o:Cytophagales	f:Cytophagaceae	g:Spirosoma	
+16Szotu184	zotu184	Zotu184	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu190	zotu190	Zotu190	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu187	zotu187	Zotu187	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu191	zotu191	Zotu191	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu193	zotu193	Zotu193	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu200	zotu200	Zotu200	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu198	zotu198	Zotu198	d:Bacteria						
+16Szotu195	zotu195	Zotu195	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu194	zotu194	Zotu194	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu201	zotu201	Zotu201	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Legionellales	f:Coxiellaceae	g:Diplorickettsia	
+16Szotu199	zotu199	Zotu199	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Oceanospirillales	f:Alcanivoracaceae	g:Alcanivorax	
+16Szotu202	zotu202	Zotu202	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Sphingobacterium	
+16Szotu205	zotu205	Zotu205	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu206	zotu206	Zotu206	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu203	zotu203	Zotu203	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Oceanospirillales	f:Alcanivoracaceae	g:Alcanivorax	
+16Szotu207	zotu207	Zotu207	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu208	zotu208	Zotu208	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae		
+16Szotu209	zotu209	Zotu209	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Oceanospirillales			
+16Szotu214	zotu214	Zotu214	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Legionellales	f:Coxiellaceae	g:Diplorickettsia	
+16Szotu212	zotu212	Zotu212	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Oceanospirillales	f:Halomonadaceae		
+16Szotu219	zotu219	Zotu219	d:Bacteria						
+16Szotu215	zotu215	Zotu215	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu213	zotu213	Zotu213	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu216	zotu216	Zotu216	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu217	zotu217	Zotu217	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae		
+16Szotu224	zotu224	Zotu224	d:Bacteria						
+16Szotu220	zotu220	Zotu220	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu221	zotu221	Zotu221	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu223	zotu223	Zotu223	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Legionellales	f:Coxiellaceae	g:Aquicella	
+16Szotu228	zotu228	Zotu228	d:Bacteria						
+16Szotu226	zotu226	Zotu226	d:Bacteria						
+16Szotu225	zotu225	Zotu225	d:Bacteria						
+16Szotu227	zotu227	Zotu227	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Methylobacteriaceae	g:Methylobacterium	
+16Szotu229	zotu229	Zotu229	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu233	zotu233	Zotu233	d:Bacteria	p:Chloroflexi	c:Anaerolineae	o:Anaerolineales	f:Anaerolineaceae		
+16Szotu230	zotu230	MG801510.1	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	
+16Szotu232	zotu232	Zotu232	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales	f:Thermomonosporaceae	g:Actinoallomurus	
+16Szotu238	zotu238	Zotu238	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp17			g:Gp17	
+16Szotu239	zotu239	Zotu239	d:Bacteria	p:Firmicutes	c:Clostridia	o:Clostridiales	f:Peptoniphilaceae	g:Anaerococcus	
+16Szotu240	zotu240	Zotu240	d:Bacteria						
+16Szotu236	zotu236	KT301231.1	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae	g:Klebsiella	
+16Szotu253	zotu253	Zotu253	d:Bacteria						
+16Szotu241	zotu241	Zotu241	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae		
+16Szotu250	zotu250	Zotu250	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu242	zotu242	Zotu242	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu248	zotu248	Zotu248	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillales_Incertae_Sedis_X	g:Thermicanus	
+16Szotu249	zotu249	Zotu249	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu258	zotu258	Zotu258	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu244	zotu244	Zotu244	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu257	zotu257	Zotu257	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu265	zotu265	Zotu265	d:Bacteria						
+16Szotu261	zotu261	Zotu261	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Gemmataceae	g:Gemmata	
+16Szotu263	zotu263	Zotu263	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu260	zotu260	Zotu260	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Erythrobacteraceae	g:Novosphingobium	
+16Szotu267	zotu267	Zotu267	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu264	zotu264	Zotu264	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillales_Incertae_Sedis_X	g:Thermicanus	
+16Szotu272	zotu272	Zotu272							
+16Szotu274	zotu274	Zotu274	d:Bacteria	p:Bacteroidetes	c:Chitinophagia	o:Chitinophagales	f:Chitinophagaceae		
+16Szotu271	zotu271	Zotu271	d:Bacteria	p:Bacteroidetes	c:Flavobacteriia	o:Flavobacteriales	f:Weeksellaceae		
+16Szotu275	zotu275	Zotu275	d:Archaea	p:Thaumarchaeota					
+16Szotu268	zotu268	Zotu268	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp6			g:Gp6	
+16Szotu277	zotu277	Zotu277	d:Bacteria						
+16Szotu276	zotu276	Zotu276	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	
+16Szotu279	zotu279	Zotu279	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae		
+16Szotu281	zotu281	Zotu281	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu290	zotu290	Zotu290	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu286	zotu286	Zotu286	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu282	zotu282	Zotu282	d:Bacteria	p:Proteobacteria					
+16Szotu287	zotu287	Zotu287	d:Bacteria	p:Actinobacteria	c:Thermoleophilia				
+16Szotu292	zotu292	Zotu292	d:Bacteria	p:Bacteroidetes	c:Bacteroidia	o:Bacteroidales	f:Prevotellaceae	g:Prevotella	
+16Szotu291	zotu291	Zotu291	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu296	zotu296	Zotu296	d:Bacteria	p:candidate_division_WPS-1					
+16Szotu297	zotu297	Zotu297	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu293	zotu293	Zotu293	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales			
+16Szotu300	zotu300	Zotu300	d:Bacteria						
+16Szotu295	zotu295	Zotu295	d:Bacteria						
+16Szotu299	zotu299	Zotu299	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu305	zotu305	Zotu305	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu308	zotu308	Zotu308	d:Bacteria						
+16Szotu301	zotu301	Zotu301	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu306	zotu306	Zotu306	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu310	zotu310	Zotu310	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu311	zotu311	Zotu311	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu312	zotu312	Zotu312	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Bifidobacteriales	f:Bifidobacteriaceae	g:Bifidobacterium	
+16Szotu313	zotu313	Zotu313	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu316	zotu316	Zotu316	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu314	zotu314	Zotu314	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu319	zotu319	Zotu319	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu323	zotu323	Zotu323	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Isosphaeraceae		
+16Szotu320	zotu320	Zotu320	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu328	zotu328	Zotu328	d:Bacteria						
+16Szotu325	zotu325	Zotu325	d:Bacteria	p:Bacteroidetes					
+16Szotu321	zotu321	Zotu321	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales			
+16Szotu331	zotu331	Zotu331	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria				
+16Szotu330	zotu330	Zotu330	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu333	zotu333	Zotu333	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu339	zotu339	Zotu339	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu335	zotu335	Zotu335	d:Bacteria	p:Chloroflexi					
+16Szotu343	zotu343	Zotu343	d:Bacteria	p:Verrucomicrobia	c:Spartobacteria			g:Spartobacteria_genera_incertae_sedis	
+16Szotu332	zotu332	Zotu332	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales	f:Thermomonosporaceae	g:Actinoallomurus	
+16Szotu345	zotu345	Zotu345	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu344	zotu344	Zotu344	d:Bacteria	p:Acidobacteria					
+16Szotu346	zotu346	Zotu346	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu347	zotu347	Zotu347	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu348	zotu348	MT045532.1	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Pediococcus	
+16Szotu356	zotu356	Zotu356	d:Bacteria						
+16Szotu354	zotu354	Zotu354	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Pedobacter	
+16Szotu357	zotu357	Zotu357	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu359	zotu359	Zotu359	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu349	zotu349	Zotu349	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales			
+16Szotu360	zotu360	Zotu360	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu358	zotu358	Zotu358	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu361	zotu361	Zotu361	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu364	zotu364	Zotu364	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu362	zotu362	Zotu362	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu363	zotu363	Zotu363	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales			
+16Szotu370	zotu370	Zotu370	d:Bacteria						
+16Szotu365	zotu365	Zotu365	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae		
+16Szotu367	zotu367	Zotu367	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu369	zotu369	Zotu369	d:Bacteria						
+16Szotu371	zotu371	Zotu371	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu374	zotu374	Zotu374	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu376	zotu376	Zotu376	d:Bacteria	p:Bacteroidetes	c:Chitinophagia	o:Chitinophagales	f:Chitinophagaceae		
+16Szotu377	zotu377	Zotu377	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu378	zotu378	Zotu378	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu379	zotu379	Zotu379	d:Bacteria						
+16Szotu375	zotu375	Zotu375	d:Bacteria	p:Actinobacteria	c:Actinobacteria				
+16Szotu380	zotu380	Zotu380	d:Bacteria	p:Actinobacteria					
+16Szotu386	zotu386	Zotu386	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu384	zotu384	Zotu384	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu387	zotu387	Zotu387	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu382	zotu382	Zotu382	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu381	zotu381	Zotu381	d:Bacteria	p:candidate_division_WPS-2					
+16Szotu388	zotu388	Zotu388	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales	f:Thermomonosporaceae		
+16Szotu393	zotu393	Zotu393	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae		
+16Szotu395	zotu395	Zotu395	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu389	zotu389	Zotu389	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingomonas	
+16Szotu392	zotu392	Zotu392	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu396	zotu396	Zotu396	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Aurantimonadaceae		
+16Szotu394	zotu394	Zotu394	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu398	zotu398	Zotu398	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu403	zotu403	Zotu403	d:Bacteria	p:Planctomycetes					
+16Szotu399	zotu399	Zotu399	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales	f:Thermomonosporaceae	g:Actinoallomurus	
+16Szotu400	zotu400	Zotu400	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp6			g:Gp6	
+16Szotu401	zotu401	Zotu401	d:Bacteria						
+16Szotu406	zotu406	Zotu406	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu407	zotu407	Zotu407	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu404	zotu404	Zotu404	d:Bacteria	p:Actinobacteria	c:Thermoleophilia				
+16Szotu408	zotu408	Zotu408	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu410	zotu410	Zotu410	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Hyphomicrobiaceae		
+16Szotu411	zotu411	Zotu411	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu412	zotu412	Zotu412	d:Bacteria	p:Armatimonadetes				g:Armatimonadetes_gp2	
+16Szotu415	zotu415	Zotu415	d:Bacteria						
+16Szotu413	zotu413	Zotu413	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu416	zotu416	Zotu416	d:Bacteria	p:Proteobacteria	c:Deltaproteobacteria				
+16Szotu417	zotu417	Zotu417	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp16			g:Gp16	
+16Szotu425	zotu425	Zotu425	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu423	zotu423	Zotu423	d:Bacteria	p:Proteobacteria					
+16Szotu418	zotu418	Zotu418	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales			
+16Szotu426	zotu426	Zotu426	d:Bacteria						
+16Szotu427	zotu427	Zotu427	d:Bacteria	p:Verrucomicrobia	c:Spartobacteria			g:Spartobacteria_genera_incertae_sedis	
+16Szotu430	zotu430	Zotu430	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu428	zotu428	Zotu428	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales			
+16Szotu434	zotu434	Zotu434	d:Bacteria	p:Proteobacteria					
+16Szotu438	zotu438	Zotu438	d:Bacteria	p:Proteobacteria					
+16Szotu431	zotu431	Zotu431	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu435	zotu435	Zotu435	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu436	zotu436	Zotu436	d:Bacteria						
+16Szotu439	zotu439	Zotu439	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Gemmataceae	g:Zavarzinella	
+16Szotu440	zotu440	Zotu440	d:Bacteria	p:Proteobacteria					
+16Szotu446	zotu446	Zotu446	d:Bacteria						
+16Szotu441	zotu441	Zotu441	d:Bacteria						
+16Szotu443	zotu443	Zotu443	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu444	zotu444	Zotu444	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu445	zotu445	Zotu445	d:Bacteria	p:Proteobacteria	c:Deltaproteobacteria	o:Myxococcales			
+16Szotu449	zotu449	Zotu449	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu448	zotu448	Zotu448	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillaceae_1		
+16Szotu453	zotu453	Zotu453	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu455	zotu455	Zotu455	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu454	zotu454	Zotu454	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu456	zotu456	Zotu456	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu457	zotu457	Zotu457	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu462	zotu462	Zotu462	d:Bacteria						
+16Szotu463	zotu463	Zotu463	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu465	zotu465	Zotu465	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu464	zotu464	Zotu464	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu466	zotu466	Zotu466	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu467	zotu467	Zotu467	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu472	zotu472	Zotu472	d:Archaea	p:Pacearchaeota				g:Pacearchaeota_Incertae_Sedis_AR13	
+16Szotu471	zotu471	Zotu471	d:Bacteria	p:Bacteroidetes	c:Chitinophagia	o:Chitinophagales	f:Chitinophagaceae		
+16Szotu473	zotu473	Zotu473	d:Bacteria	p:Bacteroidetes					
+16Szotu470	zotu470	MN214967.1	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae	g:Rahnella	
+16Szotu479	zotu479	Zotu479	d:Bacteria						
+16Szotu475	zotu475	Zotu475	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu480	zotu480	Zotu480	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu476	zotu476	MN214967.1	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae	g:Rahnella	
+16Szotu477	zotu477	Zotu477	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales			
+16Szotu485	zotu485	Zotu485	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu482	zotu482	Zotu482	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Olivibacter	
+16Szotu481	zotu481	Zotu481	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Pectobacteriaceae		
+16Szotu486	zotu486	Zotu486	d:Bacteria						
+16Szotu491	zotu491	Zotu491	d:Bacteria						
+16Szotu488	zotu488	Zotu488	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu490	zotu490	Zotu490	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu492	zotu492	Zotu492	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu489	zotu489	Zotu489	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales			
+16Szotu500	zotu500	Zotu500	d:Archaea						
+16Szotu494	zotu494	Zotu494	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Acetobacteraceae		
+16Szotu496	zotu496	Zotu496	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu499	zotu499	Zotu499	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu501	zotu501	Zotu501	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Pseudoxanthomonas	
+16Szotu502	zotu502	Zotu502	d:Bacteria						
+16Szotu503	zotu503	Zotu503	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu505	zotu505	Zotu505	d:Bacteria						
+16Szotu512	zotu512	Zotu512	d:Bacteria						
+16Szotu514	zotu514	Zotu514	d:Bacteria						
+16Szotu504	zotu504	KT301231.1	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae	g:Klebsiella	
+16Szotu510	zotu510	Zotu510	d:Bacteria						
+16Szotu517	zotu517	Zotu517	d:Bacteria	p:Actinobacteria					
+16Szotu515	zotu515	Zotu515	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu513	zotu513	Zotu513	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu518	zotu518	Zotu518	d:Bacteria						
+16Szotu519	zotu519	Zotu519	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu520	zotu520	Zotu520	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae		
+16Szotu521	zotu521	Zotu521	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu528	zotu528	Zotu528	d:Bacteria	p:Cyanobacteria/Chloroplast					
+16Szotu522	zotu522	Zotu522	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Roseiarcaceae		
+16Szotu525	zotu525	Zotu525	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu527	zotu527	Zotu527	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu529	zotu529	Zotu529	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales			
+16Szotu530	zotu530	Zotu530	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae	g:Phenylobacterium	
+16Szotu531	zotu531	Zotu531	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria				
+16Szotu532	zotu532	Zotu532	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	
+16Szotu538	zotu538	Zotu538	d:Bacteria						
+16Szotu535	zotu535	Zotu535	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu534	zotu534	Zotu534	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales			
+16Szotu536	zotu536	Zotu536	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu540	zotu540	Zotu540	d:Bacteria						
+16Szotu537	zotu537	Zotu537	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu541	zotu541	Zotu541	d:Bacteria						
+16Szotu539	zotu539	Zotu539	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales	f:Thermomonosporaceae	g:Actinoallomurus	
+16Szotu545	zotu545	Zotu545	d:Bacteria						
+16Szotu542	zotu542	Zotu542	d:Bacteria	p:Proteobacteria					
+16Szotu546	zotu546	Zotu546	d:Bacteria	p:Verrucomicrobia	c:Opitutae	o:Opitutales	f:Opitutaceae	g:Opitutus	
+16Szotu544	zotu544	Zotu544	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Carnobacteriaceae	g:Atopostipes	
+16Szotu549	zotu549	Zotu549	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu550	zotu550	Zotu550	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Micropepsales	f:Micropepsaceae	g:Rhizomicrobium	
+16Szotu551	zotu551	Zotu551	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu552	zotu552	Zotu552	d:Bacteria						
+16Szotu558	zotu558	Zotu558	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu554	zotu554	Zotu554	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu553	zotu553	Zotu553	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Thermoactinomycetaceae_1		
+16Szotu557	zotu557	Zotu557	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu559	zotu559	Zotu559	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Candidatus_Solibacter	
+16Szotu561	zotu561	Zotu561	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu563	zotu563	Zotu563	d:Bacteria						
+16Szotu573	zotu573	Zotu573	d:Bacteria						
+16Szotu565	zotu565	Zotu565	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu564	zotu564	Zotu564	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3				
+16Szotu569	zotu569	Zotu569	d:Bacteria	p:Bacteroidetes	c:Cytophagia	o:Cytophagales	f:Hymenobacteraceae	g:Hymenobacter	
+16Szotu568	zotu568	Zotu568	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales	f:Thermomonosporaceae	g:Actinoallomurus	
+16Szotu574	zotu574	Zotu574	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Roseiarcaceae	g:Roseiarcus	
+16Szotu576	zotu576	Zotu576	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu575	zotu575	Zotu575	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales	f:Thermomonosporaceae		
+16Szotu582	zotu582	Zotu582	d:Bacteria						
+16Szotu577	zotu577	Zotu577	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Bifidobacteriales	f:Bifidobacteriaceae		
+16Szotu579	zotu579	Zotu579	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales	f:Thermomonosporaceae		
+16Szotu580	zotu580	Zotu580	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Micrococcaceae	g:Rothia	
+16Szotu581	zotu581	Zotu581	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales			
+16Szotu583	zotu583	Zotu583	d:Bacteria						
+16Szotu587	zotu587	Zotu587	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu585	zotu585	Zotu585	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu592	zotu592	Zotu592	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu590	zotu590	Zotu590	d:Bacteria	p:Actinobacteria	c:Thermoleophilia	o:Solirubrobacterales	f:Conexibacteraceae	g:Conexibacter	
+16Szotu591	zotu591	KT301231.1	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae	g:Klebsiella	
+16Szotu593	zotu593	Zotu593	d:Bacteria	p:Acidobacteria					
+16Szotu595	zotu595	Zotu595	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu596	zotu596	Zotu596	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu599	zotu599	Zotu599	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu597	zotu597	Zotu597	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillaceae_1	g:Bacillus	
+16Szotu600	zotu600	Zotu600	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales			
+16Szotu601	zotu601	Zotu601	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu598	zotu598	Zotu598	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Roseiarcaceae	g:Roseiarcus	
+16Szotu602	zotu602	Zotu602	d:Bacteria	p:Proteobacteria					
+16Szotu609	zotu609	Zotu609	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Gemmataceae		
+16Szotu611	zotu611	Zotu611	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu605	zotu605	Zotu605	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu604	zotu604	Zotu604	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales			
+16Szotu610	zotu610	Zotu610	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp4			g:Gp4	
+16Szotu608	zotu608	Zotu608	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptomycetales	f:Streptomycetaceae	g:Streptomyces	
+16Szotu612	zotu612	Zotu612	d:Archaea	p:Thaumarchaeota					
+16Szotu616	zotu616	Zotu616	d:Bacteria						
+16Szotu615	zotu615	Zotu615	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu614	zotu614	Zotu614	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu613	zotu613	Zotu613	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu620	zotu620	Zotu620	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Isosphaeraceae		
+16Szotu619	zotu619	Zotu619	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu618	zotu618	Zotu618	d:Bacteria						
+16Szotu617	zotu617	Zotu617	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu623	zotu623	Zotu623	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Pirellulales			
+16Szotu625	zotu625	Zotu625	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu624	zotu624	Zotu624	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Streptococcaceae	g:Streptococcus	
+16Szotu631	zotu631	Zotu631	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu629	zotu629	Zotu629	d:Bacteria	p:Acidobacteria					
+16Szotu630	zotu630	Zotu630	d:Bacteria						
+16Szotu633	zotu633	Zotu633	d:Archaea	p:Euryarchaeota	c:Methanobacteria	o:Methanobacteriales	f:Methanobacteriaceae	g:Methanobrevibacter	
+16Szotu626	zotu626	Zotu626	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu632	zotu632	Zotu632	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	
+16Szotu635	zotu635	Zotu635	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu634	zotu634	Zotu634	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Alteromonadales			
+16Szotu637	zotu637	Zotu637	d:Archaea	p:Thaumarchaeota		o:Nitrososphaerales	f:Nitrososphaeraceae	g:Nitrososphaera	
+16Szotu639	zotu639	Zotu639	d:Archaea						
+16Szotu638	zotu638	Zotu638	d:Bacteria	p:Proteobacteria					
+16Szotu642	zotu642	Zotu642	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu636	zotu636	Zotu636	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu640	zotu640	Zotu640	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu644	zotu644	Zotu644	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu645	zotu645	Zotu645	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu647	zotu647	Zotu647	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3				
+16Szotu649	zotu649	Zotu649	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu648	zotu648	Zotu648	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu652	zotu652	Zotu652	d:Archaea	p:Thaumarchaeota		o:Nitrososphaerales			
+16Szotu654	zotu654	Zotu654	d:Bacteria						
+16Szotu650	zotu650	Zotu650	d:Bacteria	p:Acidobacteria					
+16Szotu651	zotu651	Zotu651	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp16				
+16Szotu653	zotu653	Zotu653	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Gemmataceae		
+16Szotu661	zotu661	Zotu661	d:Bacteria						
+16Szotu657	zotu657	Zotu657	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu656	zotu656	Zotu656	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu663	zotu663	Zotu663	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2				
+16Szotu655	zotu655	Zotu655	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu662	zotu662	Zotu662	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu664	zotu664	Zotu664	d:Bacteria	p:Acidobacteria					
+16Szotu670	zotu670	Zotu670	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu667	zotu667	Zotu667	d:Bacteria	p:Bacteroidetes	c:Cytophagia	o:Cytophagales	f:Cytophagaceae	g:Dyadobacter	
+16Szotu668	zotu668	Zotu668	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu671	zotu671	Zotu671	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu672	zotu672	Zotu672	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu673	zotu673	Zotu673	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu674	zotu674	Zotu674	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu676	zotu676	Zotu676	d:Bacteria	p:Verrucomicrobia	c:Opitutae	o:Opitutales	f:Opitutaceae	g:Opitutus	
+16Szotu675	zotu675	Zotu675	d:Bacteria						
+16Szotu677	zotu677	Zotu677	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu681	zotu681	Zotu681	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu679	zotu679	Zotu679	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales			
+16Szotu678	zotu678	Zotu678	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillaceae_1		
+16Szotu680	zotu680	Zotu680	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu684	zotu684	Zotu684	d:Bacteria						
+16Szotu683	zotu683	Zotu683	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales	f:Thermomonosporaceae		
+16Szotu688	zotu688	Zotu688	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Isosphaeraceae	g:Singulisphaera	
+16Szotu685	zotu685	Zotu685	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales			
+16Szotu686	zotu686	Zotu686	d:Bacteria						
+16Szotu689	zotu689	Zotu689	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae		
+16Szotu690	zotu690	Zotu690	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu692	zotu692	Zotu692	d:Bacteria						
+16Szotu693	zotu693	Zotu693	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu698	zotu698	Zotu698	d:Archaea	p:Thaumarchaeota		o:Nitrososphaerales	f:Nitrososphaeraceae		
+16Szotu695	zotu695	Zotu695	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu696	zotu696	Zotu696	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu701	zotu701	Zotu701	d:Bacteria						
+16Szotu699	zotu699	Zotu699	d:Bacteria	p:Proteobacteria	c:Deltaproteobacteria	o:Myxococcales			
+16Szotu700	zotu700	Zotu700	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Azospirillaceae		
+16Szotu703	zotu703	Zotu703	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria				
+16Szotu704	zotu704	Zotu704	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu705	zotu705	Zotu705	d:Bacteria						
+16Szotu708	zotu708	Zotu708	d:Archaea						
+16Szotu707	zotu707	Zotu707	d:Bacteria						
+16Szotu706	zotu706	Zotu706	d:Bacteria	p:candidate_division_WPS-2				g:WPS-2_genera_incertae_sedis	
+16Szotu709	zotu709	Zotu709	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu711	zotu711	Zotu711	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu710	zotu710	Zotu710	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae		
+16Szotu712	zotu712	Zotu712	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp17			g:Gp17	
+16Szotu713	zotu713	Zotu713	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales			
+16Szotu714	zotu714	Zotu714	d:Bacteria	p:Proteobacteria	c:Deltaproteobacteria	o:Myxococcales			
+16Szotu715	zotu715	Zotu715	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu716	zotu716	Zotu716	d:Bacteria	p:Verrucomicrobia					
+16Szotu718	zotu718	Zotu718	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu719	zotu719	Zotu719	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Leuconostoc	
+16Szotu724	zotu724	Zotu724	d:Bacteria	p:Acidobacteria					
+16Szotu720	zotu720	Zotu720	d:Bacteria						
+16Szotu721	zotu721	Zotu721	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu725	zotu725	Zotu725	d:Bacteria	p:Proteobacteria	c:Deltaproteobacteria	o:Myxococcales			
+16Szotu727	zotu727	Zotu727	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	
+16Szotu732	zotu732	Zotu732	d:Bacteria						
+16Szotu728	zotu728	Zotu728	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Acidicapsa	
+16Szotu729	zotu729	Zotu729	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu731	zotu731	Zotu731	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu734	zotu734	Zotu734	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae		
+16Szotu735	zotu735	Zotu735	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu733	zotu733	Zotu733	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu736	zotu736	Zotu736	d:Bacteria	p:Proteobacteria	c:Deltaproteobacteria	o:Myxococcales			
+16Szotu745	zotu745	Zotu745	d:Bacteria						
+16Szotu737	zotu737	Zotu737	d:Bacteria						
+16Szotu738	zotu738	Zotu738	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu740	zotu740	Zotu740	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu739	zotu739	Zotu739	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Sphingomonadales	f:Sphingomonadaceae	g:Sphingomonas	
+16Szotu744	zotu744	Zotu744	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Acetobacteraceae		
+16Szotu751	zotu751	Zotu751	d:Bacteria						
+16Szotu749	zotu749	Zotu749	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu746	zotu746	Zotu746	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Vibrionales	f:Vibrionaceae	g:Vibrio	
+16Szotu754	zotu754	Zotu754	d:Bacteria						
+16Szotu752	zotu752	Zotu752	d:Bacteria	p:Proteobacteria	c:Deltaproteobacteria	o:Myxococcales			
+16Szotu755	zotu755	Zotu755	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu756	zotu756	Zotu756	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Mycobacteriales	f:Nocardiaceae	g:Rhodococcus	
+16Szotu761	zotu761	Zotu761	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu757	zotu757	Zotu757	d:Bacteria	p:Acidobacteria					
+16Szotu764	zotu764	Zotu764	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu758	zotu758	Zotu758	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae	g:Pseudomonas	
+16Szotu763	zotu763	Zotu763	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu760	zotu760	Zotu760	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales			
+16Szotu766	zotu766	Zotu766	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu768	zotu768	Zotu768	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Pirellulales			
+16Szotu765	zotu765	Zotu765	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales			
+16Szotu771	zotu771	Zotu771	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu767	zotu767	Zotu767	d:Bacteria						
+16Szotu769	zotu769	Zotu769	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Rhodospirillaceae		
+16Szotu770	zotu770	Zotu770	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria				
+16Szotu774	zotu774	Zotu774	d:Bacteria						
+16Szotu772	zotu772	Zotu772	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu773	zotu773	Zotu773	d:Bacteria	p:Proteobacteria	c:Deltaproteobacteria	o:Desulfuromonadales			
+16Szotu779	zotu779	Zotu779	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Cyanobacteria		f:Family_I		
+16Szotu777	zotu777	Zotu777	d:Bacteria						
+16Szotu781	zotu781	Zotu781	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Oceanospirillales			
+16Szotu780	zotu780	Zotu780	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Mycobacteriales	f:Corynebacteriaceae	g:Corynebacterium	
+16Szotu789	zotu789	Zotu789	d:Bacteria						
+16Szotu783	zotu783	Zotu783	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae		
+16Szotu785	zotu785	Zotu785	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu784	zotu784	Zotu784	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Rhodospirillaceae	g:Magnetospirillum	
+16Szotu787	zotu787	Zotu787	d:Bacteria						
+16Szotu792	zotu792	Zotu792	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu802	zotu802	Zotu802	d:Bacteria						
+16Szotu791	zotu791	Zotu791	d:Bacteria						
+16Szotu790	zotu790	Zotu790	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu798	zotu798	Zotu798	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu794	zotu794	Zotu794	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales			
+16Szotu799	zotu799	Zotu799	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	
+16Szotu803	zotu803	Zotu803	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu804	zotu804	Zotu804	d:Bacteria	p:Bacteroidetes	c:Bacteroidia	o:Bacteroidales	f:Prevotellaceae	g:Prevotella	
+16Szotu805	zotu805	Zotu805	d:Bacteria						
+16Szotu808	zotu808	Zotu808	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu807	zotu807	Zotu807	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu809	zotu809	Zotu809	d:Bacteria	p:Proteobacteria					
+16Szotu810	zotu810	Zotu810	d:Bacteria	p:Proteobacteria					
+16Szotu811	zotu811	Zotu811	d:Bacteria	p:Firmicutes	c:Negativicutes	o:Veillonellales	f:Veillonellaceae	g:Veillonella	
+16Szotu812	zotu812	Zotu812	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales	f:Thermomonosporaceae		
+16Szotu816	zotu816	Zotu816	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu817	zotu817	Zotu817	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Neisseriales	f:Neisseriaceae	g:Neisseria	
+16Szotu813	zotu813	Zotu813	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales	f:Thermomonosporaceae		
+16Szotu818	zotu818	Zotu818	d:Bacteria	p:Proteobacteria					
+16Szotu819	zotu819	Zotu819	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu820	zotu820	Zotu820	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp4			g:Gp4	
+16Szotu821	zotu821	Zotu821	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu822	zotu822	Zotu822	d:Bacteria						
+16Szotu823	zotu823	Zotu823	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu824	zotu824	Zotu824	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Erwiniaceae	g:Buchnera	
+16Szotu825	zotu825	Zotu825	d:Bacteria						
+16Szotu826	zotu826	Zotu826	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales			
+16Szotu827	zotu827	Zotu827	d:Bacteria	p:Proteobacteria					
+16Szotu831	zotu831	Zotu831	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu829	zotu829	Zotu829	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3				
+16Szotu830	zotu830	Zotu830	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu833	zotu833	Zotu833	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria				
+16Szotu836	zotu836	Zotu836	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu835	zotu835	Zotu835	d:Bacteria	p:Firmicutes	c:Clostridia	o:Clostridiales	f:Lachnospiraceae		
+16Szotu837	zotu837	Zotu837	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu838	zotu838	Zotu838	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu841	zotu841	Zotu841	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria				
+16Szotu840	zotu840	Zotu840	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3				
+16Szotu842	zotu842	Zotu842	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae	g:Mucilaginibacter	
+16Szotu843	zotu843	Zotu843	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu846	zotu846	Zotu846	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu847	zotu847	Zotu847	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu845	zotu845	Zotu845	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu850	zotu850	Zotu850	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu851	zotu851	Zotu851	d:Bacteria						
+16Szotu848	zotu848	Zotu848	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Mycobacteriales	f:Mycobacteriaceae	g:Mycobacterium	
+16Szotu852	zotu852	Zotu852	d:Bacteria	p:Proteobacteria					
+16Szotu854	zotu854	Zotu854	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu857	zotu857	Zotu857	d:Bacteria	p:Firmicutes	c:Clostridia	o:Clostridiales	f:Peptoniphilaceae	g:Anaerococcus	
+16Szotu856	zotu856	Zotu856	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu858	zotu858	Zotu858	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu859	zotu859	Zotu859	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu860	zotu860	Zotu860	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu861	zotu861	Zotu861	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Catenulisporales	f:Catenulisporaceae	g:Catenulispora	
+16Szotu863	zotu863	Zotu863	d:Bacteria	p:Proteobacteria					
+16Szotu864	zotu864	Zotu864	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu867	zotu867	Zotu867	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu872	zotu872	Zotu872	d:Bacteria						
+16Szotu873	zotu873	Zotu873	d:Bacteria						
+16Szotu870	zotu870	Zotu870	d:Bacteria						
+16Szotu868	zotu868	Zotu868	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu871	zotu871	Zotu871	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu869	zotu869	Zotu869	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Geodermatophilales			
+16Szotu875	zotu875	Zotu875	d:Bacteria						
+16Szotu876	zotu876	Zotu876	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu879	zotu879	Zotu879	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria				
+16Szotu877	zotu877	Zotu877	d:Bacteria	p:Proteobacteria					
+16Szotu878	zotu878	Zotu878	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Acetobacteraceae		
+16Szotu880	zotu880	Zotu880	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu881	zotu881	Zotu881	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Carnobacteriaceae		
+16Szotu883	zotu883	Zotu883	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu884	zotu884	Zotu884	d:Bacteria	p:candidate_division_WPS-1				g:WPS-1_genera_incertae_sedis	
+16Szotu882	zotu882	Zotu882	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Staphylococcaceae	g:Staphylococcus	
+16Szotu885	zotu885	Zotu885	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu886	zotu886	Zotu886	d:Bacteria	p:Acidobacteria					
+16Szotu887	zotu887	Zotu887	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu888	zotu888	Zotu888	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Micropepsales	f:Micropepsaceae	g:Rhizomicrobium	
+16Szotu895	zotu895	Zotu895	d:Archaea	p:Thaumarchaeota		o:Nitrososphaerales			
+16Szotu890	zotu890	Zotu890	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales			
+16Szotu889	zotu889	Zotu889	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales			
+16Szotu893	zotu893	Zotu893	d:Bacteria	p:Proteobacteria					
+16Szotu891	zotu891	Zotu891	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Lactobacillus	
+16Szotu894	zotu894	Zotu894	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Hyphomicrobiaceae		
+16Szotu899	zotu899	Zotu899	d:Bacteria						
+16Szotu898	zotu898	Zotu898	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu896	zotu896	Zotu896	d:Bacteria	p:Proteobacteria					
+16Szotu902	zotu902	Zotu902	d:Bacteria	p:Bacteroidetes	c:Chitinophagia	o:Chitinophagales	f:Chitinophagaceae		
+16Szotu897	zotu897	Zotu897	d:Bacteria	p:Proteobacteria	c:Deltaproteobacteria				
+16Szotu901	zotu901	Zotu901	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Lactobacillus	
+16Szotu900	zotu900	Zotu900	d:Bacteria	p:Firmicutes					
+16Szotu904	zotu904	Zotu904	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu903	zotu903	Zotu903	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu906	zotu906	Zotu906	d:Bacteria	p:Planctomycetes	c:Planctomycetacia				
+16Szotu905	zotu905	Zotu905	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Bacillaceae_1		
+16Szotu910	zotu910	Zotu910	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Isosphaeraceae		
+16Szotu912	zotu912	Zotu912	d:Bacteria						
+16Szotu909	zotu909	Zotu909	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu907	zotu907	Zotu907	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu911	zotu911	Zotu911	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu913	zotu913	Zotu913	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu915	zotu915	Zotu915	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu914	zotu914	Zotu914	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	
+16Szotu917	zotu917	Zotu917	d:Bacteria	p:Chlamydiae	c:Chlamydiia	o:Chlamydiales			
+16Szotu918	zotu918	Zotu918	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu920	zotu920	Zotu920	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Isosphaeraceae		
+16Szotu919	zotu919	Zotu919	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales			
+16Szotu921	zotu921	Zotu921	d:Bacteria						
+16Szotu922	zotu922	Zotu922	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu925	zotu925	Zotu925	d:Bacteria	p:Bacteroidetes	c:Chitinophagia	o:Chitinophagales	f:Chitinophagaceae		
+16Szotu923	zotu923	Zotu923	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales			
+16Szotu924	zotu924	Zotu924	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu926	zotu926	Zotu926	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu927	zotu927	Zotu927	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2				
+16Szotu928	zotu928	Zotu928	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu931	zotu931	Zotu931	d:Bacteria	p:candidate_division_WPS-1					
+16Szotu929	zotu929	Zotu929	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae	g:Lactobacillus	
+16Szotu932	zotu932	Zotu932	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu937	zotu937	Zotu937	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu938	zotu938	Zotu938	d:Archaea	p:Thaumarchaeota		o:Nitrososphaerales	f:Nitrososphaeraceae	g:Nitrososphaera	
+16Szotu934	zotu934	Zotu934	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu935	zotu935	Zotu935	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Burkholderiaceae	g:Paraburkholderia	
+16Szotu940	zotu940	Zotu940	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu939	zotu939	Zotu939	d:Bacteria	p:Actinobacteria					
+16Szotu943	zotu943	Zotu943	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria				
+16Szotu942	zotu942	Zotu942	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu941	zotu941	Zotu941	d:Bacteria	p:Actinobacteria	c:Actinobacteria				
+16Szotu945	zotu945	Zotu945	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu944	zotu944	Zotu944	d:Bacteria						
+16Szotu946	zotu946	Zotu946	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu947	zotu947	Zotu947	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu948	zotu948	Zotu948	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu952	zotu952	Zotu952	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu949	zotu949	Zotu949	d:Bacteria						
+16Szotu951	zotu951	Zotu951	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu950	zotu950	Zotu950	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu953	zotu953	Zotu953	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu954	zotu954	Zotu954	d:Bacteria	p:candidate_division_WPS-2				g:WPS-2_genera_incertae_sedis	
+16Szotu955	zotu955	Zotu955	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu959	zotu959	Zotu959	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu956	zotu956	Zotu956	d:Bacteria	p:Proteobacteria					
+16Szotu957	zotu957	Zotu957	d:Bacteria						
+16Szotu958	zotu958	Zotu958	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales			
+16Szotu961	zotu961	Zotu961	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu960	zotu960	Zotu960	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Intrasporangiaceae		
+16Szotu963	zotu963	Zotu963	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Roseiarcaceae		
+16Szotu965	zotu965	Zotu965	d:Bacteria						
+16Szotu966	zotu966	Zotu966	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu968	zotu968	Zotu968	d:Bacteria	p:Bacteroidetes	c:Sphingobacteriia	o:Sphingobacteriales	f:Sphingobacteriaceae		
+16Szotu967	zotu967	Zotu967	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptomycetales	f:Streptomycetaceae		
+16Szotu973	zotu973	Zotu973	d:Bacteria						
+16Szotu971	zotu971	Zotu971	d:Bacteria						
+16Szotu970	zotu970	Zotu970	d:Bacteria	p:Proteobacteria					
+16Szotu974	zotu974	Zotu974	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu975	zotu975	Zotu975	d:Bacteria						
+16Szotu977	zotu977	Zotu977	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales	f:Microbacteriaceae		
+16Szotu979	zotu979	Zotu979	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Geodermatophilales	f:Geodermatophilaceae	g:Blastococcus	
+16Szotu980	zotu980	Zotu980	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu978	zotu978	Zotu978	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Kineosporiales	f:Kineosporiaceae		
+16Szotu981	zotu981	Zotu981	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu982	zotu982	Zotu982	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu983	zotu983	Zotu983	d:Bacteria						
+16Szotu985	zotu985	Zotu985	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu986	zotu986	Zotu986	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales	f:Comamonadaceae		
+16Szotu989	zotu989	Zotu989	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	
+16Szotu988	zotu988	Zotu988	d:Bacteria	p:Proteobacteria					
+16Szotu990	zotu990	Zotu990	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu991	zotu991	Zotu991	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu998	zotu998	Zotu998	d:Archaea	p:Thaumarchaeota					
+16Szotu994	zotu994	Zotu994	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu995	zotu995	Zotu995	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu992	zotu992	Zotu992	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Carnobacteriaceae	g:Jeotgalibaca	
+16Szotu996	zotu996	Zotu996	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Nevskiales	f:Steroidobacteraceae		
+16Szotu993	zotu993	Zotu993	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu999	zotu999	Zotu999	d:Bacteria	p:Tenericutes	c:Mollicutes	o:Entomoplasmatales	f:Spiroplasmataceae	g:Spiroplasma	
+16Szotu1002	zotu1002	Zotu1002	d:Archaea	p:Thaumarchaeota		o:Nitrososphaerales			
+16Szotu1000	zotu1000	Zotu1000	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Acetobacteraceae		
+16Szotu1001	zotu1001	Zotu1001	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu1005	zotu1005	Zotu1005	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu1003	zotu1003	Zotu1003	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae		
+16Szotu1004	zotu1004	Zotu1004	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales			
+16Szotu1006	zotu1006	Zotu1006	d:Bacteria	p:Proteobacteria	c:Deltaproteobacteria	o:Myxococcales	f:Polyangiaceae		
+16Szotu1008	zotu1008	Zotu1008	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Gemmataceae	g:Gemmata	
+16Szotu1010	zotu1010	Zotu1010	d:Bacteria	p:Firmicutes	c:Clostridia	o:Clostridiales	f:Peptoniphilaceae	g:Anaerococcus	
+16Szotu1009	zotu1009	Zotu1009	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu1011	zotu1011	Zotu1011	d:Bacteria	p:Verrucomicrobia	c:Subdivision3			g:Subdivision3_genera_incertae_sedis	
+16Szotu1012	zotu1012	Zotu1012	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria				
+16Szotu1013	zotu1013	Zotu1013	d:Bacteria						
+16Szotu1015	zotu1015	Zotu1015	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Burkholderiales			
+16Szotu1014	zotu1014	Zotu1014	d:Bacteria	p:Proteobacteria					
+16Szotu1017	zotu1017	Zotu1017	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1016	zotu1016	Zotu1016	d:Bacteria	p:Chlamydiae	c:Chlamydiia	o:Chlamydiales			
+16Szotu1018	zotu1018	Zotu1018	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu1019	zotu1019	Zotu1019	d:Bacteria						
+16Szotu1022	zotu1022	Zotu1022	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Pirellulales			
+16Szotu1023	zotu1023	Zotu1023	d:Bacteria						
+16Szotu1025	zotu1025	Zotu1025	d:Bacteria	p:Bacteroidetes	c:Chitinophagia	o:Chitinophagales	f:Chitinophagaceae		
+16Szotu1020	zotu1020	Zotu1020	d:Bacteria	p:Proteobacteria	c:Deltaproteobacteria	o:Myxococcales			
+16Szotu1024	zotu1024	Zotu1024	d:Bacteria	p:Acidobacteria					
+16Szotu1030	zotu1030	Zotu1030							
+16Szotu1028	zotu1028	Zotu1028	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1032	zotu1032	Zotu1032	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1029	zotu1029	Zotu1029	d:Bacteria	p:Proteobacteria	c:Deltaproteobacteria	o:Syntrophobacterales	f:Syntrophobacteraceae		
+16Szotu1027	zotu1027	Zotu1027	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Staphylococcaceae	g:Staphylococcus	
+16Szotu1031	zotu1031	Zotu1031	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu1033	zotu1033	Zotu1033	d:Bacteria						
+16Szotu1036	zotu1036	Zotu1036	d:Archaea	p:Thaumarchaeota					
+16Szotu1039	zotu1039	Zotu1039	d:Bacteria						
+16Szotu1045	zotu1045	Zotu1045	d:Bacteria						
+16Szotu1037	zotu1037	Zotu1037	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu1038	zotu1038	Zotu1038	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu1044	zotu1044	Zotu1044	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1042	zotu1042	Zotu1042	d:Bacteria						
+16Szotu1046	zotu1046	Zotu1046	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales	f:Caulobacteraceae	g:Phenylobacterium	
+16Szotu1047	zotu1047	Zotu1047	d:Bacteria	p:Acidobacteria					
+16Szotu1052	zotu1052	Zotu1052	d:Bacteria	p:Firmicutes	c:Bacilli	o:Lactobacillales	f:Lactobacillaceae		
+16Szotu1053	zotu1053	Zotu1053	d:Bacteria						
+16Szotu1055	zotu1055	Zotu1055	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu1054	zotu1054	Zotu1054	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Xanthomonadales	f:Xanthomonadaceae	g:Pseudoxanthomonas	
+16Szotu1056	zotu1056	Zotu1056	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Rhodospirillaceae	g:Magnetospirillum	
+16Szotu1062	zotu1062	Zotu1062	d:Archaea	p:Thaumarchaeota					
+16Szotu1057	zotu1057	Zotu1057	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales			
+16Szotu1059	zotu1059	Zotu1059	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu1061	zotu1061	Zotu1061	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu1060	zotu1060	Zotu1060	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu1064	zotu1064	Zotu1064	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu1065	zotu1065	Zotu1065	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Aurantimonadaceae		
+16Szotu1070	zotu1070	Zotu1070	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1067	zotu1067	Zotu1067	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1071	zotu1071	Zotu1071	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Isosphaeraceae		
+16Szotu1068	zotu1068	Zotu1068	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu1073	zotu1073	Zotu1073	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales			
+16Szotu1074	zotu1074	Zotu1074	d:Bacteria						
+16Szotu1072	zotu1072	Zotu1072	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales			
+16Szotu1077	zotu1077	Zotu1077	d:Bacteria	p:Verrucomicrobia	c:Spartobacteria			g:Spartobacteria_genera_incertae_sedis	
+16Szotu1075	zotu1075	Zotu1075	d:Bacteria						
+16Szotu1076	zotu1076	Zotu1076	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp13			g:Gp13	
+16Szotu1078	zotu1078	Zotu1078	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3				
+16Szotu1081	zotu1081	Zotu1081	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu1079	zotu1079	Zotu1079	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria				
+16Szotu1080	zotu1080	Zotu1080	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales	f:Thermomonosporaceae		
+16Szotu1084	zotu1084	Zotu1084	d:Bacteria						
+16Szotu1082	zotu1082	Zotu1082	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu1085	zotu1085	Zotu1085	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu1083	zotu1083	Zotu1083	d:Bacteria	p:Actinobacteria	c:Actinobacteria				
+16Szotu1090	zotu1090	Zotu1090	d:Bacteria						
+16Szotu1087	zotu1087	Zotu1087	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales			
+16Szotu1086	zotu1086	Zotu1086	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micrococcales			
+16Szotu1091	zotu1091	Zotu1091	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu1093	zotu1093	Zotu1093	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Alteromonadales	f:Shewanellaceae	g:Shewanella	
+16Szotu1088	zotu1088	Zotu1088	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Micromonosporales	f:Micromonosporaceae	g:Actinoplanes	
+16Szotu1092	zotu1092	Zotu1092	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales			
+16Szotu1096	zotu1096	Zotu1096	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu1094	zotu1094	Zotu1094	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Staphylococcaceae		
+16Szotu1095	zotu1095	Zotu1095	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu1097	zotu1097	Zotu1097	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria				
+16Szotu1104	zotu1104	Zotu1104	d:Archaea	p:Thaumarchaeota					
+16Szotu1099	zotu1099	Zotu1099	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu1098	zotu1098	Zotu1098	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptomycetales	f:Streptomycetaceae	g:Streptomyces	
+16Szotu1109	zotu1109	Zotu1109	d:Bacteria						
+16Szotu1100	zotu1100	Zotu1100	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu1101	zotu1101	Zotu1101	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Oceanospirillales	f:Halomonadaceae		
+16Szotu1106	zotu1106	Zotu1106	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu1113	zotu1113	Zotu1113	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1112	zotu1112	Zotu1112	d:Bacteria	p:Proteobacteria	c:Deltaproteobacteria	o:Desulfuromonadales			
+16Szotu1110	zotu1110	Zotu1110	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu1111	zotu1111	Zotu1111	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptosporangiales	f:Thermomonosporaceae		
+16Szotu1114	zotu1114	Zotu1114	d:Bacteria	p:Acidobacteria					
+16Szotu1115	zotu1115	Zotu1115	d:Bacteria						
+16Szotu1120	zotu1120	Zotu1120	d:Bacteria	p:Fusobacteria	c:Fusobacteriia	o:Fusobacteriales	f:Leptotrichiaceae	g:Streptobacillus	
+16Szotu1118	zotu1118	Zotu1118	d:Bacteria	p:Proteobacteria					
+16Szotu1122	zotu1122	Zotu1122	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Acetobacteraceae		
+16Szotu1121	zotu1121	Zotu1121	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu1124	zotu1124	Zotu1124	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu1123	zotu1123	Zotu1123	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhodospirillales	f:Acetobacteraceae		
+16Szotu1125	zotu1125	Zotu1125	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu1132	zotu1132	Zotu1132	d:Eukaryota	p:Plantae	c:Liliopsida	o:Poales	f:Poaceae	g:Zea	
+16Szotu1127	zotu1127	Zotu1127	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3				
+16Szotu1128	zotu1128	Zotu1128	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu1133	zotu1133	Zotu1133	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1131	zotu1131	Zotu1131	d:Bacteria	p:Proteobacteria					
+16Szotu1134	zotu1134	Zotu1134	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1130	zotu1130	Zotu1130	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Roseiarcaceae	g:Roseiarcus	
+16Szotu1139	zotu1139	Zotu1139	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1135	zotu1135	Zotu1135	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu1136	zotu1136	Zotu1136	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu1141	zotu1141	Zotu1141	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu1137	zotu1137	Zotu1137	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Pseudomonadaceae		
+16Szotu1138	zotu1138	Zotu1138	d:Bacteria	p:Acidobacteria					
+16Szotu1140	zotu1140	Zotu1140	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu1143	zotu1143	Zotu1143	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Cyanobacteria		f:Family_I		
+16Szotu1145	zotu1145	Zotu1145	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Pseudomonadales	f:Moraxellaceae	g:Acinetobacter	
+16Szotu1148	zotu1148	Zotu1148	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu1146	zotu1146	Zotu1146	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu1147	zotu1147	Zotu1147	d:Bacteria						
+16Szotu1149	zotu1149	Zotu1149	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Hyphomicrobiaceae	g:Pedomicrobium	
+16Szotu1150	zotu1150	Zotu1150	d:Bacteria	p:Proteobacteria					
+16Szotu1152	zotu1152	Zotu1152	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1151	zotu1151	Zotu1151	d:Bacteria	p:Proteobacteria					
+16Szotu1154	zotu1154	Zotu1154	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Pirellulales			
+16Szotu1156	zotu1156	Zotu1156	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Isosphaeraceae		
+16Szotu1157	zotu1157	Zotu1157	d:Bacteria	p:Planctomycetes					
+16Szotu1159	zotu1159	Zotu1159	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu1158	zotu1158	Zotu1158	d:Bacteria	p:Proteobacteria	c:Hydrogenophilalia				
+16Szotu1160	zotu1160	Zotu1160	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu1161	zotu1161	Zotu1161	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu1166	zotu1166	Zotu1166	d:Bacteria	p:Bacteroidetes	c:Chitinophagia	o:Chitinophagales			
+16Szotu1165	zotu1165	Zotu1165	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu1163	zotu1163	Zotu1163	d:Bacteria	p:Firmicutes					
+16Szotu1168	zotu1168	Zotu1168	d:Bacteria	p:Proteobacteria	c:Betaproteobacteria	o:Neisseriales	f:Neisseriaceae	g:Neisseria	
+16Szotu1169	zotu1169	Zotu1169	d:Bacteria						
+16Szotu1170	zotu1170	Zotu1170	d:Bacteria	p:Proteobacteria					
+16Szotu1173	zotu1173	Zotu1173	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Oceanospirillales	f:Halomonadaceae	g:Halomonas	
+16Szotu1177	zotu1177	Zotu1177	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales	f:Staphylococcaceae		
+16Szotu1174	zotu1174	Zotu1174	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu1179	zotu1179	Zotu1179	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu1180	zotu1180	Zotu1180	d:Bacteria	p:Chlamydiae	c:Chlamydiia	o:Chlamydiales			
+16Szotu1182	zotu1182	Zotu1182	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu1184	zotu1184	Zotu1184	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu1186	zotu1186	Zotu1186	d:Bacteria	p:Bacteroidetes	c:Bacteroidia	o:Bacteroidales	f:Prevotellaceae	g:Prevotella	
+16Szotu1183	zotu1183	Zotu1183	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu1185	zotu1185	Zotu1185	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3				
+16Szotu1188	zotu1188	Zotu1188	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Gammaproteobacteria_incertae_sedis		g:Acidibacter	
+16Szotu1187	zotu1187	Zotu1187	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Caulobacterales			
+16Szotu1189	zotu1189	Zotu1189	d:Bacteria						
+16Szotu1190	zotu1190	Zotu1190	d:Bacteria	p:Armatimonadetes				g:Armatimonadetes_gp5	
+16Szotu1191	zotu1191	Zotu1191	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp13			g:Gp13	
+16Szotu1192	zotu1192	Zotu1192	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu1197	zotu1197	Zotu1197	d:Bacteria						
+16Szotu1198	zotu1198	Zotu1198	d:Bacteria						
+16Szotu1194	zotu1194	Zotu1194	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1196	zotu1196	Zotu1196	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Mycobacteriales	f:Mycobacteriaceae		
+16Szotu1200	zotu1200	Zotu1200	d:Archaea						
+16Szotu1199	zotu1199	Zotu1199	d:Bacteria						
+16Szotu1207	zotu1207	Zotu1207	d:Bacteria	p:Verrucomicrobia	c:Spartobacteria			g:Spartobacteria_genera_incertae_sedis	
+16Szotu1201	zotu1201	Zotu1201	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1				
+16Szotu1208	zotu1208	Zotu1208	d:Bacteria	p:Verrucomicrobia					
+16Szotu1206	zotu1206	Zotu1206	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria				
+16Szotu1209	zotu1209	Zotu1209	d:Bacteria	p:Chlamydiae	c:Chlamydiia	o:Chlamydiales			
+16Szotu1210	zotu1210	Zotu1210	d:Bacteria	p:Proteobacteria	c:Hydrogenophilalia				
+16Szotu1212	zotu1212	Zotu1212	d:Bacteria	p:Bacteroidetes	c:Chitinophagia	o:Chitinophagales	f:Chitinophagaceae		
+16Szotu1213	zotu1213	Zotu1213	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1211	zotu1211	Zotu1211	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Oceanospirillales	f:Halomonadaceae		
+16Szotu1215	zotu1215	Zotu1215	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu1217	zotu1217	Zotu1217	d:Bacteria	p:Actinobacteria	c:Actinobacteria				
+16Szotu1219	zotu1219	Zotu1219	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Roseiarcaceae	g:Roseiarcus	
+16Szotu1216	zotu1216	Zotu1216	d:Bacteria	p:Proteobacteria	c:Gammaproteobacteria	o:Enterobacterales	f:Enterobacteriaceae		
+16Szotu1221	zotu1221	Zotu1221	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu1220	zotu1220	Zotu1220	d:Bacteria						
+16Szotu1222	zotu1222	Zotu1222	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu1223	zotu1223	Zotu1223	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Isosphaeraceae		
+16Szotu1227	zotu1227	Zotu1227	d:Bacteria	p:Bacteroidetes	c:Chitinophagia	o:Chitinophagales	f:Chitinophagaceae		
+16Szotu1228	zotu1228	Zotu1228	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales			
+16Szotu1224	zotu1224	Zotu1224	d:Bacteria	p:Proteobacteria					
+16Szotu1230	zotu1230	Zotu1230	d:Bacteria						
+16Szotu1231	zotu1231	Zotu1231	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu1229	zotu1229	Zotu1229	d:Bacteria	p:Firmicutes	c:Bacilli	o:Bacillales			
+16Szotu1233	zotu1233	Zotu1233	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1232	zotu1232	Zotu1232	d:Bacteria	p:Firmicutes	c:Bacilli				
+16Szotu1234	zotu1234	Zotu1234	d:Bacteria						
+16Szotu1236	zotu1236	Zotu1236	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu1238	zotu1238	Zotu1238	d:Bacteria	p:Planctomycetes	c:Planctomycetacia	o:Planctomycetales	f:Gemmataceae	g:Gemmata	
+16Szotu1239	zotu1239	Zotu1239	d:Bacteria						
+16Szotu1240	zotu1240	Zotu1240	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales			
+16Szotu1237	zotu1237	Zotu1237	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Geodermatophilales	f:Geodermatophilaceae	g:Modestobacter	
+16Szotu1241	zotu1241	Zotu1241	d:Bacteria						
+16Szotu1242	zotu1242	Zotu1242	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp1			g:Gp1	
+16Szotu1244	zotu1244	Zotu1244	d:Bacteria	p:Proteobacteria	c:Alphaproteobacteria	o:Rhizobiales	f:Bradyrhizobiaceae		
+16Szotu1246	zotu1246	Zotu1246	d:Bacteria						
+16Szotu1248	zotu1248	Zotu1248	d:Bacteria						
+16Szotu1245	zotu1245	Zotu1245	d:Bacteria	p:Proteobacteria					
+16Szotu1250	zotu1250	Zotu1250	d:Bacteria	p:Proteobacteria					
+16Szotu1251	zotu1251	Zotu1251	d:Bacteria	p:Bacteroidetes	c:Flavobacteriia	o:Flavobacteriales	f:Weeksellaceae	g:Cloacibacterium	
+16Szotu1252	zotu1252	Zotu1252	d:Bacteria	p:Bacteroidetes	c:Chitinophagia	o:Chitinophagales	f:Chitinophagaceae	g:Taibaiella	
+16Szotu1249	zotu1249	Zotu1249	d:Bacteria	p:Actinobacteria	c:Actinobacteria	o:Streptomycetales	f:Streptomycetaceae	g:Streptomyces	
+16Szotu1253	zotu1253	Zotu1253	d:Bacteria	p:Cyanobacteria/Chloroplast	c:Chloroplast		f:Chloroplast	g:Streptophyta	
+16Szotu1254	zotu1254	Zotu1254	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp2			g:Gp2	
+16Szotu1255	zotu1255	Zotu1255	d:Bacteria	p:Proteobacteria					
+16Szotu1256	zotu1256	Zotu1256	d:Bacteria	p:Acidobacteria	c:Acidobacteria_Gp3			g:Gp3	
+16Szotu1259	zotu1259	Zotu1259	d:Eukaryota	p:Plantae	c:Liliopsida				
+16Szotu1258	zotu1258	Zotu1258	d:Bacteria	p:Actinobacteria					
+16Szotu1260	zotu1260	Zotu1260	d:Bacteria						
