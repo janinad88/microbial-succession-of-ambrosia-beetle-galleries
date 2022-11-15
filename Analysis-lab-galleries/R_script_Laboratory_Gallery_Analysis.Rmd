@@ -1,0 +1,3207 @@
+---
+title: __Succession of ambrosia beetle microbial community structure throughout development in field and laboratory galleries__ - Analysis of Laboratory Galleries (16S and 28S)
+author: "Janina M.C. Diehl"
+date: "20.10.2022"
+output: pdf_document: default
+        html_notebook: default
+---
+
+R version 4.0.5 (2021-03-31)
+
+# __Data Preparation__
+
+load needed packages
+
+```{r message=FALSE, warning=FALSE}
+library(nlme)
+library(lme4)
+library(mgcv)
+library(permute)
+library(lattice)
+library(vegan)
+library(phyloseq)
+library(ggplot2)
+library(dplyr)
+library(scales)
+library(grid)
+library(DHARMa)
+library(ggeffects)
+library(glmmTMB)
+library(lmerTest)
+library(emmeans)
+library(sjPlot)
+library(fitdistrplus)
+library(GLMMadaptive)
+library(microbiome)
+library(microbiomeutilities)
+library(knitr)
+library(ggpubr)
+library(doBy)
+library(performance)
+library(see)
+library(patchwork)
+library(pairwiseAdonis)
+library(cowplot)
+library(lmtest)
+library(betareg)
+library(pbkrtest)
+library(rcompanion)
+library(car)
+library(multcomp)
+library(tidyr)
+```
+
+# __Load bacterial & fungal datasets and prepare phyloseq objects for analysis__ 
+
+loading the data of bacteria
+
+```{r}
+data16S <- otu_table(read.table("16S_zotu_table_development_lab.txt",sep="\t", header=T, row.names=1, check.names = F), taxa_are_rows=T)
+tax16S <- tax_table(as.matrix(read.table("16S_zotus.tax_dev_lab.txt", sep="\t", header=T, row.names=1, fill=T)))
+datasample16S  <- sample_data(read.table("16S_map_development_lab.txt", sep="\t", header=T, row.names=1))
+```
+
+loading the data of fungi
+
+```{r}
+dataLSU <- otu_table(read.table("28S_zotu_table_development_lab.txt",sep="\t", header=T, row.names=1, check.names = F), taxa_are_rows=T)
+taxLSU <- tax_table(as.matrix(read.table("28S_zotus.tax_development_lab.txt", sep="\t", header=T, row.names=1, fill=T)))
+datasampleLSU  <- sample_data(read.table("28S_map_development_lab.txt", sep="\t", header=T, row.names=1))
+```
+
+## merge data into phyloseq object
+
+```{r}
+(all16S <- merge_phyloseq(data16S, tax16S, datasample16S)) 
+```
+
+```{r}
+(allLSU <- merge_phyloseq(dataLSU, taxLSU, datasampleLSU)) 
+```
+
+## edit phyloseq objects
+
+### copy taxonomic classification in tax_table collumns with gaps and add "_spc"
+
+```{r}
+all16S =  subset_taxa(all16S, (Domain == "d:Bacteria"))
+tax_table(all16S)[tax_table(all16S)[,"Phylum"]=="","Phylum"]<-paste(tax_table(all16S)[tax_table(all16S)[,"Phylum"]=="","Domain"],"_spc",sep="")
+tax_table(all16S)[tax_table(all16S)[,"Class"]=="","Class"]<-paste(tax_table(all16S)[tax_table(all16S)[,"Class"]=="","Phylum"],"_spc",sep="")
+tax_table(all16S)[tax_table(all16S)[,"Order"]=="","Order"]<-paste(tax_table(all16S)[tax_table(all16S)[,"Order"]=="","Class"],"_spc",sep="")
+tax_table(all16S)[tax_table(all16S)[,"Family"]=="","Family"]<-paste(tax_table(all16S)[tax_table(all16S)[,"Family"]=="","Order"],"_spc",sep="")
+tax_table(all16S)[tax_table(all16S)[,"Genus"]=="","Genus"]<-paste(tax_table(all16S)[tax_table(all16S)[,"Genus"]=="","Family"],"_spc",sep="")
+tax_table(all16S)[tax_table(all16S)[,"Species"]=="","Species"]<-paste(tax_table(all16S)[tax_table(all16S)[,"Species"]=="","Genus"],"_spc",sep="")
+```
+
+```{r}
+allLSU =  subset_taxa(allLSU, (Kingdom == "k:Fungi"))
+tax_table(allLSU)[tax_table(allLSU)[,"Phylum"]=="","Phylum"]<-paste(tax_table(allLSU)[tax_table(allLSU)[,"Phylum"]=="","Kingdom"],"_spc",sep="")
+tax_table(allLSU)[tax_table(allLSU)[,"Class"]=="","Class"]<-paste(tax_table(allLSU)[tax_table(allLSU)[,"Class"]=="","Phylum"],"_spc",sep="")
+tax_table(allLSU)[tax_table(allLSU)[,"Order"]=="","Order"]<-paste(tax_table(allLSU)[tax_table(allLSU)[,"Order"]=="","Class"],"_spc",sep="")
+tax_table(allLSU)[tax_table(allLSU)[,"Family"]=="","Family"]<-paste(tax_table(allLSU)[tax_table(allLSU)[,"Family"]=="","Order"],"_spc",sep="")
+tax_table(allLSU)[tax_table(allLSU)[,"Genus"]=="","Genus"]<-paste(tax_table(allLSU)[tax_table(allLSU)[,"Genus"]=="","Family"],"_spc",sep="")
+tax_table(allLSU)[tax_table(allLSU)[,"Species"]=="","Species"]<-paste(tax_table(allLSU)[tax_table(allLSU)[,"Species"]=="","Genus"],"_spc",sep="")
+```
+
+### start filtering out all ZOTUs that were 
+
+#### only assigned to Domain (Bacteria and Archaea), as well as Chloroplasts
+
+```{r}
+dataset.16S.ordi =  subset_taxa(all16S, (Domain == "d:Bacteria" | Domain =="d:Archaea"))
+dataset.16S.ordi =  subset_taxa(dataset.16S.ordi, Phylum != "d:Bacteria_spc")
+dataset.16S.ordi =  subset_taxa(dataset.16S.ordi, Phylum != "d:Archaea_spc")
+dataset.16S.ordi =  subset_taxa(dataset.16S.ordi, Class != "c:Chloroplast")
+
+wChl16S =  subset_taxa(all16S, (Domain == "d:Bacteria" | Domain =="d:Archaea"))
+wChl16S =  subset_taxa(wChl16S, Class != "c:Chloroplast")
+```
+
+#### only assigned to Kingdom (Fungi)
+
+```{r}
+dataset.LSU.ordi =  subset_taxa(allLSU, (Kingdom == "k:Fungi"))
+dataset.LSU.ordi =  subset_taxa(dataset.LSU.ordi, Phylum != "k:Fungi_spc")
+```
+
+### check all the columns for patterns ranging from [a-z] joined by __ like this [a-z]__ and substitute it with "" i.e. nothing.
+
+```{r}
+tax_table(dataset.16S.ordi)[, colnames(tax_table(dataset.16S.ordi))] <- gsub(tax_table(dataset.16S.ordi)[, colnames(tax_table(dataset.16S.ordi))],     pattern = "[a-z]:", replacement = "")
+tax_table(dataset.16S.ordi)[, colnames(tax_table(dataset.16S.ordi))] <- gsub(tax_table(dataset.16S.ordi)[, colnames(tax_table(dataset.16S.ordi))],     pattern = "_spc_spc_spc", replacement = "_spc")
+tax_table(dataset.16S.ordi)[, colnames(tax_table(dataset.16S.ordi))] <- gsub(tax_table(dataset.16S.ordi)[, colnames(tax_table(dataset.16S.ordi))],     pattern = "_spc_spc", replacement = "_spc")
+tax_table(dataset.16S.ordi)[, colnames(tax_table(dataset.16S.ordi))] <- gsub(tax_table(dataset.16S.ordi)[, colnames(tax_table(dataset.16S.ordi))],     pattern = "-", replacement = "_")
+data.16S.zOTU <- dataset.16S.ordi
+tax_table(dataset.16S.ordi) <- tax_table(dataset.16S.ordi)[,3:9]
+```
+
+```{r}
+tax_table(dataset.LSU.ordi)[, colnames(tax_table(dataset.LSU.ordi))] <- gsub(tax_table(dataset.LSU.ordi)[, colnames(tax_table(dataset.LSU.ordi))],     pattern = "[a-z]:", replacement = "")
+tax_table(dataset.LSU.ordi)[, colnames(tax_table(dataset.LSU.ordi))] <- gsub(tax_table(dataset.LSU.ordi)[, colnames(tax_table(dataset.LSU.ordi))],     pattern = "_spc_spc_spc", replacement = "_spc")
+tax_table(dataset.LSU.ordi)[, colnames(tax_table(dataset.LSU.ordi))] <- gsub(tax_table(dataset.LSU.ordi)[, colnames(tax_table(dataset.LSU.ordi))],     pattern = "_spc_spc", replacement = "_spc")
+tax_table(dataset.LSU.ordi)[, colnames(tax_table(dataset.LSU.ordi))] <- gsub(tax_table(dataset.LSU.ordi)[, colnames(tax_table(dataset.LSU.ordi))],     pattern = "-", replacement = "_")
+data.zOTU <- dataset.LSU.ordi
+tax_table(dataset.LSU.ordi) <- tax_table(dataset.LSU.ordi)[,3:9]
+```
+
+### Format the phyloseq object to add the best taxonomy in phyloseq object (tax_table and otu_table).
+
+```{r}
+dataset.16S.ordi <- format_to_besthit(dataset.16S.ordi)
+taxa_names(dataset.16S.ordi)[1:5]
+
+dataset.LSU.ordi <- format_to_besthit(dataset.LSU.ordi)
+taxa_names(dataset.LSU.ordi)[1:5]
+```
+
+## check the table without Bacteria and Archaea sp., as well as Fungi sp. for total reads per sample
+
+```{r}
+colSums(otu_table(all16S))
+colSums(otu_table(dataset.16S.ordi))
+
+colSums(otu_table(allLSU))
+colSums(otu_table(dataset.LSU.ordi))
+```
+
+### check for most abundant undefined taxa (Bacteria sp.) --> mitochondrial DNA of Fungi
+
+```{r}
+most.abundant<-subset_samples(wChl16S, Phase=="phase1" | Phase=="phase2" | Phase=="phase3")
+filtaxa <- names (sort(rowSums(otu_table(most.abundant)) ,decreasing=T))[1:50]
+tax_table(wChl16S)[filtaxa]
+round(otu_table(wChl16S)[filtaxa], digits = 4)
+```
+
+Zotu1: Leptographium wingfieldii strain TOM9.4 small subunit ribosomal RNA gene, partial sequence; and LAGLIDADG homing endonuclease gene, complete cds; mitochondrial 	Leptographium wingfieldii 	340 	340 	100% 	3e-89 	93.81% 	3060 	GU983696.1
+
+Zotu3: Ophiostoma deltoideosporum strain WIN(M)870 small subunit ribosomal RNA gene, partial sequence; mitochondrial 	Raffaelea deltoideospora 	NA 	577119 	291 	291 	100% 	3e-74 	89.96% 	1112 	JN871714.1
+
+Zotu4: Leptographium terebrantis strain CBS 337.70 small subunit ribosomal RNA gene, partial sequence; and LAGLIDADG homing endonuclease gene, complete cds; mitochondrial 	Leptographium terebrantis 	274 	274 	100% 	3e-69 	88.60% 	3056 	GU983690.1
+
+Zotu19: Graphium penicillioides strain HSAUP044237 small subunit ribosomal RNA gene, partial sequence; mitochondrial 	Graphium penicillioides 	379 	379 	100% 	6e-101 	97.31% 	570 	FJ914731.1
+
+Zotu30: Talaromyces rugulosus isolate 18RJF2 small subunit ribosomal RNA gene, partial sequence; mitochondrial 	Talaromyces rugulosus 	NA 	121627 	409 	409 	100% 	7e-110 	100.00% 	221 	MW393516.1
+
+Zotu34: Scopulariopsis sp. e ZW-2013 small subunit ribosomal RNA gene, partial sequence; mitochondrial 	Scopulariopsis sp. e ZW-2013 	NA 	1394188 	359 	359 	100% 	7e-95 	95.93% 	530 	KF181228.1
+
+__--> Excel file with all blasted zOTUs on GitHub.__
+
+## check controls from dataset: only ten most abundant ZOTUs are picked for visualisation
+
+__Bacteria__
+```{r}
+neg.controls<-subset_samples(dataset.16S.ordi, Phase=="neg")
+sample_names(neg.controls)
+```
+
+visualisation of negative controls 
+
+```{r}
+filtaxa <- names (sort(rowSums(otu_table(neg.controls)) ,decreasing=T))[1:10] 
+round(otu_table(dataset.16S.ordi)[filtaxa], digits = 4)
+```
+only very low read numbers of most abundance ZOTUS in our samples
+we let ZOTUS from neg. controls in the samples and choose they way of low abundance filtering!
+
+
+check for ten most abundant ZOTUs in pos.controls
+
+```{r}
+pos.controls<-subset_samples(dataset.16S.ordi, Phase=="pos")
+sample_names(pos.controls)
+filtaxa <- names (sort(rowSums(otu_table(pos.controls)) ,decreasing=T))[1:30]
+round(otu_table(dataset.16S.ordi)[filtaxa], digits = 4)
+```
+
+Zotu9: Escherichia coli O157:H7 strain 7.1_Anguil chromosome, complete genome 	Escherichia coli O157:H7 	NA 	83334 	468 	3278 	100% 	1e-127 	100.00% 	5598953 	CP076232.1
+
+Zotu12:   Salmonella enterica subsp. enterica serovar Enteritidis strain SE211 chromosome, complete genome 	Salmonella enterica subsp. enterica serovar Enteritidis 	NA 	149539 	468 	3278 	100% 	1e-127 	100.00% 	4679414 	CP084532.1
+
+Zotu17:   Staphylococcus aureus strain CAB4 16S ribosomal RNA gene, partial sequence 	Staphylococcus aureus 	NA 	1280 	468 	468 	100% 	1e-127 	100.00% 	1187 	OK360620.1
+
+Zotu18:   Enterococcus faecalis strain ATCC 19433 16S ribosomal RNA gene, partial sequence 	Enterococcus faecalis 	NA 	1351 	468 	468 	100% 	1e-127 	100.00% 	1481 	OK360923.1
+
+Zotu22:   Bacillus subtilis group sp. strain SY27.1A 16S ribosomal RNA gene and 16S-23S ribosomal RNA intergenic spacer, partial sequence 	Bacillus subtilis group sp. 	NA 	2571209 	468 	468 	100% 	1e-127 	100.00% 	1291 	OK428682.1
+
+Zotu26:   Pseudomonas aeruginosa strain BGS1 16S ribosomal RNA gene, partial sequence 	Pseudomonas aeruginosa 	NA 	287 	468 	468 	100% 	1e-127 	100.00% 	1384 	MW857131.2
+
+Zotu23:   Limosilactobacillus fermentum strain RAMULAB29 16S ribosomal RNA gene, partial sequence 	Limosilactobacillus fermentum 	468 	468 	100% 	1e-127 	100.00% 	1248 	OK398430.1
+
+Zotu27:   Listeria monocytogenes strain ka89-2 16S ribosomal RNA gene, partial sequence 	Listeria monocytogenes 	NA 	1639 	468 	468 	100% 	1e-127 	100.00% 	1158 	MT633107.1
+
+Zotu46:    Uncultured Klebsiella sp. clone p77 16S ribosomal RNA gene, partial sequence 	uncultured Klebsiella sp. 	468 	468 	100% 	1e-127 	100.00% 	766 	MF327039.1
+
+Zotu95:   Uncultured bacterium clone asv0000040 16S ribosomal RNA gene, partial sequence 	uncultured bacterium 	NA 	77133 	462 	462 	100% 	6e-126 	99.60% 	253 	MZ645649.1
+
+```{r}
+pos <- subset_samples(dataset.16S.ordi, Phase=="pos")
+  
+Bacteria_Genus.pos <- pos %>%               
+  tax_glom(taxrank = "Genus") %>%                     
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                        
+  arrange(Genus)
+
+Bacteria_Genus.pos$Genus<-as.character(Bacteria_Genus.pos$Genus)
+Bacteria_Genus.pos$Genus[Bacteria_Genus.pos$Abundance<0.01]<-"Others < 1%"
+Bacteria_Genus.pos$Class<-as.character(Bacteria_Genus.pos$Class)
+Bacteria_Genus.pos$Class[Bacteria_Genus.pos$Abundance<0.01]<-"Others"
+```
+
+exclude negative 1 (very different to the other controls)
+
+```{r}
+dataset.16S.ordi1 <- subset_samples(dataset.16S.ordi, Sample != "negative1")
+dat.16S.zOTU1 <- subset_samples(dat.16S.zOTU, Sample != "negative1")
+```
+
+__Fungi__ 
+
+```{r}
+neg.controls<-subset_samples(dataset.LSU.ordi, Phase=="neg")
+sample_names(neg.controls)
+```
+
+visualisation of negative controls 
+
+```{r}
+filtaxa <- names (sort(rowSums(otu_table(neg.controls)) ,decreasing=T))[1:10] 
+round(otu_table(dataset.LSU.ordi)[filtaxa], digits = 4)
+```
+
+check for ten most abundant ZOTUs in pos.controls
+
+```{r}
+pos.controls<-subset_samples(dataset.LSU.ordi, Phase=="pos")
+sample_names(pos.controls)
+filtaxa <- names (sort(rowSums(otu_table(pos.controls)) ,decreasing=T))[1:10]
+round(otu_table(dataset.LSU.ordi)[filtaxa], digits = 4)
+```
+
+Zotu73: Chaetomiaceae (LT993619.1)
+
+Zotu111: Chaetomium graminiforme CBS 506.84 28S rRNA gene, partial sequence; from TYPE material 	Chaetomium graminiforme 	NA 	1854481 	451 	451 	100% 	1e-122 	96.36% 	896 	NG_067425.1
+
+
+## visualisation of sequencing controls
+
+define color bar for the next plots
+
+```{r}
+Family_colors <- c("#CBD588", "burlywood1","#DA5724", "#508578", "#CD9BCD", "orange"  , "#AD6F3B",  "#673770","#0c6985","#D14285", "#652926", "#C84248", "lightgreen", "blueviolet", "darkgreen", "#8569D5", "#5E738F","#D1A33D", "#8A7C64", "#599861", "#541f03",  "#b64609", "#f4671a", "#e3a380", "#d22323", "#a19b10", "#eae34e", "#6b6935", "#fff400", "#c5c398", "#5f833c" , "#9ac570", "#75d816", "#c2ff89", "#377200", "#3dc97f", "#08eccf", "#119c8b", "#77b2aa", "#3be3b4", "#237c96", "#21b2dd", "#6abed6", "#a5daea", "#0c6985", "#0c1485", "#404cf6", "#6c72c3", "#9ea2d6", "#9767c9", "#501094", "#b11dc3", "#e47ff0", "#e51bbe", "#f01c7c", "#ec84b3", "#f60838","burlywood1", "peachpuff4", "grey87", "bisque", "gold", "lightgreen", "forestgreen")
+```
+
+__Bacteria__
+```{r}
+negs <- subset_samples(dataset.16S.ordi1, Phase == "neg")
+  
+pos <- subset_samples(dataset.16S.ordi1, Phase == "pos")
+  
+Bacteria_Genus.pos <- pos %>%               
+  tax_glom(taxrank = "Genus") %>%                     
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                        
+  arrange(Genus)
+
+Bacteria_Genus.pos$Genus<-as.character(Bacteria_Genus.pos$Genus)
+Bacteria_Genus.pos$Genus[Bacteria_Genus.pos$Abundance<0.01]<-"Others"
+Bacteria_Genus.pos$Class<-as.character(Bacteria_Genus.pos$Class)
+Bacteria_Genus.pos$Class[Bacteria_Genus.pos$Abundance<0.01]<-"Others"
+
+Bacteria_Genus.neg <- negs %>%               
+  tax_glom(taxrank = "Genus") %>%                      
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                         
+  arrange(Genus)
+
+Bacteria_Genus.neg$Genus<-as.character(Bacteria_Genus.neg$Genus)
+Bacteria_Genus.neg$Genus[Bacteria_Genus.neg$Abundance<0.02]<-"Others"
+Bacteria_Genus.neg$Class<-as.character(Bacteria_Genus.neg$Class)
+Bacteria_Genus.neg$Class[Bacteria_Genus.neg$Abundance<0.02]<-"Others"
+```
+
+positive controls prae decontam
+
+```{r}
+Bacteria_Genus.pos_plot <-ggplot(Bacteria_Genus.pos, aes(x = Sample, y = Abundance, fill = Genus)) + 
+  geom_bar(stat = "identity", position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Genus") 
+
+g1<-Bacteria_Genus.pos_plot +
+  theme(plot.title = element_text(size = 20, face = "bold")) + 
+  theme(text = element_text(size=20, face = "bold"))+                          
+  theme(axis.text.x=element_text(size = rel(0.5)))+
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x=" Sample", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+
+Bacteria_Genus.pos_plot2 <-ggplot(Bacteria_Genus.pos, aes(x = Phase, y = Abundance, fill = Genus)) + 
+  geom_bar(stat = "identity", position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Genus")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+```
+
+negative controls prae decontam
+
+```{r}
+Bacteria_Genus.neg_plot <-ggplot(Bacteria_Genus.neg, aes(x = Sample, y = Abundance, fill = Genus)) + 
+  geom_bar(stat = "identity", position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Genus") 
+
+g2<-Bacteria_Genus.neg_plot +
+  theme(plot.title = element_text(size = 20, face = "bold")) + 
+  theme(text = element_text(size=20, face = "bold"))+                          
+  theme(axis.text.x=element_text(size = rel(0.5)))+
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x=" Sample", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+
+Bacteria_Genus.neg_plot2 <-ggplot(Bacteria_Genus.neg, aes(x = Phase, y = Abundance, fill = Genus)) + 
+  geom_bar(stat = "identity", position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Genus")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+```
+
+__Fungi__
+```{r}
+mock <- subset_samples(dataset.LSU.ordi, Sample == "mock1" | Sample == "mock2" | Sample == "mock12")
+std <- subset_samples(dataset.LSU.ordi, Sample == "standard1" | Sample == "standard2" | Sample == "standard3" | Sample == "standard4")
+  
+negs <- subset_samples(dataset.LSU.ordi, Phase == "neg")
+  
+Fungi_Species.mock <- mock %>%               
+  tax_glom(taxrank = "Species") %>%                     
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                        
+  arrange(Species)
+
+Fungi_Species.mock$Species<-as.character(Fungi_Species.mock$Species)
+Fungi_Species.mock$Species[Fungi_Species.mock$Abundance<0.01]<-"Others < 1%"
+Fungi_Species.mock$Class<-as.character(Fungi_Species.mock$Class)
+Fungi_Species.mock$Class[Fungi_Species.mock$Abundance<0.01]<-"Others"
+
+Fungi_Species.std <- std %>%               
+  tax_glom(taxrank = "Species") %>%                     
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                        
+  arrange(Species)
+
+Fungi_Species.std$Species<-as.character(Fungi_Species.std$Species)
+Fungi_Species.std$Species[Fungi_Species.std$Abundance<0.01]<-"Others < 1%"
+Fungi_Species.std$Class<-as.character(Fungi_Species.std$Class)
+Fungi_Species.std$Class[Fungi_Species.std$Abundance<0.01]<-"Others"
+
+Fungi_Species.neg <- negs %>%               
+  tax_glom(taxrank = "Species") %>%                      
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                         
+  arrange(Species)
+
+Fungi_Species.neg$Species<-as.character(Fungi_Species.neg$Species)
+Fungi_Species.neg$Species[Fungi_Species.neg$Abundance<0.01]<-"Others"
+Fungi_Species.neg$Class<-as.character(Fungi_Species.neg$Class)
+Fungi_Species.neg$Class[Fungi_Species.neg$Abundance<0.01]<-"Others"
+```
+
+positive controls prae decontam
+
+```{r}
+Fungi_Species.mock_plot <-ggplot(Fungi_Species.mock, aes(x = Sample, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Species") 
+
+g1<-Fungi_Species.mock_plot +
+  theme(plot.title = element_text(size = 20, face = "bold")) + 
+  theme(text = element_text(size=20, face = "bold"))+                          
+  theme(axis.text.x=element_text(size = rel(0.5)))+
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x=" Sample", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+
+Fungi_Species.mock_plot2 <-ggplot(Fungi_Species.mock, aes(x = Phase, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Species")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+```
+
+Zotu6: Raffaelea canadensis strain CBS168.66 28S ribosomal RNA gene, partial sequence 	Raffaelea canadensis 	503 	503 	100% 	4e-138 	98.59% 	540 	EU984299.1
+
+Zotu9: Graphium sp. 1 RJ-2013 strain KFL15FRJTD 5.8S ribosomal RNA gene, partial sequence; internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence 	Graphium sp. 1 RJ-2013 	518 	518 	100% 	1e-142 	100.00% 	908 	MH283164.1
+
+Zotu13: Raffaelea canadensis strain CBS168.66 28S ribosomal RNA gene, partial sequence 	Raffaelea canadensis 	NA 	45347 	486 	486 	100% 	4e-133 	97.54% 	540 	EU984299.1
+
+Zotu14: Raffaelea canadensis strain CBS168.66 28S ribosomal RNA gene, partial sequence 	Raffaelea canadensis 	455 	455 	100% 	1e-123 	95.77% 	540 	EU984299.1
+
+Zotu15: Chaetomium globosum strain CGMCC 3.12913 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence 	Chaetomium globosum 	NA 	38033 	455 	455 	100% 	1e-123 	96.70% 	1141 	JN209883.1
+
+Zotu16: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	NA 	490887 	470 	470 	100% 	4e-128 	96.80% 	782 	MG673976.1
+
+Zotu17: Raffaelea canadensis strain CBS168.66 28S ribosomal RNA gene, partial sequence 	Raffaelea canadensis 	492 	492 	100% 	9e-135 	97.89% 	540 	EU984299.1
+
+Zotu18: Chaetomium globosum strain CGMCC 3.12913 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence 	Chaetomium globosum 	444 	444 	100% 	2e-120 	95.97% 	1141 	JN209883.1
+
+Zotu19: Raffaelea canadensis strain CBS168.66 28S ribosomal RNA gene, partial sequence 	Raffaelea canadensis 	NA 	45347 	492 	492 	100% 	9e-135 	97.89% 	540 	EU984299.1
+
+Zotu20: Ophiostomataceae spp.
+
+Zotu21: Chaetomium globosum strain CGMCC 3.12913 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence 	Chaetomium globosum 	NA 	38033 	438 	438 	100% 	1e-118 	95.60% 	1141 	JN209883.1
+
+Zotu23: Fantasmomyces hyalinus CMW 42166 28S rRNA gene, partial sequence; from TYPE material 	Fantasmomyces hyalinus 	NA 	1925498 	396 	396 	96% 	7e-106 	93.04% 	812 	NG_059682.1
+
+Zotu25: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	NA 	490887 	486 	486 	100% 	4e-133 	97.86% 	782 	MG673976.1
+
+Zotu26: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	NA 	490887 	453 	453 	100% 	4e-123 	95.73% 	782 	MG673976.1
+
+Zotu27: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	NA 	490887 	464 	464 	100% 	2e-126 	96.44% 	782 	MG673976.1
+
+Zotu31: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	NA 	490887 	475 	475 	100% 	9e-130 	97.16% 	782 	MG673976.1
+
+Zotu32: Phaeoacremonium sp. strain CML 139 5.8S ribosomal RNA gene, partial sequence; internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence 	Phaeoacremonium sp. 	NA 	1769363 	505 	505 	100% 	1e-138 	100.00% 	658 	KY486755.1
+
+Zotu33: Chaetomium graminiforme CBS 506.84 28S rRNA gene, partial sequence; from TYPE material 	Chaetomium graminiforme 	NA 	1854481 	435 	435 	100% 	2e-117 	95.02% 	896 	NG_067425.1
+
+Zotu34: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	424 	424 	100% 	3e-114 	94.31% 	782 	MG673976.1
+
+Zotu35: Raffaelea aff. canadensis C2711 26S ribosomal RNA gene, partial sequence 	Raffaelea aff. canadensis C2711 	NA 	1010597 	472 	472 	100% 	1e-128 	96.81% 	549 	HQ688665.1
+
+Zotu36: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	NA 	490887 	486 	486 	100% 	4e-133 	97.86% 	782 	MG673976.1
+
+Zotu37: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	442 	442 	100% 	9e-120 	95.02% 	782 	MG673976.1
+
+Zotu38: Raffaelea canadensis strain CBS168.66 28S ribosomal RNA gene, partial sequence 	Raffaelea canadensis 	NA 	45347 	438 	438 	100% 	1e-118 	94.72% 	540 	EU984299.1
+
+Zotu40: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	481 	481 	100% 	2e-131 	97.51% 	782 	MG673976.1
+
+Zotu42: Phaeoacremonium scolyti 28S rRNA gene, partial sequence; from TYPE material 	Phaeoacremonium scolyti 	NA 	268847 	505 	505 	100% 	1e-138 	100.00% 	893 	NG_058137.1
+
+Zotu43: Raffaelea canadensis strain CBS168.66 28S ribosomal RNA gene, partial sequence 	Raffaelea canadensis 	NA 	45347 	449 	449 	100% 	6e-122 	95.42% 	540 	EU984299.1
+
+Zotu44: Parastagonospora sp. IDG-2019a large subunit ribosomal RNA gene, partial sequence 	Parastagonospora elymi 	NA 	2584525 	514 	514 	100% 	2e-141 	99.64% 	884 	MN002870.1 (Phaeosphaeriaceae)
+
+Zotu45: Raffaelea aff. canadensis C2711 26S ribosomal RNA gene, partial sequence 	Raffaelea aff. canadensis C2711 	460 	460 	100% 	3e-125 	96.10% 	549 	HQ688665.1
+
+Zotu46: Chaetomiaceae spp. (LR584033.1)
+
+Zotu47: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	NA 	490887 	464 	464 	100% 	2e-126 	96.44% 	782 	MG673976.1
+
+Zotu48: Chaetomium megalocarpum isolate HMUABO 823108 28S ribosomal RNA gene, partial sequence 	Chaetomium megalocarpum 	NA 	1036259 	433 	433 	100% 	5e-117 	95.24% 	847 	KC425281.2
+
+Zotu49: Graphium sp. 1 RJ-2013 strain KFL15FRJTD 5.8S ribosomal RNA gene, partial sequence; internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence 	Graphium sp. 1 RJ-2013 	NA 	2494231 	496 	496 	100% 	7e-136 	98.57% 	908 	MH283164.1
+
+Zotu51: not identifyable
+
+Zotu52: Raffaelea canadensis strain CBS168.66 28S ribosomal RNA gene, partial sequence 	Raffaelea canadensis 	444 	444 	100% 	3e-120 	95.07% 	540 	EU984299.1
+
+Zotu72: Chaetomium globosum CBS 160.62 28S rRNA gene, partial sequence; from TYPE material 	Chaetomium globosum 	NA 	38033 	460 	460 	100% 	2e-125 	97.07% 	893 	NG_069699.1
+
+Zotu262: Sporothrix schenckii strain CBS 130103 large subunit ribosomal RNA gene, partial sequence 	Sporothrix schenckii 	NA 	29908 	442 	442 	100% 	9e-120 	95.64% 	905 	MH877070.1
+
+```{r}
+Fungi_Species.std_plot <-ggplot(Fungi_Species.std, aes(x = Sample, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Species") 
+
+g2<-Fungi_Species.std_plot +
+  theme(plot.title = element_text(size = 20, face = "bold")) + 
+  theme(text = element_text(size=20, face = "bold"))+                          
+  theme(axis.text.x=element_text(size = rel(0.5)))+
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x=" Sample", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+
+Fungi_Species.std_plot2 <-ggplot(Fungi_Species.std, aes(x = Phase, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Species")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+```
+
+negative controls prae decontam
+
+```{r}
+Fungi_Species.neg_plot <-ggplot(Fungi_Species.neg, aes(x = Sample, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Species") 
+
+g3<-Fungi_Species.neg_plot +
+  theme(plot.title = element_text(size = 20, face = "bold")) + 
+  theme(text = element_text(size=20, face = "bold"))+                          
+  theme(axis.text.x=element_text(size = rel(0.5)))+
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x=" Sample", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+
+Fungi_Species.neg_plot2 <-ggplot(Fungi_Species.neg, aes(x = Phase, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Species")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+```
+
+
+## run decontam to filter contaminating taxa
+
+__Bacteria__
+```{r}
+library(decontam)
+df <- as.data.frame(sample_data(dataset.16S.ordi1)) # Put sample_data into a ggplot-friendly data.frame
+df$LibrarySize <- sample_sums(dataset.16S.ordi1)
+df <- df[order(df$LibrarySize),]
+df$Index <- seq(nrow(df))
+ggplot(data=df, aes(x=Index, y=LibrarySize, color=Sample_or_Control)) + geom_point()
+sample_data(dataset.16S.ordi1)$is.neg <- sample_data(dataset.16S.ordi1)$Sample_or_Control == "Control Sample"
+contamdf.prev <- isContaminant(dataset.16S.ordi1, method="prevalence", neg="is.neg")
+table(contamdf.prev$contaminant) #FALSE 542, TRUE 430
+head(which(contamdf.prev$contaminant))
+
+ps.pa <- transform_sample_counts(dataset.16S.ordi1, function(abund) 1*(abund>0))
+ps.pa.neg <- prune_samples(sample_data(ps.pa)$Sample_or_Control == "Control Sample", ps.pa)
+ps.pa.pos <- prune_samples(sample_data(ps.pa)$Sample_or_Control == "True Sample", ps.pa)
+```
+
+Make data.frame of prevalence in positive and negative samples
+
+```{r}
+df.pa <- data.frame(pa.pos=taxa_sums(ps.pa.pos), pa.neg=taxa_sums(ps.pa.neg),contaminant=contamdf.prev$contaminant)
+ggplot(data=df.pa, aes(x=pa.neg, y=pa.pos, color=contaminant)) + geom_point() + xlab("Prevalence (Negative Controls)") + ylab("Prevalence (True Samples)")
+ps.noncontam_dataset.16S.ordi1 <- prune_taxa(!contamdf.prev$contaminant, dataset.16S.ordi1)
+ps.noncontam_dataset.16S.ordi1 
+smin <- min(sample_sums(ps.noncontam_dataset.16S.ordi1))
+smean <- mean(sample_sums(ps.noncontam_dataset.16S.ordi1))
+smax <- max(sample_sums(ps.noncontam_dataset.16S.ordi1))
+cat("The minimum sample read count is:",smin) 
+cat("The average sample read count is:",smean)
+cat("The maximum sample read count is:",smax) 
+```
+
+dat.16S.zOTU1
+
+```{r}
+sample_data(dat.16S.zOTU1)$is.neg <- sample_data(dat.16S.zOTU1)$Sample_or_Control == "Control Sample"
+contamdf.prev2 <- isContaminant(dat.16S.zOTU1, method="prevalence", neg="is.neg")
+table(contamdf.prev2$contaminant)
+head(which(contamdf.prev2$contaminant))
+ps.noncontam_data.16S.zOTU1 <- prune_taxa(!contamdf.prev2$contaminant, dat.16S.zOTU1)
+```
+
+__Fungi__
+```{r}
+df <- as.data.frame(sample_data(dataset.LSU.ordi)) # Put sample_data into a ggplot-friendly data.frame
+df$LibrarySize <- sample_sums(dataset.LSU.ordi)
+df <- df[order(df$LibrarySize),]
+df$Index <- seq(nrow(df))
+ggplot(data=df, aes(x=Index, y=LibrarySize, color=Sample_or_Control)) + geom_point()
+sample_data(dataset.LSU.ordi)$is.neg <- sample_data(dataset.LSU.ordi)$Sample_or_Control == "Control Sample"
+contamdf.prev <- isContaminant(dataset.LSU.ordi, method="prevalence", neg="is.neg")
+table(contamdf.prev$contaminant) 
+head(which(contamdf.prev$contaminant))
+
+ps.pa <- transform_sample_counts(dataset.LSU.ordi, function(abund) 1*(abund>0))
+ps.pa.neg <- prune_samples(sample_data(ps.pa)$Sample_or_Control == "Control Sample", ps.pa)
+ps.pa.pos <- prune_samples(sample_data(ps.pa)$Sample_or_Control == "True Sample", ps.pa)
+```
+
+Make data.frame of prevalence in positive and negative samples
+```{r}
+df.pa <- data.frame(pa.pos=taxa_sums(ps.pa.pos), pa.neg=taxa_sums(ps.pa.neg),contaminant=contamdf.prev$contaminant)
+ggplot(data=df.pa, aes(x=pa.neg, y=pa.pos, color=contaminant)) + geom_point() + xlab("Prevalence (Negative Controls)") + ylab("Prevalence (True Samples)")
+ps.noncontam_dataset.LSU.ordi <- prune_taxa(!contamdf.prev$contaminant, dataset.LSU.ordi)
+ps.noncontam_dataset.LSU.ordi
+smin <- min(sample_sums(ps.noncontam_dataset.LSU.ordi))
+smean <- mean(sample_sums(ps.noncontam_dataset.LSU.ordi))
+smax <- max(sample_sums(ps.noncontam_dataset.LSU.ordi))
+cat("The minimum sample read count is:",smin) 
+cat("The average sample read count is:",smean)
+cat("The maximum sample read count is:",smax)
+```
+
+zOTU dataset
+```{r}
+sample_data(data.LSU.zOTU)$is.neg <- sample_data(data.LSU.zOTU)$Sample_or_Control == "Control Sample"
+contamdf.prev2 <- isContaminant(data.LSU.zOTU, method="prevalence", neg="is.neg")
+table(contamdf.prev2$contaminant) 
+head(which(contamdf.prev2$contaminant))
+ps.noncontam_data.LSU.zOTU <- prune_taxa(!contamdf.prev2$contaminant, data.LSU.zOTU)
+```
+
+### create a list of all excluded contaminants
+
+```{r}
+contaminants <- subset(contamdf.prev, contaminant == "TRUE")
+#write.table(contaminants, file = "contaminants_excluded_bac.txt", sep = "\t", row.names = T)
+```
+
+## check and plot controls again
+
+__Bacteria__
+```{r}
+negs2 <- subset_samples(ps.noncontam_dataset.16S.ordi1, Phase == "neg")
+negs2 <- prune_taxa(taxa_sums(negs2) > 0, negs2)
+  
+pos2 <- subset_samples(ps.noncontam_dataset.16S.ordi1, Phase == "pos")
+pos2 <- prune_taxa(taxa_sums(pos2) > 0, pos2)
+  
+Bacteria_Genus.pos2 <- pos2 %>%               
+  tax_glom(taxrank = "Genus") %>%                     
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                        
+  arrange(Genus)
+
+Bacteria_Genus.pos2$Genus<-as.character(Bacteria_Genus.pos2$Genus)
+Bacteria_Genus.pos2$Genus[Bacteria_Genus.pos2$Abundance<0.01]<-"Others < 1%"
+Bacteria_Genus.pos2$Class<-as.character(Bacteria_Genus.pos2$Class)
+Bacteria_Genus.pos2$Class[Bacteria_Genus.pos2$Abundance<0.01]<-"Others"
+
+Bacteria_Genus.neg2 <- negs2 %>%               
+  tax_glom(taxrank = "Genus") %>%                      
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                         
+  arrange(Genus)
+
+Bacteria_Genus.neg2$Genus<-as.character(Bacteria_Genus.neg2$Genus)
+Bacteria_Genus.neg2$Genus[Bacteria_Genus.neg2$Abundance<0.03]<-"Others"
+Bacteria_Genus.neg2$Class<-as.character(Bacteria_Genus.neg2$Class)
+Bacteria_Genus.neg2$Class[Bacteria_Genus.neg2$Abundance<0.03]<-"Others"
+```
+
+positive controls post decontam
+
+```{r}
+Bacteria_Genus.pos2_plot <-ggplot(Bacteria_Genus.pos2, aes(x = Sample, y = Abundance, fill = Genus)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Genus") 
+
+g3<-Bacteria_Genus.pos2_plot +
+  theme(plot.title = element_text(size = 20, face = "bold")) + 
+  theme(text = element_text(size=20, face = "bold"))+                          
+  theme(axis.text.x=element_text(size = rel(0.5)))+
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x=" Sample", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+
+Bacteria_Genus.pos2_plot2 <-ggplot(Bacteria_Genus.pos2, aes(x = Phase, y = Abundance, fill = Genus)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Genus")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+```
+
+negative controls post decontam
+
+```{r}
+Bacteria_Genus.neg2_plot <-ggplot(Bacteria_Genus.neg2, aes(x = Sample, y = Abundance, fill = Genus)) + 
+  geom_bar(stat = "identity", position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Genus") 
+
+g4<-Bacteria_Genus.neg2_plot +
+  theme(plot.title = element_text(size = 20, face = "bold")) + 
+  theme(text = element_text(size=20, face = "bold"))+                          
+  theme(axis.text.x=element_text(size = rel(0.5)))+
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x=" Sample", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+
+Bacteria_Genus.neg2_plot2 <-ggplot(Bacteria_Genus.neg2, aes(x = Phase, y = Abundance, fill = Genus)) + 
+  geom_bar(stat = "identity", position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Genus")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+```
+
+
+__Fungi__
+```{r}
+mock2 <- subset_samples(ps.noncontam_dataset.LSU.ordi, Sample == "mock1" | Sample == "mock2" | Sample == "mock12")
+std2 <- subset_samples(ps.noncontam_dataset.LSU.ordi, Sample == "standard1" | Sample == "standard2" | Sample == "standard3" | Sample == "standard4")
+  
+negs2 <- subset_samples(ps.noncontam_dataset.LSU.ordi, Phase == "neg")
+  
+Fungi_Species.mock2 <- mock2 %>%               
+  tax_glom(taxrank = "Species") %>%                     
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                        
+  arrange(Species)
+
+Fungi_Species.mock2$Species<-as.character(Fungi_Species.mock2$Species)
+Fungi_Species.mock2$Species[Fungi_Species.mock2$Abundance<0.01]<-"Others < 1%"
+Fungi_Species.mock2$Class<-as.character(Fungi_Species.mock2$Class)
+Fungi_Species.mock2$Class[Fungi_Species.mock2$Abundance<0.01]<-"Others"
+
+Fungi_Species.std2 <- std2 %>%               
+  tax_glom(taxrank = "Species") %>%                     
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                        
+  arrange(Species)
+
+Fungi_Species.std2$Species<-as.character(Fungi_Species.std2$Species)
+Fungi_Species.std2$Species[Fungi_Species.std2$Abundance<0.01]<-"Others < 1%"
+Fungi_Species.std2$Class<-as.character(Fungi_Species.std2$Class)
+Fungi_Species.std2$Class[Fungi_Species.std2$Abundance<0.01]<-"Others"
+
+Fungi_Species.neg2 <- negs2 %>%               
+  tax_glom(taxrank = "Species") %>%                      
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                         
+  arrange(Species)
+
+Fungi_Species.neg2$Species<-as.character(Fungi_Species.neg2$Species)
+Fungi_Species.neg2$Species[Fungi_Species.neg2$Abundance<0.01]<-"Others"
+Fungi_Species.neg2$Class<-as.character(Fungi_Species.neg2$Class)
+Fungi_Species.neg2$Class[Fungi_Species.neg2$Abundance<0.01]<-"Others"
+```
+
+positive controls post decontam
+
+```{r}
+Fungi_Species.mock2_plot <-ggplot(Fungi_Species.mock2, aes(x = Sample, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Species") 
+
+g4<-Fungi_Species.mock2_plot +
+  theme(plot.title = element_text(size = 20, face = "bold")) + 
+  theme(text = element_text(size=20, face = "bold"))+                          
+  theme(axis.text.x=element_text(size = rel(0.5)))+
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x=" Sample", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+
+Fungi_Species.mock2_plot2 <-ggplot(Fungi_Species.mock2, aes(x = Phase, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Species")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+```
+
+Zotu243: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	448 	448 	100% 	2e-121 	95.37% 	782 	MG673976.1 (R. canadensis next in list)
+
+
+standard controls post decontam
+```{r}
+Fungi_Species.std2_plot <-ggplot(Fungi_Species.std2, aes(x = Sample, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Species") 
+
+g5<-Fungi_Species.std2_plot +
+  theme(plot.title = element_text(size = 20, face = "bold")) + 
+  theme(text = element_text(size=20, face = "bold"))+                          
+  theme(axis.text.x=element_text(size = rel(0.5)))+
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x=" Sample", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+
+Fungi_Species.std2_plot2 <-ggplot(Fungi_Species.std2, aes(x = Phase, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Species")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+```
+
+negative controls post decontam
+
+```{r}
+Fungi_Species.neg2_plot <-ggplot(Fungi_Species.neg2, aes(x = Sample, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Species") 
+
+g6<-Fungi_Species.neg2_plot +
+  theme(plot.title = element_text(size = 20, face = "bold")) + 
+  theme(text = element_text(size=20, face = "bold"))+                          
+  theme(axis.text.x=element_text(size = rel(0.5)))+
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x=" Sample", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+
+Fungi_Species.neg2_plot2 <-ggplot(Fungi_Species.neg2, aes(x = Phase, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Species")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.text = element_text(face = "italic"))
+```
+
+
+## exclude negative and positive samples for a look of the ten most abundant ZOTUS in our samples
+
+__Bacteria__
+```{r}
+bac.without.controls <- subset_samples(ps.noncontam_dataset.16S.ordi1, Phase!="neg")
+bwc <- subset_samples(bac.without.controls, Phase!="pos")
+
+#zOTU data
+bwc.zOTU <- subset_samples(ps.noncontam_data.16S.zOTU1, Phase!="neg")
+bwc.zOTU <- subset_samples(bwc.zOTU, Phase!="pos")
+```
+
+get rid of no read taxa in dataset
+```{r}
+bwc <- prune_taxa(taxa_sums(bwc) > 0, bwc)
+bwc.zOTU <- prune_taxa(taxa_sums(bwc.zOTU) > 0, bwc.zOTU)
+```
+
+```{r}
+colSums(otu_table(bwc))
+```
+lost a lot of reads and have to exclude samples before further analysis
+--> exclude samples below 500 reads
+
+```{r}
+sample_data(bwc)$ColSums <- colSums(otu_table(bwc))
+high.reads <- subset_samples(bwc, ColSums>500)
+high.reads <- prune_taxa(taxa_sums(high.reads) > 0, high.reads)
+
+sample_data(bwc.zOTU)$ColSums <- colSums(otu_table(bwc.zOTU))
+high.reads.zOTU <- subset_samples(bwc.zOTU, ColSums>500)
+high.reads.zOTU <- prune_taxa(taxa_sums(high.reads.zOTU) > 0, high.reads.zOTU)
+```
+--> bwc = 150 Samples/195 taxa; high.reads = 112 Samples/177 taxa
+--> lost 38 samples and 18 taxa
+
+__Fungi__
+```{r}
+fun.without.controls <- subset_samples(ps.noncontam_dataset.LSU.ordi, Phase!="pos")
+fwc <- subset_samples(fun.without.controls, Phase!="neg")
+
+fwc.zOTU <- subset_samples(ps.noncontam_data.LSU.zOTU, Phase!="pos")
+fwc.zOTU <- subset_samples(fwc.zOTU, Phase!="neg")
+```
+
+get rid of no read taxa and unimportant metadata in dataset
+```{r}
+fwc <- prune_taxa(taxa_sums(fwc) > 0, fwc)
+colSums(otu_table(fwc))
+
+fwc.zOTU <- prune_taxa(taxa_sums(fwc.zOTU) > 0, fwc.zOTU)
+```
+exclude sample B24-24 only 209 total reads (still very similar to other samples, high R. sulphurea, and some R. canadensis and C. globosum)
+exclude sample A3_39 very contrary to other samples (outlier)
+
+```{r}
+funL.final <- subset_samples(fwc, Sample != "B24-04")
+funL.final <- subset_samples(funL.final, Sample != "A3-39")
+funL.final <- prune_taxa(taxa_sums(funL.final) > 0, funL.final)
+
+zOTU.final <- subset_samples(fwc.zOTU, Sample != "B24-04")
+zOTU.final <- subset_samples(zOTU.final, Sample != "A3-39")
+zOTU.final <- prune_taxa(taxa_sums(zOTU.final) > 0, zOTU.final)
+```
+
+### now have a look at the 30 most abundant ZOTUS in our samples
+
+__Bacteria__
+```{r}
+most.abundant<-subset_samples(high.reads, Phase=="phase1" | Phase=="phase2" | Phase=="phase3")
+```
+
+```{r}
+filtaxa <- names (sort(rowSums(otu_table(most.abundant)) ,decreasing=T))[1:30]
+round(otu_table(high.reads)[filtaxa], digits = 4)
+```
+
+Zotu8: Wolbachia pipientis isolate TuFIVIA19m voucher TuFIVIA19 16S ribosomal RNA gene, partial sequence 	Wolbachia pipientis 	NA 	955 	468 	468 	100% 	1e-127 	100.00% 	809 	MN123175.1
+
+Zotu20: Wolbachia endosymbiont of Aedes albopictus clone CWAAL1 16S ribosomal RNA gene, partial sequence 	Wolbachia endosymbiont of Aedes albopictus 	468 	468 	100% 	1e-127 	100.00% 	444 	MT588740.1
+
+Zotu112: Uncultured Stenotrophomonas sp. partial 16S rRNA gene, isolate OTU378 	uncultured Stenotrophomonas sp. 	398 	398 	99% 	2e-106 	95.22% 	426 	LT857060.1
+
+Zotu230: Uncultured Acinetobacter sp. clone 1a_6601 16S ribosomal RNA gene, partial sequence 	uncultured Acinetobacter sp. 	NA 	165433 	442 	442 	100% 	8e-120 	98.41% 	468 	MG801510.1 (maybe Aeromonas sp.)
+
+Zotu236: Uncultured Klebsiella sp. clone M01598_122_000000000-ADV8A_1_1104_27378_7994 16S ribosomal RNA gene, partial sequence 	uncultured Klebsiella sp. 	390 	390 	100% 	3e-104 	94.47% 	465 	KT301231.1
+
+Zotu470: Uncultured Rahnella sp. clone 1207 16S ribosomal RNA gene, partial sequence 	uncultured Rahnella sp. 	401 	401 	100% 	1e-107 	95.26% 	440 	MN214967.1
+
+Zotu476: Uncultured Rahnella sp. clone 1207 16S ribosomal RNA gene, partial sequence 	uncultured Rahnella sp. 	374 	374 	100% 	3e-99 	93.28% 	440 	MN214967.1
+
+Zotu504: Uncultured Klebsiella sp. clone M01598_122_000000000-ADV8A_1_1104_27378_7994 16S ribosomal RNA gene, partial sequence 	uncultured Klebsiella sp. 	NA 	284011 	418 	418 	100% 	1e-112 	96.44% 	465 	KT301231.1
+
+Zotu529: Serratia or Klebsiella/Raoultella
+
+Zotu591: Uncultured Klebsiella sp. clone M01598_122_000000000-ADV8A_1_1104_27378_7994 16S ribosomal RNA gene, partial sequence 	uncultured Klebsiella sp. 	NA 	284011 	385 	385 	100% 	1e-102 	94.07% 	465 	KT301231.1
+
+__Fungi__
+```{r}
+most.abundant<-subset_samples(funL.final, Phase=="phase1" | Phase=="phase2" | Phase=="phase3")
+#sample_names(most.abundant)
+```
+
+```{r}
+filtaxa <- names (sort(rowSums(otu_table(most.abundant)) ,decreasing=T))[1:80]
+round(otu_table(funL.final)[filtaxa], digits = 4)
+```
+
+Zotu63: unidentifyable
+
+Zotu66: Staphylotrichum brevistipitatum genomic DNA sequence contains 18S rRNA gene, ITS1, 5.8S rRNA gene, ITS2, 28S rRNA gene 	Staphylotrichum brevistipitatum 	433 	433 	100% 	5e-117 	95.24% 	1090 	LT993619.1 --> Chaetomiaceae spp.
+
+Zotu67: Raffaelea canadensis strain CBS168.66 28S ribosomal RNA gene, partial sequence 	Raffaelea canadensis 	475 	475 	100% 	9e-130 	96.83% 	540 	EU984299.1
+
+Zotu68:	Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	448 	448 	100% 	2e-121 	95.37% 	782 	MG673976.1
+
+Zotu69: Raffaelea sp.--> Raffaelea quercina strain PC05.007 large subunit ribosomal RNA gene, partial sequence 	Raffaelea quercina 	464 	464 	100% 	2e-126 	96.13% 	534 	JF909537.1
+
+Zotu70: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	470 	470 	100% 	4e-128 	96.80% 	782 	MG673976.1
+
+Zotu77: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	486 	486 	100% 	4e-133 	97.86% 	782 	MG673976.1
+
+Zotu 78: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	470 	470 	100% 	4e-128 	96.80% 	782 	MG673976.1
+
+Zotu79: Raffaelea aff. canadensis C2711 26S ribosomal RNA gene, partial sequence 	Raffaelea aff. canadensis C2711 	475 	475 	100% 	9e-130 	97.16% 	549 	HQ688665.1
+
+Zotu80: Chaetomiaceae sp. XWW-2019b strain CBS 665.82 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence 	Chaetomiaceae sp. XWW-2019b 	435 	435 	100% 	2e-117 	95.04% 	1078 	MK919299.1
+
+Zotu81: Raffaelea aff. canadensis C2711 26S ribosomal RNA gene, partial sequence 	Raffaelea aff. canadensis C2711 	481 	481 	100% 	2e-131 	97.52% 	549 	HQ688665.1
+
+Zotu84: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	464 	464 	100% 	2e-126 	96.44% 	782 	MG673976.1
+
+Zotu85: Chaetomium sp. isolate HL30PH large subunit ribosomal RNA gene, partial sequence 	Chaetomium sp. 	466 	466 	100% 	5e-127 	97.44% 	552 	KU612424.1
+
+Zotu88: Chaetomium graminiforme CBS 506.84 28S rRNA gene, partial sequence; from TYPE material 	Chaetomium graminiforme 	424 	424 	100% 	3e-114 	94.31% 	896 	NG_067425.1
+
+Zotu98: Raffaelea canadensis strain CBS168.66 28S ribosomal RNA gene, partial sequence 	Raffaelea canadensis 	460 	460 	100% 	3e-125 	96.13% 	540 	EU984299.1
+
+Zotu99: Staphylotrichum brevistipitatum genomic DNA sequence contains 18S rRNA gene, ITS1, 5.8S rRNA gene, ITS2, 28S rRNA gene 	Staphylotrichum brevistipitatum 	444 	444 	100% 	3e-120 	95.97% 	1090 	LT993619.1
+
+Zotu100: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	412 	412 	100% 	7e-111 	93.59% 	782 	MG673976.1
+
+Zotu101: Raffaelea canadensis strain CBS168.66 28S ribosomal RNA gene, partial sequence 	Raffaelea canadensis 	464 	464 	100% 	2e-126 	96.13% 	540 	EU984299.1
+
+Zotu103: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	448 	448 	100% 	2e-121 	95.37% 	782 	MG673976.1
+
+Zotu105: unidentifyable
+
+Zotu110: Raffaelea aff. canadensis C2711 26S ribosomal RNA gene, partial sequence 	Raffaelea aff. canadensis C2711 	486 	486 	100% 	4e-133 	97.87% 	549 	HQ688665.1
+
+Zotu112: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	NA 	490887 	436 	436 	100% 	4e-118 	94.66% 	782 	MG673976.1
+
+Zotu117: Raffaelea canadensis strain CBS168.66 28S ribosomal RNA gene, partial sequence 	Raffaelea canadensis 	448 	448 	100% 	2e-121 	95.07% 	540 	EU984299.1
+
+Zotu125: Chaetomiaceae sp. XWW-2019b strain CBS 665.82 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence 	Chaetomiaceae sp. XWW-2019b 	440 	440 	100% 	3e-119 	95.39% 	1078 	MK919299.1
+
+Zotu150: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	449 	449 	100% 	6e-122 	95.42% 	782 	MG673976.1
+
+Zotu157: Chaetomium globosum gene for large subunit rRNA, partial sequence, strain: IFM 52186 	Chaetomium globosum 	444 	444 	100% 	3e-120 	95.97% 	584 	AB449686.1
+
+Zotu160: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	412 	412 	100% 	7e-111 	93.59% 	782 	MG673976.1
+
+Zotu164: Raffaelea sulphurea isolate LWP371 large subunit ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	484 	484 	98% 	2e-132 	97.86% 	856 	MT556317.1
+
+Zotu183: Raffaelea canadensis strain CBS168.66 28S ribosomal RNA gene, partial sequence 	Raffaelea canadensis 	453 	453 	100% 	4e-123 	95.42% 	540 	EU984299.1
+
+Zotu224: Chaetomium ancistrocladum strain CBS 126784 large subunit ribosomal RNA gene, partial sequence 	Chaetomium ancistrocladum 	416 	416 	100% 	5e-112 	94.14% 	890 	MH875681.1
+
+Zotu257: Raffaelea aff. canadensis C2711 26S ribosomal RNA gene, partial sequence 	Raffaelea aff. canadensis C2711 	494 	494 	100% 	3e-135 	98.23% 	549 	HQ688665.1
+
+Zotu291: Chaetomiaceae sp. XWW-2019b strain CBS 665.82 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence 	Chaetomiaceae sp. XWW-2019b 	440 	440 	100% 	3e-119 	95.39% 	1078 	MK919299.1
+
+Zotu296: Ophiocordyceps sp. ZX-2020a strain YFCC 6443 28S ribosomal RNA gene, partial sequence 	Ophiocordyceps sp. ZX-2020a 	420 	420 	100% 	4e-113 	93.59% 	918 	MT270529.1 --> Hypocreales spp.
+
+
+### have a look at the whole datasets
+
+```{r}
+Bacteria_Genus.all. <- high.reads %>%               
+  tax_glom(taxrank = "Genus") %>%                      
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                         
+  filter(Abundance > 0.05) %>%                        
+  arrange(Genus)
+
+Bacteria_Genus.all.$Phase <- factor(Bacteria_Genus.all.$Phase, levels = c("phase1", "phase2", "phase3"))
+
+Bacteria_Genus_plot <-ggplot(Bacteria_Genus.all., aes(x = Sample, y = Abundance, fill = Genus)) + 
+  geom_bar(stat = "identity", position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Genus") 
+
+Bacteria_Genus_plot +
+  facet_wrap("Phase", scales = "free_x",  drop = TRUE)+
+  theme(plot.title = element_text(size = 16, face = "bold")) + 
+  theme(text = element_text(size=16, face = "bold"))+                         
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+      theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x="Sample", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  theme(axis.text.x=element_text(angle = 90, hjust = 1, size = rel(1)))+
+  theme(legend.text = element_text(face = "italic")) 
+```
+Some samples dominated by Wolbachia --> exclude!!!!
+checked colSums and excluded samples <500 reads
+
+#### exclude *Wolbachia* and low read samples
+
+__Bacteria__
+```{r}
+high.reads.wW <- subset_taxa(high.reads, Genus != "Wolbachia")
+sample_data(high.reads.wW)$ColSums <- colSums(otu_table(high.reads.wW))
+high.reads.wW <- subset_samples(high.reads.wW, ColSums>500)
+high.reads.wW <- prune_taxa(taxa_sums(high.reads.wW) > 0, high.reads.wW)
+
+zOTU.wW <- subset_taxa(high.reads.zOTU, Genus != "Wolbachia")
+sample_data(zOTU.wW)$ColSums <- colSums(otu_table(zOTU.wW))
+zOTU.wW <- subset_samples(zOTU.wW, ColSums>500)
+zOTU.wW <- prune_taxa(taxa_sums(zOTU.wW) > 0, zOTU.wW)
+```
+
+--> 91 samples left from 112 (21 Wolbachia infected samples)
+
+
+plot again
+
+```{r}
+Bacteria_Genus.wW <- high.reads.wW %>%               
+  tax_glom(taxrank = "Genus") %>%                      
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                         
+  arrange(Genus)
+
+Bacteria_Genus.wW$Phase <- factor(Bacteria_Genus.wW$Phase, levels = c("phase1", "phase2", "phase3"))
+Bacteria_Genus.wW$Genus<-as.character(Bacteria_Genus.wW$Genus)
+Bacteria_Genus.wW$Genus[Bacteria_Genus.wW$Abundance<0.05]<-"Others"
+Bacteria_Genus.wW$Class<-as.character(Bacteria_Genus.wW$Class)
+Bacteria_Genus.wW$Class[Bacteria_Genus.wW$Abundance<0.05]<-"Others"
+
+Bacteria_Genus_plot <-ggplot(Bacteria_Genus.wW, aes(x = Sample, y = Abundance, fill = Genus)) + 
+  geom_bar(stat = "identity", position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Genus") 
+
+Bacteria_Genus_plot +
+  facet_wrap("Phase", scales = "free_x",  drop = TRUE)+
+  theme(plot.title = element_text(size = 16, face = "bold")) + 
+  theme(text = element_text(size=16, face = "bold"))+                         
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+      theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x="Sample", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  theme(axis.text.x=element_text(angle = 90, hjust = 1, size = rel(1)))+
+  theme(legend.text = element_text(face = "italic"))
+```
+Samples A3-17 and A3-24 look like just contaminations, maybe was empty like negative controls --> exclude from further analysis
+
+
+__Fungi__
+```{r}
+Fungi_Species.all. <- funL.final %>%               
+  tax_glom(taxrank = "Species") %>%                      
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                         
+  filter(Abundance > 0.03) %>%                        
+  arrange(Species)
+
+Fungi_Species.all.$Phase <- factor(Fungi_Species.all.$Phase, levels = c("phase1", "phase2", "phase3"))
+
+Fungi_Species_plot <-ggplot(Fungi_Species.all., aes(x = Sample, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Family_colors, name = "Species") 
+
+p <- Fungi_Species_plot +
+  facet_wrap("Phase", scales = "free_x",  drop = TRUE)+
+  theme(plot.title = element_text(size = 16, face = "bold")) + 
+  theme(text = element_text(size=16, face = "bold"))+                         
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+      theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x="Sample", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  theme(axis.text.x=element_text(angle = 90, hjust = 1, size = rel(1)))+
+  theme(legend.text = element_text(face = "italic"))
+```
+
+Zotu8: Penicillium glabrum or P. spinolosum
+
+Zotu11: Dialonectria sp. CL-2020a strain BRFM 1591 large subunit ribosomal RNA gene, partial sequence 	Dialonectria sp. CL-2020a 	508 	508 	100% 	9e-140 	100.00% 	882 	MW198210.1
+
+Zotu39: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	NA 	490887 	475 	475 	100% 	9e-130 	97.15% 	782 	MG673976.1
+
+Zotu54: Volutella sp. RHP-2020a strain Delo 02 large subunit ribosomal RNA gene, partial sequence 	Volutella delonicis 	NA 	2717530 	492 	492 	100% 	9e-135 	98.91% 	906 	MT215553.1
+
+Zotu57: Raffaelea canadensis strain CBS168.66 28S ribosomal RNA gene, partial sequence 	Raffaelea canadensis 	455 	455 	100% 	1e-123 	95.77% 	540 	EU984299.1
+
+Zotu58: Gliomastix murorum var. felina strain CBS 128812 large subunit ribosomal RNA gene, partial sequence 	Gliomastix murorum var. felina 	NA 	909254 	501 	501 	100% 	1e-137 	99.64% 	892 	MH876597.1
+
+Zotu59: Raffaelea sulphurea isolate 140 28S ribosomal RNA gene, partial sequence 	Raffaelea sulphurea 	475 	475 	100% 	9e-130 	97.15% 	782 	MG673976.1
+
+
+### final dataset bacteria
+```{r}
+bacL.final <- subset_samples(high.reads.wW, Sample != "A3-17")
+bacL.final <- subset_samples(bacL.final, Sample != "A3-24")
+bacL.final <- prune_taxa(taxa_sums(bacL.final) > 0, bac.final)
+sample_data(bacL.final)$ColSums <- colSums(otu_table(bacL.final))
+
+#zOTU dataset
+zOTU.final <- subset_samples(zOTU.wW, Sample != "A3-17")
+zOTU.final <- subset_samples(zOTU.final, Sample != "A3-24")
+zOTU.final <- prune_taxa(taxa_sums(zOTU.final) > 0, zOTU.final)
+sample_data(zOTU.final)$ColSums <- colSums(otu_table(zOTU.final))
+```
+--> 155 taxa in 89 samples
+
+
+# __Analysis of bacterial community__
+
+## Rarefaction curves 
+
+1. all samples with controls
+2. all samples with controls decontaminated
+3. all samples without controls
+
+
+Rarefaction is used to simulate even number of reads per sample.
+
+```{r}
+rarecurve(t(otu_table(dataset.16S.ordi1)), cex=0.6, step = 20, main = "Rarefaction curve of all samples (incl. controls)")
+rarecurve(t(otu_table(ps.noncontam_dataset.16S.ordi1)), cex=0.6, step = 20, main = "Rarefaction curve of all samples (incl. controls) after decontamination")
+rarecurve(t(otu_table(bwc)), cex=0.6, step = 20, main = "Rarefaction curve of samples (excl. controls)")
+rarecurve(t(otu_table(high.reads)), cex=0.6, step = 20, main = "Rarefaction curve of samples >500 reads (excl. controls)")
+rarecurve(t(otu_table(high.reads.wW)), cex=0.6, step = 20, main = "Rarefaction curve of samples >500 reads (excl. controls and Wolbachia)")
+rarecurve(t(otu_table(bacL.final)), cex=0.6, step = 20, main = "Rarefaction curve of final dataset")
+```
+
+
+rarefy to 2500 reads
+```{r}
+ps2 <- bacL.final
+set.seed(1)
+ps2 <- rarefy_even_depth(ps2,sample.size=2500, replace=FALSE, rngseed = 1)
+rarecurve(t(otu_table(ps2)), cex=0.6, step = 20)
+bacR2 <- ps2
+```
+--> 60  OTUs were removed because they are no longer present in any sample after random subsampling
+
+
+## __Alpha diversity__
+
+### Diversity plots
+
+#### Prepare data for vizualisation
+```{r}
+tab <- microbiome::alpha(bacR2, index = c("diversity_shannon","observed"))
+```
+
+Now, get the metadata (sample_data) from the phyloseq object
+
+```{r}
+ps1.meta <- meta(bacR2)
+```
+
+Add the diversity table to metadata
+
+```{r}
+ps1.meta$Shannon <- tab$diversity_shannon 
+ps1.meta$Observed <- tab$observed
+```
+
+create a list of pairwise comparisons
+```{r}
+phase <- unique(ps1.meta$Phase) # get the variables
+```
+
+make a pairwise list that we want to compare.
+
+```{r}
+phase.pairs <- combn(seq_along(phase), 2, simplify = FALSE, FUN = function(i)phase[i])
+```
+
+#### plot
+
+ps2 (rarefied, 2500 reads)
+```{r}
+ps1.meta$Phase <- as.factor(ps1.meta$Phase)
+ps1.meta$Phase <- factor(ps1.meta$Phase, levels = c("phase1", "phase2", "phase3"), labels = c("eggs & larvae", "larvae, pupae & adults", "adults"))
+ps1.meta$Dispersal <- factor(ps1.meta$Dispersal, levels = c("early", "middle", "late"))
+```
+
+__Shannon diversity index__
+
+Phase
+```{r}
+p1 <- ggplot(ps1.meta, aes(x = Phase, y = Shannon))
+
+p1 <- p1+ geom_boxplot(colour = "brown4", size = 0.9, alpha = 0.2, width = 0.5)+
+    geom_jitter(position = position_jitter(w=0.1))+
+    theme_bw()+
+    labs(x = "Developmental Stage", y = "Shannon's Diversity Index")+
+  theme(axis.title = element_text(size = 18, face = "bold"), axis.text = element_text(size = 16))
+```
+
+add statistical output to plot
+```{r}
+shan_bacLP <- p1 + 
+        annotate("text", label = c("a", "a", "a"), y = 1.3, x = c("eggs & larvae", "larvae, pupae & adults", "adults"), size = 7)+
+  ylim(NA, 1.3)
+```
+
+__Observed richness__
+
+Phase
+```{r}
+p4 <- ggplot(ps1.meta, aes(x = Phase, y = Observed))
+
+p4 <- p4+ geom_boxplot(colour = "brown4", size = 0.9, alpha = 0.2, width = 0.5)+
+    geom_jitter(position = position_jitter(w=0.1))+
+    theme_bw()+
+    labs(x = "Developmental Phase", y = "Observed richness")+
+  theme(axis.title = element_text(size = 18, face = "bold"), axis.text = element_text(size = 16))
+```
+
+add statistical output to plot
+```{r}
+ob_bacLP <- p4 + 
+        annotate("text", label = c("a", "b", "a"), y = 27, x = c("eggs & larvae", "larvae, pupae & adults", "adults"), size = 7)+
+  ylim(NA, 27)
+
+plot_grid(shan_bacLP,ob_bacLP)
+```
+
+
+### Statistics
+
+Testing differences in alpha diversity
+
+create dataframe for analysis
+```{r}
+d <- meta(bacR2)
+shannon <- diversity(bacR2, "shannon")
+d$shannon <- shannon$shannon
+observed <- alpha(bacR2, index = "observed", zeroes = TRUE)
+d$observed <- observed$observed
+```
+
+__Shannon diversity__
+
+```{r} 
+d$Phase <- as.factor(d$Phase)
+d <- within(d, Phase <- relevel(Phase, ref = "phase1"))
+d$Phase <- factor(d$Phase, levels = c("phase1", "phase2", "phase3"), labels = c("Phase1", "Phase2", "Phase3"))
+d$Development <- as.factor(d$Development)
+d$Dispersal <- as.factor(d$Dispersal)
+d$Lineage <- as.factor(d$Lineage)
+```
+
+find the power transformation that brings the alpha diversity effects closest to a normal distribution
+
+```{r}
+d$shannonTuk <- rcompanion::transformTukey(d$shannon) 
+
+m <- lme(shannon ~ Phase * Dispersal + Phase * Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=d)
+Anova(m1)
+m1 <- lme(shannonTuk ~ Phase * Dispersal + Phase * Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=d)
+m2 <- gls(shannonTuk ~ Phase * Dispersal + Phase * Development,control = lmeControl(opt="optim"),data=d)
+AIC(m1, m11) #m1 has lower AIC --> include rf
+
+
+MODEL<-m1
+par(mfrow=c(2,2))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="response"),lpars=list(col="red",lty=1))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+qqnorm(residuals(MODEL,type="response"));qqline(residuals(MODEL,type="response"))
+qqnorm(unlist(ranef(MODEL))); qqline(unlist(ranef(MODEL)))
+par(mfrow=c(1,1))
+scatter.smooth(d$shannon,residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+boxplot(residuals(MODEL,type="normalized")~d$Phase * d$Development,drop=TRUE)
+boxplot(residuals(MODEL,type="normalized")~d$Phase,drop=TRUE)
+
+# Variance differs between Phase and possibly Development
+vf1<-varIdent(form=~1|Phase)
+vf2<-varIdent(form=~1|Development)
+vf3<-varIdent(form=~1|Phase*Development)
+vf4<-varIdent(form=~1|Dispersal)
+vf5<-varIdent(form=~1|Phase*Dispersal)
+vf6<-varConstPower(form=~Phase)
+
+m1.1<-lme(shannonTuk~Phase * Dispersal + Phase * Development,random=~1|Lineage,weights=vf1,data=d,control = lmeControl(opt="optim"), method = "REML")
+m1.2<-lme(shannonTuk~Phase * Dispersal + Phase * Development,random=~1|Lineage,weights=vf2,control = lmeControl(opt="optim"),data=d)
+m1.3<-lme(shannonTuk~Phase * Dispersal + Phase * Development,random=~1|Lineage,weights=vf3,control = lmeControl(opt="optim"), data=d, method = "REML")
+m1.4<-lme(shannonTuk~Phase * Dispersal + Phase * Development,random=~1|Lineage,control = lmeControl(opt="optim"), weights=vf4,data=d)
+m1.5<-lme(shannon~Phase * Dispersal + Phase * Development,random=~1|Lineage,control = lmeControl(opt="optim"), weights=vf5,data=d) 
+m1.6<-lme(shannonTuk~Phase * Dispersal + Phase * Development,random=~1|Lineage,weights=vf6,data=d) # not meaningful
+
+AIC(m1,m1.1,m1.2,m1.3, m1.4)
+anova(m1,m1.1,m1.2,m1.3, m1.4) #lowest m1.1
+anova(m1.1,m1.3) #p = 0.1795
+compare_performance(m1,m1.1,m1.2,m1.3, m1.4, rank = TRUE) 
+
+Anova(m1.3)
+
+plot(m1, which = c(1), add.smooth = FALSE)
+plot(m1.1, which = c(1), add.smooth = FALSE)
+plot(m1.3, which = c(1), add.smooth = FALSE)
+plot(m1.1e, which = c(1), add.smooth = FALSE)
+
+#coplot of residuals versus Phase, conditional on Development
+E <- resid(m1)
+coplot(E~Phase|Development, data = d)
+
+E1 <- resid(m1.1)
+coplot(E1~Phase|Development, ylab = "ordinary residuals", data = d)
+
+E2 <- resid(m1.1, type = "normalized")
+coplot(E2~Phase|Development, ylab = "Normalised residuals", data = d)
+```
+
+simplify model?
+```{r}
+#without variance structure
+m1a <- lme(shannonTuk ~ Phase * Development + Dispersal,random=~1|Lineage,control = lmeControl(opt="optim"),data=d) 
+m1b <- lme(shannonTuk ~ Phase * Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=d) 
+m1c <- lme(shannonTuk ~ Phase + Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=d) 
+m1d <- lme(shannonTuk ~ Phase,random=~1|Lineage,control = lmeControl(opt="optim"),data=d) 
+AIC(m1, m1a, m1b, m1c, m1d)
+
+#variance structure Phase * Development (not possible to simplyfy?)
+m1.3a<-lme(shannonTuk~Phase + Dispersal + Development,random=~1|Lineage,weights=vf3,data=d) 
+m1.3b<-lme(shannonTuk~Phase + Dispersal,random=~1|Lineage,weights=vf3,data=d) 
+m1.3c<-lme(shannonTuk~Phase,random=~1|Lineage,weights=vf3,data=d)
+m1.3d<-lme(shannonTuk~Phase * Development,random=~1|Lineage,weights=vf3,data=d)
+
+AIC(m1.3, m1.3a, m1.3b, m1.3c, m1.3d)
+compare_performance(m1.3, m1.3a, m1.3b, m1.3c, rank = TRUE)
+
+#variance structure Phase
+m1.1a<-lme(shannonTuk~Phase * Development + Dispersal,random=~1|Lineage,weights=vf1,control = lmeControl(opt="optim"),data=d) 
+m1.1b<-lme(shannonTuk~Phase + Dispersal + Development,random=~1|Lineage,weights=vf1,control = lmeControl(opt="optim"),data=d) 
+m1.1c<-lme(shannonTuk~Phase + Dispersal,random=~1|Lineage,weights=vf1,control = lmeControl(opt="optim"),data=d) 
+m1.1d<-lme(shannonTuk~Phase + Development,random=~1|Lineage,weights=vf1,control = lmeControl(opt="optim"),data=d) 
+m1.1e<-lme(shannonTuk~Phase,random=~1|Lineage,weights=vf1,control = lmeControl(opt="optim"),data=d)
+AIC(m1.1, m1.1a, m1.1b, m1.1c, m1.1d, m1.1e)
+anova(m1.1, m1.1a, m1.1b, m1.1c, m1.1d, m1.1e)
+
+AIC(m1d, m1.1e)
+anova(m1d, m1.1e) 
+```
+
+__Observed values__ 
+
+```{r}
+hist(d$observed)
+descdist(d$observed, boot = 1000)
+fit.norm <- fitdist(d$observed, distr = "norm", method = "mme")
+plot(fit.norm)
+fit.gamma <- fitdist(d$observed, distr = "gamma", method = "mme")
+plot(fit.gamma)
+```
+
+find the power transformation that brings the alpha diversity effects closest to a normal distribution
+```{r}
+d$observedTuk <- rcompanion::transformTukey(d$observed) # lambda = 0.375
+
+m <- lme(observed ~ Phase * Dispersal + Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=d)
+Anova(m)
+m1 <- lme(observedTuk ~ Phase * Dispersal + Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=d)
+m2 <- gls(observedTuk ~ Phase * Dispersal + Phase * Development,control = lmeControl(opt="optim"),data=d)
+AIC(m, m1, m2) #m1 has lower AIC --> include rf
+
+
+MODEL<-m1
+par(mfrow=c(2,2))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="response"),lpars=list(col="red",lty=1))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+qqnorm(residuals(MODEL,type="response"));qqline(residuals(MODEL,type="response"))
+qqnorm(unlist(ranef(MODEL))); qqline(unlist(ranef(MODEL)))
+par(mfrow=c(1,1))
+scatter.smooth(d$shannon,residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+boxplot(residuals(MODEL,type="normalized")~d$Phase * d$Development,drop=TRUE)
+boxplot(residuals(MODEL,type="normalized")~d$Phase,drop=TRUE)
+
+# Variance differs between Phase and possibly Development
+vf1<-varIdent(form=~1|Phase)
+vf2<-varIdent(form=~1|Development)
+vf4<-varIdent(form=~1|Dispersal)
+vf5<-varIdent(form=~1|Phase*Dispersal)
+
+m.1<-lme(observed~Phase * Dispersal + Development,random=~1|Lineage,weights=vf1,data=d,control = lmeControl(opt="optim"), method = "REML")
+m.2<-lme(observed~Phase * Dispersal + Development,random=~1|Lineage,weights=vf2,control = lmeControl(opt="optim"),data=d)
+m.3<-lme(observed~Phase * Dispersal + Development,random=~1|Lineage,control = lmeControl(opt="optim"), weights=vf4,data=d)
+m.4<-lme(observed~Phase * Dispersal + Development,random=~1|Lineage,control = lmeControl(opt="optim"), weights=vf5,data=d) 
+
+AIC(m,m.1,m.2,m.3, m.4)
+anova(m,m.1,m.2,m.3, m.4) #lowest m.4
+anova(m.1,m.4) #p = <.0001
+compare_performance(m,m.1,m.2,m.3, m.4, rank = TRUE) #best m.3
+
+#with transformed data
+m1.1<-lme(observedTuk~Phase * Dispersal + Development,random=~1|Lineage,weights=vf1,data=d,control = lmeControl(opt="optim"), method = "REML")
+m1.2<-lme(observedTuk~Phase * Dispersal + Development,random=~1|Lineage,weights=vf2,control = lmeControl(opt="optim"),data=d)
+m1.3<-lme(observedTuk~Phase * Dispersal + Development,random=~1|Lineage,control = lmeControl(opt="optim"), weights=vf4,data=d)
+m1.4<-lme(observedTuk~Phase * Dispersal + Development,random=~1|Lineage,control = lmeControl(opt="optim"), weights=vf5,data=d) #System ist für den Rechner singulär: reziproke Konditionszahl = 4.3512e-28
+
+AIC(m1,m1.1,m1.2,m1.3, m1.4)
+anova(m1,m1.1,m1.2,m1.3, m1.4) #lowest m1.4
+anova(m1.1,m1.3,m1.4) #p = <.0001
+compare_performance(m1,m1.1,m1.2,m1.3, m1.4, rank = TRUE) #best m1.3
+
+Anova(m1.3)
+
+plot(m, which = c(1), add.smooth = FALSE)
+plot(m1, which = c(1), add.smooth = FALSE)
+plot(m1.1, which = c(1), add.smooth = FALSE)
+plot(m1.4, which = c(1), add.smooth = FALSE)
+
+
+#coplot of residuals versus Phase, conditional on Development
+E <- resid(m1)
+coplot(E~Phase|Dispersal, data = d)
+
+E1 <- resid(m1.3)
+coplot(E1~Phase|Dispersal, ylab = "ordinary residuals", data = d)
+
+E2 <- resid(m1.3, type = "normalized")
+coplot(E2~Phase|Dispersal, ylab = "Normalised residuals", data = d)
+```
+
+Choose transformation if necessary
+```{r}
+par(mfrow=c(2,2));hist(d$observed);hist(sqrt(d$observed));hist(d$observedTuk);par(mfrow=c(1,1))
+m1<-lme(observed~Phase * Dispersal + Development,random = ~1|Lineage,weights = varIdent(form=~1|Dispersal),data=d)
+m2<-lme(sqrt(observed)~Phase * Dispersal + Development,random = ~1|Lineage,weights = varIdent(form=~1|Dispersal),data=d)
+m3<-lme(observedTuk~Phase * Dispersal + Development,random = ~1|Lineage,weights = varIdent(form=~1|Dispersal),data=d)
+AIC(m1, m2, m3)
+
+MODEL<-m3
+par(mfrow=c(2,2))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="response"),lpars=list(col="red",lty=1))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+qqnorm(residuals(MODEL,type="response"));qqline(residuals(MODEL,type="response"))
+qqnorm(unlist(ranef(MODEL))); qqline(unlist(ranef(MODEL)))
+par(mfrow=c(1,1))
+boxplot(residuals(MODEL,type="normalized")~d$Phase * d$Dispersal,drop=TRUE)   
+```
+
+
+simplify?
+```{r}
+#variance structure Phase
+m1.3a <- lme(observedTuk ~ Phase + Dispersal + Development,random=~1|Lineage, weights = varIdent(form=~1|Dispersal), control = lmeControl(opt="optim"),data=d) # n.s.
+m1.3b <- lme(observedTuk ~ Phase + Dispersal,random=~1|Lineage, weights = varIdent(form=~1|Dispersal), control = lmeControl(opt="optim"),data=d) # n.s.
+m1.3c <- lme(observedTuk ~ Phase,random=~1|Lineage,weights = varIdent(form=~1|Dispersal), control = lmeControl(opt="optim"),data=d) # n.s.
+
+AIC(m1.3, m1.3a, m1.3b, m1.3c) #m1.3c lowest AIC
+Anova(m1.3a)
+Anova(m1.3b)
+Anova(m1.3c) # choose this one
+```
+
+post hoc test
+```{r}
+emmeans(m1.3c, pairwise ~ Phase, adjust = "tukey")
+```
+
+
+## __Beta Diversity__
+
+
+transform total read counts into proportional/compositional data
+```{r}
+rel.bacL <- bacL.final %>%               
+  transform_sample_counts(function(x) {x/sum(x)} )
+```
+
+### relative Abundance plots
+
+agglomerate data to Genus level, transform to rel. abundance, melt long format and sort data frame alph. by Genus
+
+```{r, warning=F}
+Bacteria_Genus <- bacL.final %>%               
+  tax_glom(taxrank = "Genus") %>%                     
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                        
+  arrange(Genus)
+
+Bacteria_Genus2 <- bacL.final2 %>%               
+  tax_glom(taxrank = "Genus") %>%                     
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                        
+  arrange(Genus)
+```
+
+find the mean and standard deviation by Genus
+
+```{r}
+mean.bac <- tapply(Bacteria_Genus$Abundance, Bacteria_Genus$Genus, mean)
+mean.bac
+
+phase1 <- subset(Bacteria_Genus, Phase == "phase1")
+mean.ph1 <- tapply(phase1$Abundance, phase1$Genus, mean)
+mean.ph1
+SD.ph1 <- tapply(phase1$Abundance, phase1$Genus, sd)
+SD.ph1
+
+phase2 <- subset(Bacteria_Genus, Phase == "phase2")
+mean.ph2 <- tapply(phase2$Abundance, phase2$Genus, mean)
+mean.ph2
+SD.ph2 <- tapply(phase2$Abundance, phase2$Genus, sd)
+SD.ph2
+
+phase3 <- subset(Bacteria_Genus, Phase == "phase3")
+mean.ph3 <- tapply(phase3$Abundance, phase3$Genus, mean)
+mean.ph3
+SD.ph3 <- tapply(phase3$Abundance, phase3$Genus, sd)
+SD.ph3
+
+SD.bac <- tapply(Bacteria_Genus$Abundance, Bacteria_Genus$Genus, sd)
+SD.bac
+```
+
+edit object for plotting
+
+```{r}
+Bacteria_Genus$Genus<-as.character(Bacteria_Genus$Genus)
+Bacteria_Genus$Genus[Bacteria_Genus$Abundance<0.05]<-"Others"
+Bacteria_Genus$Class<-as.character(Bacteria_Genus$Class)
+Bacteria_Genus$Class[Bacteria_Genus$Abundance<0.05]<-"Others"
+Bacteria_Genus$Genus<-factor(Bacteria_Genus$Genus)
+Bacteria_Genus<-droplevels(Bacteria_Genus)         
+Bacteria_Genus$Phase<-factor(Bacteria_Genus$Phase,levels=c("phase1", "phase2", "phase3")) 
+Bacteria_Genus$Dispersal<-factor(Bacteria_Genus$Dispersal,levels=c("early", "middle", "late")) 
+Bacteria_Genus$Genus<-factor(Bacteria_Genus$Genus,levels=levels(Bacteria_Genus$Genus))
+Bacteria_Genus$Genus <- factor(Bacteria_Genus$Genus, levels = c("Others", "Ochrobactrum", "Pantoea", "Yersinia", "Erwinia", "Pseudoxanthomonas"), labels = c("Others (< 0.5%)", "Ochrobactrum", "Pantoea", "Yersinia", "Erwinia", "Pseudoxanthomonas"))
+
+Bacteria_Genus2$Genus<-as.character(Bacteria_Genus2$Genus)
+Bacteria_Genus2$Genus[Bacteria_Genus2$Abundance<0.05]<-"Others"
+Bacteria_Genus2$Class<-as.character(Bacteria_Genus2$Class)
+Bacteria_Genus2$Class[Bacteria_Genus2$Abundance<0.05]<-"Others"
+Bacteria_Genus2$Genus<-factor(Bacteria_Genus2$Genus)
+Bacteria_Genus2<-droplevels(Bacteria_Genus2)         
+Bacteria_Genus2$Phase<-factor(Bacteria_Genus2$Phase,levels=c("phase1", "phase2", "phase3")) 
+Bacteria_Genus2$Dispersal<-factor(Bacteria_Genus2$Dispersal,levels=c("early", "middle", "late")) 
+Bacteria_Genus2$Genus<-factor(Bacteria_Genus2$Genus,levels=levels(Bacteria_Genus2$Genus))
+Bacteria_Genus2$Genus <- factor(Bacteria_Genus2$Genus, levels = c("Others", "Lactobacillus", "Ochrobactrum", "Wolbachia", "Pantoea", "Yersinia", "Erwinia", "Pseudoxanthomonas"), labels = c("Others (< 0.5%)", "Lactobacillus", "Ochrobactrum", "Wolbachia", "Pantoea", "Yersinia", "Erwinia", "Pseudoxanthomonas"))
+```
+
+define colour bar
+```{r}
+Plot_colors_g <- c("grey87", "indianred1", "palegreen3", "olivedrab1", "palegreen", "seagreen")
+
+Plot_colors_g2 <- c("grey87", "magenta4", "indianred1", "brown4", "palegreen3", "olivedrab1", "palegreen", "seagreen")
+```
+
+__Phase__
+
+```{r}
+Bacteria_Genus_plot <-ggplot(Bacteria_Genus, aes(x = Phase, y = Abundance, fill = Genus)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Plot_colors_g, name = "Genus") 
+
+bacL1<-Bacteria_Genus_plot +
+  theme(text = element_text(size=25, face = "bold"))+                          
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(y="Relative Abundance (%)")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 13))+
+  theme(legend.text = element_text(face = "italic"))+
+  theme(axis.text.y=element_text(size = 15))+
+  theme(axis.title.y = element_blank())+
+  theme(axis.title.x = element_blank())+ 
+  theme(axis.text.x = element_blank())
+```
+
+
+Sample/Phase
+```{r}
+Bacteria_Genus_plot2 <-ggplot(Bacteria_Genus, aes(x = Sample, y = Abundance, fill = Genus)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Plot_colors_g, name = "Genus")
+
+g2<-Bacteria_Genus_plot2 +
+  facet_wrap("Phase", scales = "free_x",  drop = TRUE)+
+  theme(plot.title = element_text(size = 20, face = "bold")) + 
+  theme(text = element_text(size=20, face = "bold"))+                          
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x=" Samples", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  #scale_x_discrete(limits=c("Phase1", "Phase2", "Phase3"))+
+  theme(legend.text = element_text(face = "italic"))+
+  theme(axis.text.x=element_text(size = rel(0.9), angle = 90))
+
+Bacteria_Genus_plot2.2 <-ggplot(Bacteria_Genus2, aes(x = Sample, y = Abundance, fill = Genus)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Plot_colors_g2, name = "Genus")
+
+g2.2<-Bacteria_Genus_plot2.2 +
+  facet_wrap("Phase", scales = "free_x",  drop = TRUE)+
+  theme(plot.title = element_text(size = 20, face = "bold")) + 
+  theme(text = element_text(size=20, face = "bold"))+                          
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x=" Samples", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  #scale_x_discrete(limits=c("Phase1", "Phase2", "Phase3"))+
+  theme(legend.text = element_text(face = "italic"))+
+  theme(axis.text.x=element_text(size = rel(0.9), angle = 90))
+```
+
+
+
+### Microbiome composition
+
+#### Composition heatmap
+
+```{r}
+bacL.heat <- ggplot(Bacteria_Genus, aes(Sample, Genus)) + geom_tile(aes(fill = Abundance)) +
+                  facet_grid(~Phase, scales = "free_x", space = "free_x", drop = TRUE)
+
+bacL.heat <- bacL.heat + scale_fill_distiller("Abundance", palette = "RdYlBu", labels=scales::percent) + theme_bw() 
+
+bacL.heat <- bacL.heat + theme(axis.text.y = element_text(colour = 'black', 
+                                                    size = 20, 
+                                                    face = 'italic')) +
+                        theme(axis.text.x = element_text(colour = 'black', size = 13, angle = 90))+
+                        theme(axis.title = element_text(size=25, "bold")) +
+                        theme(legend.title = element_text(size = 25), legend.text = element_text(size = 20))
+
+bacL.heat <- bacL.heat + ylab("Genus")
+
+bacL.heat <- bacL.heat + theme(legend.key = element_blank(), 
+                     strip.background = element_rect(colour="black", fill="white"))
+
+bacL.heat <- bacL.heat + scale_y_discrete(position = "right") 
+
+bacL.heat <- bacL.heat + theme(legend.position = "left")
+
+bacL.heat2 <- bacL.heat + theme(strip.text.x = element_blank())
+```
+
+combined bac + fun
+```{r}
+pseqB <- aggregate_rare(rel.bacL, level = "Species", detection = 5/100, prevalence = 10/100)
+pseqF <- aggregate_rare(rel.fun, level = "Species", detection = 5/100, prevalence = 10/100)
+
+pseqBh <- pseqB %>% 
+  psmelt()
+pseqBh$Group <- "Bacteria"
+pseqFh <- pseqF %>% 
+  psmelt()
+pseqFh$Group <- "Fungi"
+
+pseqh <- bind_rows(pseqBh, pseqFh)
+
+pseqh$Phase<-factor(pseqh$Phase,levels=c("phase1", "phase2", "phase3"), labels = c("Phase1", "Phase2", "Phase3"))
+pseqh$Group<-factor(pseqh$Group,levels=c("Bacteria", "Fungi"))
+pseqh$Species<-factor(pseqh$Species,levels=c("Pseudoxanthomonas_spadix", "Erwinia_spc", "Other", "Chaetomium_globosum", "Raffaelea_sulphurea", "Raffaelea_canadensis", "Other"), labels = c("Pseudoxanthomonas spadix", "Erwinia sp.", "Other (<5%)", "Chaetomium globosum", "Raffaelea sulphurea", "Raffaelea canadensis", "Other <5%"))
+
+p.heat <- ggplot(pseqh, aes(x = Sample, y = Species)) + geom_tile(aes(fill = Abundance)) 
+
+# Change color
+p.heat <- p.heat + scale_fill_distiller("Abundance", palette = "RdYlBu", labels = scales::percent) + theme_bw() 
+
+# Make bacterial names italics
+p.heat <- p.heat + theme(axis.text.y = element_text(colour = 'black', 
+                                                    size = 10, 
+                                                    face = 'italic')) 
+# Make separate samples based on main variable
+p.heat <- p.heat + facet_grid(Group ~ Phase, scales = "free", space = "free") + rremove("x.text") 
+
+#Clean the x-axis
+p.heat <- p.heat + theme(axis.title.x=element_blank(),
+                     axis.text.x=element_blank(),
+                     axis.ticks.x=element_blank())
+
+# Clean the facet label box
+p.heat <- p.heat + theme(legend.key = element_blank(), 
+                     strip.background = element_rect(colour="black", fill="white"))+
+                    theme(strip.text = element_text(size = 15))
+
+p.heat <- p.heat + theme(axis.text.x=element_text(angle = 90, size = 8))+
+  theme(axis.title.y = element_text(size = 18, face = "bold"), axis.title.x = element_blank())+
+  theme(axis.text.y = element_text(size = 13, face = "italic"))+
+  theme(legend.text = element_text(size = 13))+
+  theme(legend.title = element_text(size = 18, face = "bold"))
+```
+
+#### Core taxa abundance plot 
+
+relative abundance
+
+```{r}
+colpal_bac3 <- c("seagreen", "palegreen")
+```
+
+```{r total abundance}
+ps4 <- prune_taxa(taxa_sums(rel.bacL) > 0, rel.bacL)
+ps4 <- tax_glom(ps4, taxrank = 'Genus')
+psOrd4 = subset_taxa(ps4, Genus=="Pseudoxanthomonas" | Genus=="Erwinia")
+psPh1 = subset_samples(psOrd4, Phase=="phase1")
+#Melt and plot
+melt<-psmelt(psOrd4)
+melt2 <- psmelt(psPh1)
+levels2=c("phase1","phase2","phase3")
+change <- c("phase1","phase2","phase3")
+melt$Genus <- factor(melt$Genus, levels = c("Pseudoxanthomonas", "Erwinia"))
+
+a_mean <- melt2 %>%
+  group_by(Genus) %>%
+  summarize(mean_val = mean(Abundance))
+print(a_mean)
+
+p<-ggplot(data = melt, aes(x = Phase, y = Abundance)) +
+  geom_boxplot(aes(fill=Genus),alpha=0.5,lwd=0.7, position = position_dodge(width = 0.3), width=0.45,outlier.shape = NA) + geom_jitter(aes(color = Genus), height = 0, width = .1)+geom_hline(data= a_mean, aes(yintercept=mean_val), width=5,size=1.2,linetype="dashed", col = "darkred")+
+  scale_fill_manual(values = colpal_bac3, name = "Genus")+
+  scale_color_manual(values = colpal_bac3, name = "Genus")+
+  labs(x = "", y = "Abundance\n")+
+  facet_grid(factor(Genus, levels = c("Pseudoxanthomonas", "Erwinia"))~Phase, scales = "free")+theme_bw()
+  #geom_signif(comparisons=list(c("Phase1", "Phase2", "Phase3")),tip_length = 0.03,vjust=1.3, color="grey20", size=1.1,map_signif_level=sigFunc, textsize=9, test = wilcox.test,step_increase = 0.2)
+p<-p+ theme(legend.position="right")+ylab("Relative abundance")
+p<-p+ theme(legend.text=element_text(size=15, face = "italic"))+theme(legend.key = element_rect(color = NA, fill = NA),legend.key.size = unit(0.9, "cm"))+theme(legend.title = element_text(size = 20, face = "bold"))
+abu<-p +theme(strip.text.x = element_blank())+theme(strip.background =element_rect(fill="white", color="white"))+
+  scale_y_continuous(labels=percent_format())
+Phase<-abu+theme(axis.title.y = element_text(size=20))+theme(axis.text.y = element_text(size=15, face="bold")) +
+  #theme(axis.text.x = element_text(size=20, angle=90,face="bold"))+
+  theme(axis.title.x = element_blank())+
+  theme(axis.title.y = element_blank())+
+  theme(axis.text.x = element_blank())+
+  theme(axis.ticks.x = element_blank())+ 
+  theme(strip.text.y = element_blank())
+relAb_bacL <- Phase + theme(panel.spacing = unit(1.5, "lines"))
+```
+
+### Ordination analysis
+
+__NMDS__
+
+```{r}
+set.seed(1)
+ordi = ordinate(rel.bacL, "NMDS", "bray", k=3, trymax=100)
+ordi$stress #0.02426675 --> good fit
+```
+As a rule of thumb, an NMDS ordination with a stress value around or above 0.2 is deemed suspect and a stress value approaching 0.3 indicates that the ordination is arbitrary. Stress values equal to or below 0.1 are considered fair, while values equal to or below 0.05 indicate good fit. Allowing the algorithm to ordinate in more dimensions can reduce the stress; however, allowing more than 3 dimensions quickly makes interpretation more challenging.
+
+## Phase
+###ordi
+
+```{r}
+dev_phase <- c("orange", "lightskyblue", "khaki1", "orangered1", "royalblue", "yellow1", "orangered4", "royalblue4", "yellow4")
+```
+
+```{r}
+NMDS <- plot_ordination(rel.bacL, ordi, color = "Phase", shape = "Development", axes=c(1,2))+
+  stat_ellipse(level = 0.95, geom = "polygon", aes(fill = Phase), alpha = 0.25)+
+  #scale_color_manual(values = dev_phase)+
+  geom_text_repel(aes(label=Lineage), color = "black", size = 4, max.overlaps = Inf)+
+  geom_point(size=3, inherit.aes=T)+
+  theme_bw()+
+  annotate(geom="text", x=-1.1, y= -1.5, label="stress = 0.024",
+              color="black", size = 6)+
+  xlim(NA, 2.2)+
+  #ylim(-1.3, 2)+
+  theme(legend.justification=c(1,0), legend.position=c(1,0))+
+  theme(axis.text = element_text(size = 14, face = "bold"))+
+  theme(axis.title = element_text(size = 18, face = "bold"))+
+  theme(legend.text = element_text(size = 12))+
+  theme(legend.title = element_text(size = 16))+
+  theme(title = element_text(size = 18))
+
+NMDS
+```
+
+
+#### PERMANOVA significance test for group-level differences
+
+PERMANOVA quantifies multivariate community-level differences between groups.
+Pick relative abundances (compositional) and sample metadata
+```{r}
+pseq.rel <- microbiome::transform(bacL.final, "compositional")
+otu <- abundances(pseq.rel)
+meta <- meta(pseq.rel)
+```
+
+```{r}
+set.seed(1)
+adonis(unname(distance(pseq.rel, method = "bray")) ~ Phase * Development + Dispersal, data = meta, strata = meta$Lineage)
+
+set.seed(1)
+adonis2(distance(pseq.rel, method = "bray") ~ Phase + Lineage, data = meta)
+
+set.seed(1)
+pairwise.adonis2(distance(pseq.rel, method = "bray") ~ Phase + Development, data = meta, strata = 'Lineage')
+```
+
+### PERMDISP: test of homogeneity of dispersion
+
+Phase
+```{r}
+dist <- vegdist(t(otu))
+#Phase
+dist2 <- betadisper(dist, meta$Phase)
+anova(dist2)
+permutest(dist2, pairwise = TRUE, permutations = 99)
+plot(dist2, hull = FALSE, ellipse = TRUE)
+
+#Dispersal
+dist3 <- betadisper(dist, meta$Dispersal)
+anova(dist3)
+permutest(dist3, pairwise = TRUE, permutations = 99)
+plot(dist3, hull = FALSE, ellipse = TRUE)
+
+#Development
+dist4 <- betadisper(dist, meta$Development)
+anova(dist4)
+permutest(dist4, pairwise = TRUE, permutations = 99)
+plot(dist4, hull = FALSE, ellipse = TRUE)
+
+#Lineage
+dist5 <- betadisper(dist, meta$Lineage)
+anova(dist5)
+permutest(dist5, pairwise = TRUE, permutations = 99)
+plot(dist5, hull = FALSE, ellipse = TRUE)
+```
+
+
+# __Analysis of fungal community__
+
+## Rarefaction curves 
+
+1. all samples with controls
+2. all samples with controls after decontam
+3. all samples without controls
+
+Rarefaction is used to simulate even number of reads per sample.
+
+```{r}
+rarecurve(t(otu_table(dataset.LSU.ordi)), cex=0.6, step = 20, main = "Rarefaction curve of all samples (incl. controls)")
+rarecurve(t(otu_table(ps.noncontam_dataset.LSU.ordi)), cex=0.6, step = 20, main = "Rarefaction curve of all samples (incl. controls) after decontamination")
+rarecurve(t(otu_table(fwc)), cex=0.6, step = 20, main = "Rarefaction curve of samples (excl. controls)")
+rarecurve(t(otu_table(funL.final)), cex=0.6, step = 20, main = "Rarefaction curve of final dataset ")
+```
+
+
+## __Alpha diversity__
+
+rarefy to 2000 reads
+```{r}
+ps2 <-funL.final
+set.seed(1)
+ps2 <- rarefy_even_depth(ps2,sample.size=2000, replace=FALSE, rngseed = 1)
+rarecurve(t(otu_table(ps2)), cex=0.6, step = 20)
+funR2 <- ps2
+```
+
+
+### Diversity plots
+
+#### Prepare data for vizualisation
+
+```{r}
+tab <- microbiome::alpha(funR2, index = c("diversity_shannon","observed"))
+```
+
+Now, get the metadata (sample_data) from the phyloseq object
+
+```{r}
+ps1.meta <- meta(funR2)
+```
+
+Add the diversity table to metadata
+
+```{r}
+ps1.meta$Shannon <- tab$diversity_shannon 
+ps1.meta$Observed <- tab$observed
+```
+
+create a list of pairwise comparisons
+```{r}
+phase <- unique(ps1.meta$Phase) # get the variables
+```
+
+make a pairwise list that we want to compare.
+
+```{r}
+phase.pairs <- combn(seq_along(phase), 2, simplify = FALSE, FUN = function(i)phase[i])
+print(phase.pairs)
+```
+
+#### plot
+
+ps2 (rarefied, 2000 reads) 600x500
+```{r}
+unique(ps1.meta$Dispersal)
+ps1.meta$Dispersal <- gsub(" ", "", ps1.meta$Dispersal)
+ps1.meta$Phase <- as.factor(ps1.meta$Phase)
+ps1.meta$Phase <- factor(ps1.meta$Phase, levels = c("phase1", "phase2", "phase3"), labels = c("eggs & larvae", "larvae, pupae & adults", "adults"))
+ps1.meta$Dispersal <- as.factor(ps1.meta$Dispersal)
+ps1.meta$Dispersal <- factor(ps1.meta$Dispersal, levels = c("early", "middle", "late"))
+ps1.meta$Development <- as.factor(ps1.meta$Development)
+ps1.meta$Development <- factor(ps1.meta$Development, levels = c("fast", "medium", "slow"))
+```
+
+__Shannon diversity index__
+
+Phase
+```{r}
+p1 <- ggplot(ps1.meta, aes(x = Phase, y = Shannon))
+
+p1 <- p1 + geom_boxplot(colour = "brown4", size = 0.9, alpha = 0.2, width = 0.5)+
+    geom_jitter(position = position_jitter(w=0.1))+
+    theme_bw()+
+    labs(x = "Developmental Stage", y = "Shannon's Diversity Index")+
+  theme(axis.title = element_text(size = 18, face = "bold"), axis.text = element_text(size = 16))
+```
+
+add statistical data output to plot
+```{r}
+shan_funLP <- p1 + 
+        annotate("text", label = c("a", "b", "c"), y = 2, x = c("eggs & larvae", "larvae, pupae & adults", "adults"), size = 7)+
+  ylim(NA, 2)
+```
+
+Development Speed
+```{r}
+p1b <- ggplot(ps1.meta, aes(x = Development, y = Shannon))
+
+p1b <- p1b + geom_boxplot(colour = "brown4", size = 0.9, alpha = 0.2, width = 0.5)+
+    geom_jitter(position = position_jitter(w=0.1))+
+    theme_bw()+
+    labs(x = "Developmental Speed", y = "Shannon's Diversity Index")+
+  theme(axis.title = element_text(size = 18, face = "bold"), axis.text = element_text(size = 16))
+```
+
+add statistical data output to plot
+```{r}
+shan_funLD <- p1b + annotate("text", label = c("ab", "b", "a"), y = 2, x = c("fast", "medium", "slow"), size = 7)+
+  ylim(NA, 2)
+
+plot_grid(shan_funLP, shan_funLD)
+```
+
+
+__Observed richness__ 
+
+Phase
+```{r}
+p4 <- ggplot(ps1.meta, aes(x = Phase, y = Observed))
+p4 <- p1 + geom_jitter(position = position_jitter(w=0.1))+
+    geom_pointrange(data = d2, mapping = aes(x = Phase, y = `50%`, ymin = `25%`, ymax = `75%`), size = .9, color = "brown4")+
+    theme_bw()+
+    labs(x = "Developmental Phase", y = "Observed richness")+
+  theme(axis.title = element_text(size = 18, face = "bold"), axis.text = element_text(size = 16))
+```
+
+Phase + Development Speed
+```{r}
+p5 <- ggplot(ps1.meta, aes(x = Development, y = Observed, color = Development))+ 
+    facet_grid(~ Phase)+
+    geom_boxplot(colour = "brown4", size = 0.9, alpha = 0.2, width = 0.5)+
+    geom_jitter(position = position_jitter(w=0.2), color = "gray45")+
+    theme_bw()+
+    labs(x = "Developmental Phase / Speed", y = "Observed Richness")+
+  theme(axis.title = element_text(size = 18, face = "bold"), axis.text = element_text(size = 16))+
+  theme(strip.text.x = element_text(size =14, face = "bold"))
+
+# extracting the compact letter display and editing groups
+cldDev <- as.data.frame.list(CLD1)
+cldDev$Phase <- factor(cldDev$Phase, labels = c("eggs & larvae", "larvae, pupae & adults", "adults"))
+
+ob_funL_DevP <- p5 + geom_text(data = cldDev, aes(y = 82, label = trimws(.group)), size = 6, show.legend = FALSE, colour = "black")
+```
+
+Phase + Dispersal Time
+```{r}
+p6 <- ggplot(ps1.meta, aes(x = Dispersal, y = Observed, color = Dispersal))+ 
+    geom_boxplot(colour = "brown4", size = 0.9, alpha = 0.2, width = 0.5)+
+    geom_jitter(position = position_jitter(w=0.2), color = "gray45")+
+    facet_wrap(~Phase)+
+    theme_bw()+
+    labs(x = "Developmental Phase / Dispersal Time", y = "Observed Richness")+
+  theme(axis.title = element_text(size = 18, face = "bold"), axis.text = element_text(size = 16))+
+  theme(strip.text.x = element_text(size =14, face = "bold"))
+
+# extracting the compact letter display and editing groups
+cldDis <- as.data.frame.list(CLD2)
+cldDis$Phase <- factor(cldDis$Phase, labels = c("eggs & larvae", "larvae, pupae & adults", "adults"))
+
+ob_funL_DisP <- p6 + geom_text(data = cldDis, aes(y = 82, label = trimws(.group)), size = 6, show.legend = FALSE, colour = "black")
+```
+
+### __Statistics__
+
+Testing differences in alpha diversity
+
+Create the dataframe for analysis
+```{r}
+d <- meta(funR2)
+shannon <- diversity(funR2, "shannon")
+d$shannon <- shannon$shannon
+observed <- alpha(funR2, index = "observed", zeroes = TRUE)
+d$observed <- observed$observed
+d$Dispersal <- gsub(" ", "", d$Dispersal)
+```
+
+__Shannon diversity__
+```{r}
+hist(d$shannon)
+descdist(d$shannon, boot = 1000)
+fit.gamma <- fitdist(d$shannon, distr = "gamma", method = "mme") # looks good
+plot(fit.gamma)
+fit.norm <- fitdist(d$shannon, distr = "norm", method = "mme")
+plot(fit.norm)
+```
+--> gamma distribution
+
+```{r}
+#prepare data
+d$Phase <- as.factor(d$Phase)
+d$Development <- as.factor(d$Development)
+d$Dispersal <- as.factor(d$Dispersal)
+d <- within(d, Phase <- relevel(Phase, ref = "phase1"))
+d <- within(d, Development <- relevel(Development, ref = "medium"))
+d <- within(d, Dispersal <- relevel(Dispersal, ref = "middle"))
+```
+
+model with variance structure
+```{r}
+d$shannonTuk <- rcompanion::transformTukey(d$shannon) # lambda = 0.425
+
+m <- lme(shannon ~ Phase * Dispersal * Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=d)
+Anova(m1)
+m1 <- lme(shannonTuk ~ Phase * Dispersal * Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=d)
+m2 <- gls(shannonTuk ~ Phase * Dispersal * Development,control = lmeControl(opt="optim"),data=d)
+AIC(m, m1, m2) 
+
+
+MODEL<-m1
+par(mfrow=c(2,2))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="response"),lpars=list(col="red",lty=1))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+qqnorm(residuals(MODEL,type="response"));qqline(residuals(MODEL,type="response"))
+qqnorm(unlist(ranef(MODEL))); qqline(unlist(ranef(MODEL)))
+par(mfrow=c(1,1))
+scatter.smooth(d$shannon,residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+boxplot(residuals(MODEL,type="normalized")~d$Phase * d$Development,drop=TRUE)
+boxplot(residuals(MODEL,type="normalized")~d$Phase,drop=TRUE)
+
+# Variance differs between Phase and possibly Development
+vf1<-varIdent(form=~1|Phase)
+vf2<-varIdent(form=~1|Development)
+vf3<-varIdent(form=~1|Dispersal)
+vf4<-varIdent(form=~1|Phase*Development)
+vf5<-varIdent(form=~1|Phase*Dispersal)
+vf6<-varIdent(form=~1|Phase*Development*Dispersal)
+
+
+m1.1<-lme(shannonTuk~Phase * Dispersal * Development, random=~1|Lineage, weights=vf1, control = lmeControl(opt="optim"), data=d)
+m1.2<-lme(shannonTuk~Phase * Dispersal * Development, random=~1|Lineage, weights=vf2, control = lmeControl(opt="optim"), data=d)
+m1.3<-lme(shannonTuk~Phase * Dispersal * Development, random=~1|Lineage, weights=vf3, control = lmeControl(opt="optim"), data=d)
+m1.4<-lme(shannonTuk~Phase * Dispersal * Development, random=~1|Lineage, weights=vf4, control = lmeControl(opt="optim"), data=d)
+m1.5<-lme(shannonTuk~Phase * Dispersal * Development, random=~1|Lineage, weights=vf5, control = lmeControl(opt="optim"), data=d) 
+m1.6<-lme(shannonTuk~Phase * Dispersal * Development, random=~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=d) 
+
+AIC(m1,m1.1,m1.2,m1.3, m1.4, m1.5, m1.6) #m1.4 lowest AIC
+anova(m1,m1.1,m1.2,m1.3, m1.4) #lowest m1.1
+anova(m1.1,m1.3) #p = 0.1795
+compare_performance(m1,m1.1,m1.2,m1.3, m1.4, rank = TRUE) #best m1.3
+
+Anova(m1.4)
+
+plot(m1, which = c(1), add.smooth = FALSE)
+plot(m1.4, which = c(1), add.smooth = FALSE)
+plot(m1.4, which = c(1), add.smooth = FALSE)
+
+#coplot of residuals versus Phase, conditional on Development
+E <- resid(m1)
+coplot(E~Phase|Development, data = d)
+
+E1 <- resid(m1.1)
+coplot(E1~Phase|Development, ylab = "ordinary residuals", data = d)
+
+E2 <- resid(m1.1, type = "normalized")
+coplot(E2~Phase|Development, ylab = "Normalised residuals", data = d)
+```
+
+Choose transformation if necessary
+```{r}
+par(mfrow=c(2,2));hist(d$shannon);hist(sqrt(d$shannon));hist(d$shannonTuk);par(mfrow=c(1,1))
+m1<-lme(shannon~Phase * Dispersal * Development,random = ~1|Lineage,weights = varIdent(form=~1|Phase*Development),data=d)
+m2<-lme(sqrt(shannon)~Phase * Dispersal * Development,random = ~1|Lineage,weights = varIdent(form=~1|Phase*Development),data=d)
+m3<-lme(shannonTuk~Phase * Dispersal * Development,random = ~1|Lineage,weights = varIdent(form=~1|Phase*Development),data=d)
+AIC(m1, m2, m3) #m3 lowest AIC
+
+MODEL<-m3
+par(mfrow=c(2,2))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="response"),lpars=list(col="red",lty=1))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+qqnorm(residuals(MODEL,type="response"));qqline(residuals(MODEL,type="response"))
+qqnorm(unlist(ranef(MODEL))); qqline(unlist(ranef(MODEL)))
+par(mfrow=c(1,1))
+boxplot(residuals(MODEL,type="normalized")~d$Phase * d$Dispersal,drop=TRUE)   
+```
+
+simplify?
+```{r}
+#variance structure Phase
+m1.4a <- lme(shannonTuk ~ Phase + Dispersal + Development,random=~1|Lineage, weights = varIdent(form=~1|Phase*Development), control = lmeControl(opt="optim"),data=d) # n.s.
+m1.4b <- lme(shannonTuk ~ Phase + Development,random=~1|Lineage, weights = varIdent(form=~1|Phase*Development), control = lmeControl(opt="optim"),data=d) # n.s.
+m1.4c <- lme(shannonTuk ~ Phase,random=~1|Lineage,weights = varIdent(form=~1|Phase*Development), control = lmeControl(opt="optim"),data=d) # n.s.
+
+AIC(m1.4, m1.4a, m1.4b, m1.4c) #m1.3c lowest AIC
+Anova(m1.4a)
+Anova(m1.4b) # choose this one since marginal effect 
+Anova(m1.4c) 
+```
+post hoc
+```{r}
+emmeans(m1.4b, pairwise ~ Development, adjust = "tukey")
+emmeans(m1.4b, pairwise ~ Phase, adjust = "tukey")
+```
+
+__Observed richness__
+```{r}
+hist(d$observed)
+descdist(d$observed, boot = 1000)
+fit.gamma <- fitdist(d$observed, distr = "gamma", method = "mme") # looks good
+plot(fit.gamma)
+fit.norm <- fitdist(d$observed, distr = "norm", method = "mme")
+plot(fit.norm)
+```
+
+model with variance structure
+```{r}
+d$observedTuk <- rcompanion::transformTukey(d$observed) # lambda = 0.25
+
+m <- lme(observed ~ Phase * Dispersal * Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=d)
+Anova(m1)
+m1 <- lme(observedTuk ~ Phase * Dispersal * Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=d)
+m2 <- gls(observedTuk ~ Phase * Dispersal * Development,control = lmeControl(opt="optim"),data=d)
+AIC(m, m1, m2) #m1 has lower AIC --> almost same without, but we include rf
+
+
+MODEL<-m1
+par(mfrow=c(2,2))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="response"),lpars=list(col="red",lty=1))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+qqnorm(residuals(MODEL,type="response"));qqline(residuals(MODEL,type="response"))
+qqnorm(unlist(ranef(MODEL))); qqline(unlist(ranef(MODEL)))
+par(mfrow=c(1,1))
+scatter.smooth(d$shannon,residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+boxplot(residuals(MODEL,type="normalized")~d$Phase * d$Development,drop=TRUE)
+boxplot(residuals(MODEL,type="normalized")~d$Dispersal,drop=TRUE)
+
+# Variance differs between Phase and possibly Development
+vf1<-varIdent(form=~1|Phase)
+vf2<-varIdent(form=~1|Development)
+vf3<-varIdent(form=~1|Dispersal)
+vf4<-varIdent(form=~1|Phase*Development)
+vf5<-varIdent(form=~1|Phase*Dispersal)
+vf6<-varIdent(form=~1|Phase*Development*Dispersal)
+
+
+m1.1<-lme(observedTuk~Phase * Dispersal * Development, random=~1|Lineage, weights=vf1, control = lmeControl(opt="optim"), data=d)
+m1.2<-lme(observedTuk~Phase * Dispersal * Development, random=~1|Lineage, weights=vf2, control = lmeControl(opt="optim"), data=d)
+m1.3<-lme(observedTuk~Phase * Dispersal * Development, random=~1|Lineage, weights=vf3, control = lmeControl(opt="optim"), data=d)
+m1.4<-lme(observedTuk~Phase * Dispersal * Development, random=~1|Lineage, weights=vf4, control = lmeControl(opt="optim"), data=d)
+m1.5<-lme(observedTuk~Phase * Dispersal * Development, random=~1|Lineage, weights=vf5, control = lmeControl(opt="optim"), data=d) 
+m1.6<-lme(observedTuk~Phase * Dispersal * Development, random=~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=d) #Fehler in logLik.reStruct(object, conLin) : NA/NaN/Inf in externem Funktionsaufruf (arg 3)
+
+AIC(m1,m1.1,m1.2,m1.3, m1.4, m1.5) #m1 lowest AIC
+anova(m1,m1.1,m1.2,m1.3, m1.4, m1.5) #lowest m1
+compare_performance(m1,m1.1,m1.2,m1.3, m1.4, m1.5, rank = TRUE) #best m1.3
+
+Anova(m1.3)
+
+plot(m1, which = c(1), add.smooth = FALSE)
+plot(m1.3, which = c(1), add.smooth = FALSE)
+plot(m1.4, which = c(1), add.smooth = FALSE)
+```
+```{r eval=FALSE, include=FALSE}
+#coplot of residuals versus Phase, conditional on Development
+E <- resid(m1)
+coplot(E~Phase|Development, data = d)
+
+E1 <- resid(m1.3)
+coplot(E1~Phase|Development, ylab = "ordinary residuals", data = d)
+
+E2 <- resid(m1.1, type = "normalized")
+coplot(E2~Phase|Development, ylab = "Normalised residuals", data = d)
+```
+
+Choose transformation if necessary
+```{r}
+par(mfrow=c(2,2));hist(d$observed);hist(sqrt(d$observed));hist(d$observedTuk);par(mfrow=c(1,1))
+m1<-lme(observed~Phase * Dispersal * Development, random = ~1|Lineage, control = lmeControl(opt="optim"), data=d)
+m2<-lme(sqrt(observed)~Phase * Dispersal * Development, random = ~1|Lineage, control = lmeControl(opt="optim"), data=d)
+m3<-lme(observedTuk~Phase * Dispersal * Development, random = ~1|Lineage, control = lmeControl(opt="optim"), data=d)
+AIC(m1, m2, m3) #m3 lowest AIC
+
+MODEL<-m3
+par(mfrow=c(2,2))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="response"),lpars=list(col="red",lty=1))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+qqnorm(residuals(MODEL,type="response"));qqline(residuals(MODEL,type="response"))
+qqnorm(unlist(ranef(MODEL))); qqline(unlist(ranef(MODEL)))
+par(mfrow=c(1,1))
+```
+
+simplify?
+```{r}
+m1a <- lme(observedTuk ~ Phase * Dispersal + Phase * Development,random=~1|Lineage, control = lmeControl(opt="optim"), data=d) # 
+m1b <- lme(observedTuk ~ Phase * Development + Dispersal,random=~1|Lineage, control = lmeControl(opt="optim"), data=d) # 
+m1c <- lme(observedTuk ~ Phase * Development,random=~1|Lineage, control = lmeControl(opt="optim"), data=d) #  
+
+AIC(m3, m1a, m1b, m1c) #m1c lowest AIC
+Anova(m1a) # choose this one since marginal effect
+Anova(m1b)  
+Anova(m1c) 
+```
+
+post hoc
+```{r}
+HSD_DevP <- emmeans(m1a, pairwise ~ Development|Phase, adjust = "tukey")
+HSD_DisP <- emmeans(m1a, pairwise ~ Dispersal|Phase, adjust = "tukey")
+
+#create compact letters
+marginal_DevP = emmeans(m1a, ~ Development|Phase)
+CLD1 <- cld(marginal_DevP, alpha = 0.05, Letters = letters, adjust = "tukey") ### Use lower-case letters for .group, Tukey-adjusted comparisons
+marginal_DisP = emmeans(m1a,~ Dispersal|Phase)
+CLD2 <- cld(marginal_DisP, alpha = 0.09, Letters = letters, adjust = "tukey")
+```
+
+
+## __Beta Diversity__
+
+
+transform total read counts into proportional/compositional data
+```{r}
+rel.funL <- funL.final %>%               
+  transform_sample_counts(function(x) {x/sum(x)} )
+sample_data(rel.funL)$Dispersal <- gsub(" ", "", sample_data(rel.funL)$Dispersal)
+```
+
+
+### relative Abundance plots
+
+agglomerate data to Species level, transform to rel. abundance, melt long format and sort data frame alph. by Species
+
+```{r}
+Fungi_Species <- funL.final %>%               
+  tax_glom(taxrank = "Species") #%>%                     
+  transform_sample_counts(function(x) {x/sum(x)} ) %>% 
+  psmelt() %>%                                        
+  arrange(Species) 
+```
+
+find the mean and standard deviation by Species
+
+```{r}
+mean.fwc <- tapply(Fungi_Species$Abundance, Fungi_Species$Species, mean)
+mean.fwc
+
+phase1 <- subset(Fungi_Species, Phase == "phase1")
+mean.phase1 <- tapply(phase1$Abundance, phase1$Species, mean)
+mean.phase1
+SD.phase1 <- tapply(phase1$Abundance, phase1$Species, sd)
+SD.phase1
+
+phase2 <- subset(Fungi_Species, Phase == "phase2")
+mean.phase2 <- tapply(phase2$Abundance, phase2$Species, mean)
+mean.phase2
+SD.phase2 <- tapply(phase2$Abundance, phase2$Species, sd)
+SD.phase2
+
+phase3 <- subset(Fungi_Species, Phase == "phase3")
+mean.phase3 <- tapply(phase3$Abundance, phase3$Species, mean)
+mean.phase3
+SD.phase3 <- tapply(phase3$Abundance, phase3$Species, sd)
+SD.phase3
+
+SD.fwc <- tapply(Fungi_Species$Abundance, Fungi_Species$Species, sd)
+SD.fwc
+```
+
+### edit object for plotting
+
+```{r}
+Fungi_Species$Species<-as.character(Fungi_Species$Species)
+Fungi_Species$Species[Fungi_Species$Abundance<0.05]<-"Others"
+Fungi_Species$Class<-as.character(Fungi_Species$Class)
+Fungi_Species$Class[Fungi_Species$Abundance<0.05]<-"Others"
+Fungi_Species$Species<-factor(Fungi_Species$Species)
+Fungi_Species<-droplevels(Fungi_Species)         
+Fungi_Species$Phase<-factor(Fungi_Species$Phase,levels=c("phase1", "phase2", "phase3")) 
+Fungi_Species$Species<-factor(Fungi_Species$Species,levels=levels(Fungi_Species$Species))
+Fungi_Species$Species <- factor(Fungi_Species$Species, levels = c("Others", "Baeuveria_bassiana", "Penicillium_spinulosum",  "Dialonectria_spc", "Chaetomium_globosum", "Raffaelea_canadensis", "Raffaelea_sulphurea"), labels = c("Others (< 0.5%)", "Baeuveria bassiana", "Penicillium spinulosum",  "Dialonectria sp.", "Chaetomium globosum", "Raffaelea canadensis", "Raffaelea sulphurea")) 
+Fungi_Species$Development <- factor(Fungi_Species$Development, levels = c("slow", "medium", "fast"))
+Fungi_Species$parental_Productivity <- factor(Fungi_Species$parental_Productivity, levels = c("low", "medium", "high"))
+Fungi_Species$success_rate <- factor(Fungi_Species$success_rate, levels = c("low", "average", "high"))
+```
+
+#### define plot colors 
+
+```{r}
+Plot_colors_s <- c("grey87", "gray50", "forestgreen","salmon3", "lightskyblue", "goldenrod3", "gold")
+```
+
+
+### Phase
+
+```{r}
+Fungi_Species_plot <-ggplot(Fungi_Species, aes(x = Phase, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Plot_colors_s, name = "Species") 
+
+funL1<-Fungi_Species_plot +
+  theme(text = element_text(size=25, face = "bold"))+                          
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 13))+
+  theme(legend.text = element_text(face = "italic"))+
+  theme(axis.text.y=element_text(size = 15))+
+  theme(axis.title.y = element_blank())+
+  theme(axis.title.x = element_blank())+ 
+  theme(axis.text.x = element_blank())
+```
+
+
+Sample/Phase
+```{r}
+Fungi_Species_plot2 <-ggplot(Fungi_Species, aes(x = Sample, y = Abundance, fill = Species)) + 
+  geom_bar(stat = "identity", color = NA, position="fill") +
+  scale_fill_manual(values = Plot_colors_s, name = "Species")
+
+g2<-Fungi_Species_plot2 +
+  facet_wrap("Phase", scales = "free_x",  drop = TRUE)+
+  theme(plot.title = element_text(size = 20, face = "bold")) + 
+  theme(text = element_text(size=20, face = "bold"))+                          
+  theme(legend.title = element_text(size = 20), legend.text = element_text(size = 14))+   
+  theme_classic()+           #gets rid of background
+  theme(panel.grid.major = element_line(colour = "grey50"))+
+  labs(x=" Samples", y="Relative Abundance")+
+  scale_y_continuous(labels=percent_format())+
+  #scale_x_discrete(limits=c("Phase1", "Phase2", "Phase3"))+
+  theme(legend.text = element_text(face = "italic"))+
+  theme(axis.text.x=element_text(size = rel(0.9), angle = 90))
+```
+
+
+### Microbiome composition
+
+#### Composition heatmap
+
+```{r}
+funL.heat <- ggplot(Fungi_Species, aes(Sample, Species)) + geom_tile(aes(fill = Abundance)) +
+                  facet_grid(~Phase, scales = "free_x", space = "free_x", drop = TRUE)
+
+funL.heat <- funL.heat + scale_fill_distiller("Abundance", palette = "RdYlBu", labels=scales::percent) + theme_bw() 
+
+funL.heat <- funL.heat + theme(axis.text.y = element_text(colour = 'black', 
+                                                    size = 20, 
+                                                    face = 'italic')) +
+                        theme(axis.text.x = element_text(colour = 'black', size = 13, angle = 90))+
+                        theme(axis.title.x = element_text(size=25, "bold")) +
+                        theme(axis.title.y = element_text(size=30, "bold"))+
+                        theme(legend.title = element_text(size = 25), legend.text = element_text(size = 20))
+
+funL.heat <- funL.heat + ylab("Species")
+
+funL.heat <- funL.heat + theme(legend.key = element_blank(), 
+                     strip.background = element_rect(colour="black", fill="white"))
+
+funL.heat <- funL.heat + scale_y_discrete(position = "right") 
+
+funL.heat <- funL.heat + theme(legend.position = "left")
+
+funL.heat2 <- funL.heat + theme(strip.text.x = element_blank())
+```
+
+
+### Core visualization
+
+#### Core taxa abundance
+
+relative abundance
+
+```{r}
+colpal_fun3 <- c("gold", "goldenrod3", "lightskyblue")
+```
+
+```{r relative abundance}
+ps4 <- prune_taxa(taxa_sums(rel.funL) > 0, rel.funL)
+ps4 <- tax_glom(ps4, taxrank = 'Species')
+psOrd4 = subset_taxa(ps4, Species=="Raffaelea_sulphurea" | Species=="Raffaelea_canadensis" | Species=="Chaetomium_globosum")
+psPh1 = subset_samples(psOrd4, Phase=="phase1")
+#Melt and plot
+melt<-psmelt(psOrd4)
+melt2 <- psmelt(psPh1)
+levels2=c("phase1","phase2","phase3")
+change <- c("phase1","phase2","phase3")
+melt$Species <- factor(melt$Species, levels = c("Raffaelea_sulphurea", "Raffaelea_canadensis", "Chaetomium_globosum"), labels = c("Raffaelea sulphurea", "Raffaelea canadensis", "Chaetomium globosum"))
+melt2$Species <- factor(melt2$Species, levels = c("Raffaelea_sulphurea", "Raffaelea_canadensis", "Chaetomium_globosum"), labels = c("Raffaelea sulphurea", "Raffaelea canadensis", "Chaetomium globosum"))
+
+a_mean <- melt2 %>%
+  group_by(Species) %>%
+  summarize(mean_val = mean(Abundance))
+print(a_mean)
+
+p<-ggplot(data = melt, aes(x = Phase, y = Abundance)) +
+  geom_boxplot(aes(fill=Species),alpha=0.5,lwd=0.7, position = position_dodge(width = 0.3), width=0.45,outlier.shape = NA) + geom_jitter(aes(color = Species), height = 0, width = .1)+geom_hline(data= a_mean, aes(yintercept=mean_val), width=5,size=1.2,linetype="dashed", col = "darkred")+
+  scale_fill_manual(values = colpal_fun3, name = "Species")+
+  scale_color_manual(values = colpal_fun3, name = "Species")+
+  labs(x = "", y = "Abundance\n")+
+  facet_grid(Species~Phase, scales = "free")+theme_bw()#factor(Species, levels = c("Raffaelea sulphurea", "Raffaelea canadensis", "Chaetomium globosum"))
+  
+p<-p+ theme(legend.position="right")+ylab("Relative abundance")
+p<-p+ theme(legend.text=element_text(size=15, face = "italic"))+theme(legend.key = element_rect(color = NA, fill = NA),legend.key.size = unit(0.9, "cm"))+theme(legend.title = element_text(size = 20, face = "bold"))
+abu<-p +theme(strip.text.x = element_blank())+theme(strip.background =element_rect(fill="white", color="white"))+
+  scale_y_continuous(labels=percent_format())
+Phase<-abu+theme(axis.title.y = element_text(size=20))+theme(axis.text.y = element_text(size=15, face="bold")) +
+  #theme(axis.text.x = element_text(size=20, angle=90,face="bold"))+
+  theme(axis.title.x = element_blank())+
+  theme(axis.title.y = element_blank())+
+  theme(axis.text.x = element_blank())+
+  theme(axis.ticks.x = element_blank())+ 
+  theme(strip.text.y = element_blank())
+relAb_funL <- Phase + theme(panel.spacing = unit(1.5, "lines"))
+```
+
+facet plots
+```{r}
+psOrd4 = subset_taxa(ps3, Species=="Raffaelea_sulphurea" | Species=="Raffaelea_canadensis" | Species=="Chaetomium_globosum")
+psPhase1 = subset_samples(psOrd4, Phase=="phase1")
+#Melt and plot
+melt3<-psmelt(psOrd4)
+melt4 <- psmelt(psPhase1)
+levels2=c("Phase1","Phase2","Phase3")
+change <- c("Phase1","Phase2","Phase3")
+melt3$Species <- factor(melt3$Species, levels = c("Chaetomium_globosum", "Raffaelea_canadensis", "Raffaelea_sulphurea"), labels = c("Chaetomium globosum", "Raffaelea canadensis", "Raffaelea sulphurea"))
+melt4$Species <- factor(melt4$Species, levels = c("Chaetomium_globosum", "Raffaelea_canadensis", "Raffaelea_sulphurea"), labels = c("Chaetomium globosum", "Raffaelea canadensis", "Raffaelea sulphurea"))
+#melt2 <- arrange(transform(melt, Phase=factor(melt$Phase,levels=levels2,labels=change)), Phase)
+#neworder2 <- c("Fantasmomyces_hyalinus", "Raffaelea_sulphurea", "Raffaelea_canadensis", "Graphium_spc" , "Clonostays_rosea")
+#melt4 <- arrange(transform(melt, Genus=factor(melt$Genus,levels=neworder2)),Genus)
+a_mean <- melt4 %>%
+  group_by(Species) %>%
+  summarize(mean_val = mean(Abundance))
+
+colpal_fun3 <- c("lightskyblue", "goldenrod3", "gold")
+```
+
+
+Phase/Development
+```{r}
+melt3$Development <- factor(melt3$Development, levels = c("slow", "medium", "fast"))
+
+p<-ggplot(data = melt3, aes(x = Development, y = Abundance)) 
+
+p <- p+ facet_grid(Development ~ Phase)+
+  geom_boxplot(aes(fill=Species),alpha=0.5,lwd=0.7, position = position_dodge(width = 0.3), width=0.45,outlier.shape = NA) + geom_jitter(aes(color = Species), height = 0, width = .1)+geom_hline(data= a_mean, aes(yintercept=mean_val), size=1.2,linetype="dashed", col = "darkred")+
+  scale_fill_manual(values = colpal_fun3, name = "Species")+
+  scale_color_manual(values = colpal_fun3, name = "Species")+
+  labs(x = "", y = "Abundance\n")+
+  facet_grid(Species~Phase, scales = "free")+theme_bw()
+p<-p+ theme(legend.position="right")+ylab("Total Abundance")+xlab("Developmental Speed")
+p<-p+ theme(legend.text=element_text(size=15, face = "italic"))+theme(legend.key = element_rect(color = NA, fill = NA),legend.key.size = unit(0.9, "cm"))+theme(legend.title = element_text(size = 20, face = "bold"))
+abu<-p +theme(strip.text.x = element_blank())+theme(strip.background =element_rect(fill="white", color="white"))
+Phase<-abu+theme(axis.title.y = element_text(size=20, face="bold", vjust = 3))+theme(axis.text.y = element_text(size=15, face="bold")) +
+  theme(axis.title.x = element_text(size=20, face="bold", vjust = -1))+
+  theme(axis.text.x = element_text(size=15, angle=20,face="bold", vjust = 0.5))+
+  theme(strip.text.y = element_blank())+
+  theme(plot.margin = unit(c(0.5, 0.5, 1, 1), "cm"))
+
+absAb_DevSpeed <- Phase
+```
+
+### Ordination analysis
+
+__NMDS__
+
+```{r}
+set.seed(1)
+ordi1 = ordinate(rel.fun, "NMDS", "bray", k=3, trymax=100)
+ordi1$stress #0.02631975 --> good fit
+```
+
+```{r}
+dev_phase <- c("orange", "lightskyblue", "khaki1", "orangered1", "royalblue", "yellow1", "orangered4", "royalblue4", "yellow4")
+```
+
+
+Phase
+```{r}
+NMDS <- plot_ordination(rel.fun, ordi1, color = "Phase", shape = "Dispersal", axes=c(1,2))+
+  stat_ellipse(level = 0.95, geom = "polygon", aes(fill = Phase), alpha = 0.25)+
+  scale_color_manual(values = dev_phase)+
+  geom_text_repel(aes(label=Lineage), color = "black", size = 4, max.overlaps = Inf)+
+  geom_point(size=3, inherit.aes=T)+
+  theme_bw()+
+  annotate(geom="text", x=-1, y= -1.5, label="stress = 0.026",
+              color="black", size = 6)+
+  xlim(-1.3, 1.8)+
+  theme(legend.justification=c(1,0), legend.position=c(1,0))+
+  theme(axis.text = element_text(size = 14, face = "bold"))+
+  theme(axis.title = element_text(size = 18, face = "bold"))+
+  theme(legend.text = element_text(size = 12))+
+  theme(legend.title = element_text(size = 16))+
+  theme(title = element_text(size = 18))
+
+NMDS
+
+NMDS2 <- plot_ordination(rel.fun, ordi1, color = "Phase", shape = "Development", axes=c(1,2))+
+  stat_ellipse(level = 0.95, geom = "polygon", aes(fill = Phase), alpha = 0.25)+
+  scale_color_manual(values = dev_phase)+
+  geom_text_repel(aes(label=Development), color = "black", size = 4, max.overlaps = Inf)+
+  geom_point(size=3, inherit.aes=T)+
+  theme_bw()+
+  annotate(geom="text", x=-1, y= -1.5, label="stress = 0.026",
+              color="black", size = 6)+
+  xlim(-1.3, 1.8)+
+  theme(legend.justification=c(1,0), legend.position=c(1,0))+
+  theme(axis.text = element_text(size = 14, face = "bold"))+
+  theme(axis.title = element_text(size = 18, face = "bold"))+
+  theme(legend.text = element_text(size = 12))+
+  theme(legend.title = element_text(size = 16))+
+  theme(title = element_text(size = 18))
+
+NMDS2
+
+NMDS3 <- plot_ordination(rel.fun, ordi1, color = "Development_Phase", axes=c(1,2))+
+  #stat_ellipse(aes(color=D, ), type = "norm", linetype = 2)+
+  stat_ellipse(aes( color = Development_Phase ),geom = "path", level=0.9, inherit.aes=T)+
+  scale_color_manual(values = dev_phase)+
+  geom_point(size=3, inherit.aes=T)+
+  theme_bw()+
+  annotate(geom="text", x=-1.5, y= -1.5, label="stress = 0.026",
+              color="black", size = 6)+
+  xlim(-2, 2.5)+
+  theme(legend.justification=c(1,0), legend.position=c(1,0))+
+  theme(axis.text = element_text(size = 14, face = "bold"))+
+  theme(axis.title = element_text(size = 18, face = "bold"))+
+  theme(legend.text = element_text(size = 12))+
+  theme(legend.title = element_text(size = 16))+
+  theme(title = element_text(size = 18))
+
+NMDS3
+```
+
+
+### Permanova for community-level multivariate comparisons
+
+PERMANOVA quantifies multivariate community-level differences between groups.
+Pick relative abundances (compositional) and sample metadata 
+```{r}
+pseq.rel <- microbiome::transform(funL.final, "compositional")
+otu <- abundances(pseq.rel)
+meta <- meta(pseq.rel)
+```
+
+#### PERMANOVA significance test for group-level differences
+
+Now let us evaluate whether the Phase has a significant effect on overall garden microbiota composition. Perform PERMANOVA:
+
+```{r}
+set.seed(1)
+adonis(unname(distance(pseq.rel, method = "bray")) ~ Phase * Development + Phase * Dispersal, data = meta, strata = meta$Lineage)
+
+set.seed(1)
+adonis(unname(distance(pseq.rel, method = "bray")) ~ Phase * Development + Dispersal, data = meta, strata = meta$Lineage)
+
+set.seed(1)
+pairwise.adonis2(distance(pseq.rel, method = "bray") ~ Phase * Development, data = meta, strata = 'Lineage')
+
+set.seed(1)
+pairwise.adonis2(distance(pseq.rel, method = "bray") ~ Phase + Development, data = meta, strata = 'Lineage')
+```
+
+#### Checking the homogeneity condition
+
+Check that variance homogeneity assumptions hold (to ensure the reliability of the results):
+
+```{r}
+dist <- vegdist(t(otu))
+distPhase <- betadisper(dist, meta$Phase)
+anova(distPhase)
+permutest(distPhase, pairwise = TRUE, permutations = 99)
+
+plot(distPhase, hull = FALSE, ellipse = TRUE)
+
+distDevelopment <- betadisper(dist, meta$Development)
+anova(distDevelopment)
+permutest(distDevelopment, pairwise = TRUE, permutations = 99)
+
+plot(distDevelopment, hull = FALSE, ellipse = TRUE)
+
+distDispersal <- betadisper(dist, meta$Dispersal)
+anova(distDispersal)
+```
+
+# testing the fungal core taxa abundance
+
+```{r}
+coretax <- subset(Fungi_Species, (Species == "Chaetomium_globosum" | Species == "Raffaelea_canadensis" | Species == "Raffaelea_sulphurea"))
+```
+
+```{r}
+rel.coretax <- read.table("//NAS/home/Analysis Development/development_lab/tables/Core.taxa_table.txt", header = TRUE)
+CG <- subset(rel.coretax, (Species == "Chaetomium_globosum"))
+RS <- subset(rel.coretax, (Species == "Raffaelea_sulphurea"))
+RC <- subset(rel.coretax, (Species == "Raffaelea_canadensis"))
+```
+
+__*Chaetomium* (relative)__
+```{r}
+CG$Phase <- as.factor(CG$Phase)
+CG <- within(CG, Phase <- relevel(Phase, ref = "phase1"))
+CG$Development <- as.factor(CG$Development)
+CG <- within(CG, Development <- relevel(Development, ref = "medium"))
+CG$parental_Productivity <- as.factor(CG$parental_Productivity)
+CG <- within(CG, parental_Productivity <- relevel(parental_Productivity, ref = "medium"))
+CG$success_rate <- as.factor(CG$success_rate)
+CG <- within(CG, success_rate <- relevel(success_rate, ref = "average"))
+```
+
+plot
+```{r}
+CG$Phase <- factor(CG$Phase, levels = c("phase1", "phase2", "phase3"), labels = c("Phase1", "Phase2", "Phase3"))
+CG$Development <- factor(CG$Development, levels = c("fast", "medium", "slow"))
+CGP <- ggboxplot(CG, y = "rel.Abundance_Sample", x = "Development", fill = "Species") +
+        #ggtitle("rel. abundance of Chaetomium globosum in all samples for Development Phase") +
+        scale_fill_manual(values=c("lightskyblue"))+
+        geom_jitter()+
+        theme_bw()+
+        facet_grid(~ Phase)+
+        theme(strip.text.x=element_text(size=14, face="bold"))
+
+CGP <- ggpar(CGP, ylab = "Relative Abundance (%)", xlab = "Developmental Phase / Speed",)+
+            rremove("legend")+
+            #font("title", size = 15)+
+            font("xy.text", size = 14)+
+            font("xy.title", size = 16, face = "bold")
+CGP
+```
+
+```{r}
+hist(CG$rel.Abundance_Sample)
+```
+
+check for variance structure
+```{r}
+CG$rel.Abundance_SampleTuk <- rcompanion::transformTukey(CG$rel.Abundance_Sample) # lambda = 0.525
+CG$rel.Abundance_SampleLog <- logistic(CG$rel.Abundance_Sample)
+
+m <- lme(rel.Abundance_Sample ~ Phase * Dispersal * Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=CG)
+Anova(m)
+m1 <- lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=CG)
+m2 <- gls(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,control = lmeControl(opt="optim"),data=CG)
+AIC(m, m1, m2) #m1 has lower AIC --> include rf
+
+MODEL<-m1
+par(mfrow=c(2,2))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="response"),lpars=list(col="red",lty=1))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+qqnorm(residuals(MODEL,type="response"));qqline(residuals(MODEL,type="response"))
+qqnorm(unlist(ranef(MODEL))); qqline(unlist(ranef(MODEL)))
+par(mfrow=c(1,1))
+scatter.smooth(CG$rel.Abundance_Sample,residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+boxplot(residuals(MODEL,type="normalized")~CG$Phase * CG$Development,drop=TRUE)
+boxplot(residuals(MODEL,type="normalized")~CG$Dispersal,drop=TRUE)
+
+# Variance differs between Phase and possibly Development
+vf1<-varIdent(form=~1|Phase)
+vf2<-varIdent(form=~1|Development)
+vf3<-varIdent(form=~1|Dispersal)
+vf4<-varIdent(form=~1|Phase*Development)
+vf5<-varIdent(form=~1|Phase*Dispersal)
+vf6<-varIdent(form=~1|Phase*Development*Dispersal)
+
+
+m1.1<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf1, control = lmeControl(opt="optim"), data=CG)
+m1.2<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf2, control = lmeControl(opt="optim"), data=CG)
+m1.3<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf3, control = lmeControl(opt="optim"), data=CG)
+m1.4<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf4, control = lmeControl(opt="optim"), data=CG)
+m1.5<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf5, control = lmeControl(opt="optim"), data=CG) 
+m1.6<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=CG) 
+
+AIC(m1,m1.1,m1.2,m1.3, m1.4, m1.5, m1.6) #m1.6 lowest AIC
+anova(m1,m1.1,m1.2,m1.3, m1.4, m1.5, m1.6) #lowest m1.6
+compare_performance(m1,m1.1,m1.2,m1.3, m1.4, m1.5, m1.6, rank = TRUE) #best m1.6
+
+Anova(m1.6)
+
+par(mfrow=c(2,2))
+plot(m1, which = c(1), add.smooth = FALSE)
+plot(m1.4, which = c(1), add.smooth = FALSE)
+plot(m1.6, which = c(1), add.smooth = FALSE)
+```
+```{r eval=FALSE, include=FALSE}
+#coplot of residuals versus Phase, conditional on Development
+E <- resid(m1)
+coplot(E~Phase|Development, data = CG)
+
+E1 <- resid(m1.6)
+coplot(E1~Phase|Development, ylab = "ordinary residuals", data = CG)
+
+E2 <- resid(m1.6, type = "normalized")
+coplot(E2~Phase|Development, ylab = "Normalised residuals", data = CG)
+```
+
+Choose transformation if necessary
+```{r}
+par(mfrow=c(2,2));hist(CG$rel.Abundance_SampleT);hist(sqrt(CG$rel.Abundance_Sample));hist(CG$rel.Abundance_SampleTuk);par(mfrow=c(1,1))
+m1<-lme(rel.Abundance_Sample~Phase * Dispersal * Development, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=CG)
+m2<-lme(sqrt(rel.Abundance_Sample)~Phase * Dispersal * Development, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=CG)
+m3<-lme(rel.Abundance_SampleTuk~Phase * Dispersal * Development, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=CG)
+AIC(m1, m2, m3) #m2 lowest AIC
+
+MODEL<-m2
+par(mfrow=c(2,2))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="response"),lpars=list(col="red",lty=1))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+qqnorm(residuals(MODEL,type="response"));qqline(residuals(MODEL,type="response"))
+qqnorm(unlist(ranef(MODEL))); qqline(unlist(ranef(MODEL)))
+par(mfrow=c(1,1))
+```
+
+simplify?
+```{r}
+m2a <- lme(sqrt(rel.Abundance_Sample)~Phase * Development + Dispersal, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=CG) # 
+m2b <- lme(sqrt(rel.Abundance_Sample)~Phase * Development, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=CG) # 
+m1.4a <- lme(sqrt(rel.Abundance_Sample)~Phase * Development, random = ~1|Lineage, weights=vf4, control = lmeControl(opt="optim"), data=CG)
+
+AIC(m2, m2a, m2b, m1.4a) #m2 lowest AIC
+Anova(m2) 
+Anova(m2a)  
+Anova(m2b) # choose this one
+Anova(m1.4a)
+```
+
+post hoc
+```{r}
+HSD_DevP <- emmeans(m2b, pairwise ~ Development|Phase, adjust = "tukey")
+
+#create compact letters
+marginal_DevP = emmeans(m2b, ~ Development|Phase)
+CLD.CG <- cld(marginal_DevP, alpha = 0.05, Letters = letters, adjust = "tukey") ### Use lower-case letters for .group, Tukey-adjusted comparisons
+```
+```{r}
+# extracting the compact letter display and editing groups
+cldDev <- as.data.frame.list(CLD.CG)
+cldDev$Phase <- factor(cldDev$Phase, labels = c("Phase1", "Phase2", "Phase3"))
+
+CG_funL_DevP <- CGP + geom_text(data = cldDev, aes(y = 110, label = trimws(.group)), size = 6, show.legend = FALSE, colour = "black")
+```
+
+```{r}
+Chaet_new <- CG_funL_DevP + 
+  theme(strip.text.x = element_blank())+theme(strip.background =element_rect(fill="white", color="white"))
+```
+
+__*R. sulphurea* (relative)__
+```{r}
+RS$Phase <- as.factor(RS$Phase)
+RS <- within(RS, Phase <- relevel(Phase, ref = "phase1"))
+RS$Development <- as.factor(RS$Development)
+RS <- within(RS, Development <- relevel(Development, ref = "medium"))
+RS$parental_Productivity <- as.factor(RS$parental_Productivity)
+RS <- within(RS, parental_Productivity <- relevel(parental_Productivity, ref = "average"))
+RS$success_rate <- as.factor(RS$success_rate)
+RS <- within(RS, success_rate <- relevel(success_rate, ref = "average"))
+```
+
+plot
+```{r}
+RS$Development <- factor(RS$Development, levels = c("fast", "medium", "slow"))
+RSP1 <- ggboxplot(RS, y = "rel.Abundance_Sample", x = "Development", fill = "Species") +
+        #ggtitle("rel. abundance of Raffaelea sulphurea in all samples for Development Phase") +
+        scale_fill_manual(values=c("gold"))+
+        geom_jitter()+
+        theme_bw()+
+        theme(strip.text.x=element_text(size=14, face="bold"))
+
+RSP1 <- ggpar(RSP1, ylab = "Relative Abundance (%)", xlab = "Development Speed")+
+            rremove("legend")+
+            #font("title", size = 15)+
+            font("xy.text", size = 14)+
+            font("xy.title", size = 16, face = "bold")
+RSP1
+
+RS$Phase <- factor(RS$Phase, labels = c("Phase1", "Phase2", "Phase3"))
+RSP2 <- ggboxplot(RS, y = "rel.Abundance_Sample", x = "Phase", fill = "Species") +
+        #ggtitle("rel. abundance of Raffaelea sulphurea in all samples for Development Phase") +
+        scale_fill_manual(values=c("gold"))+
+        geom_jitter()+
+        theme_bw()+
+        theme(strip.text.x=element_text(size=14, face="bold"))
+
+RSP2 <- ggpar(RSP2, ylab = "Relative Abundance (%)", xlab = "Development Phase")+
+            rremove("legend")+
+            #font("title", size = 15)+
+            font("xy.text", size = 14)+
+            font("xy.title", size = 16, face = "bold")
+RSP2
+
+RSP3 <- ggboxplot(RS, y = "rel.Abundance_Sample", x = "Development", fill = "Species") +
+        #ggtitle("rel. abundance of Raffaelea sulphurea in all samples for Development Phase") +
+        facet_grid(~Phase)+
+        scale_fill_manual(values=c("gold"))+
+        geom_jitter()+
+        theme_bw()+
+        theme(strip.text.x=element_text(size=14, face="bold"))
+
+RSP3 <- ggpar(RSP3, ylab = "Relative Abundance (%)", xlab = "Development Phase / Speed")+
+            rremove("legend")+
+            #font("title", size = 15)+
+            font("xy.text", size = 14)+
+            font("xy.title", size = 16, face = "bold")
+RSP3
+```
+
+```{r}
+RS$rel.Abundance_Sample.log <- logistic(RS$rel.Abundance_Sample)
+hist(RS$rel.Abundance_Sample)
+```
+
+check for variance structure
+```{r}
+RS$rel.Abundance_SampleTuk <- rcompanion::transformTukey(RS$rel.Abundance_Sample) # lambda = 0.15
+RS$rel.Abundance_SampleLog <- logistic(RS$rel.Abundance_Sample) #NAs
+
+m <- lme(rel.Abundance_Sample ~ Phase * Dispersal * Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=RS)
+Anova(m)
+m1 <- lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=RS)
+m2 <- gls(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,control = lmeControl(opt="optim"),data=RS)
+AIC(m, m1, m2) #m1 has lower AIC --> include rf
+
+MODEL<-m1
+par(mfrow=c(2,2))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="response"),lpars=list(col="red",lty=1))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+qqnorm(residuals(MODEL,type="response"));qqline(residuals(MODEL,type="response"))
+qqnorm(unlist(ranef(MODEL))); qqline(unlist(ranef(MODEL)))
+par(mfrow=c(1,1))
+scatter.smooth(RS$rel.Abundance_Sample,residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+boxplot(residuals(MODEL,type="normalized")~RS$Phase * RS$Development,drop=TRUE)
+boxplot(residuals(MODEL,type="normalized")~RS$Dispersal,drop=TRUE)
+
+# Variance differs between Phase and possibly Development
+vf1<-varIdent(form=~1|Phase)
+vf2<-varIdent(form=~1|Development)
+vf3<-varIdent(form=~1|Dispersal)
+vf4<-varIdent(form=~1|Phase*Development)
+vf5<-varIdent(form=~1|Phase*Dispersal)
+vf6<-varIdent(form=~1|Phase*Development*Dispersal)
+
+
+m1.1<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf1, control = lmeControl(opt="optim"), data=RS)
+m1.2<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf2, control = lmeControl(opt="optim"), data=RS)
+m1.3<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf3, control = lmeControl(opt="optim"), data=RS)
+m1.4<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf4, control = lmeControl(opt="optim"), data=RS)
+m1.5<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf5, control = lmeControl(opt="optim"), data=RS) 
+m1.6<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RS) 
+
+AIC(m1,m1.1,m1.2,m1.3, m1.4, m1.5, m1.6) #m1.6 lowest AIC
+anova(m1,m1.1,m1.2,m1.3, m1.4, m1.5, m1.6) #lowest m1.6
+compare_performance(m1,m1.1,m1.2,m1.3, m1.4, m1.5, m1.6, rank = TRUE) #best m1.6
+
+Anova(m1.6)
+
+par(mfrow=c(2,2))
+plot(m1, which = c(1), add.smooth = FALSE)
+plot(m1.2, which = c(1), add.smooth = FALSE)
+plot(m1.6, which = c(1), add.smooth = FALSE)
+```
+```{r eval=FALSE, include=FALSE}
+#coplot of residuals versus Phase, conditional on Development
+E <- resid(m1)
+coplot(E~Phase|Development, data = RS)
+
+E1 <- resid(m1.6)
+coplot(E1~Phase|Development, ylab = "ordinary residuals", data = RS)
+
+E2 <- resid(m1.6, type = "normalized")
+coplot(E2~Phase|Development, ylab = "Normalised residuals", data = RS)
+```
+
+Choose transformation if necessary
+```{r}
+par(mfrow=c(2,2));hist(RS$rel.Abundance_Sample);hist(sqrt(RS$rel.Abundance_Sample));hist(RS$rel.Abundance_SampleTuk);par(mfrow=c(1,1))
+m1<-lme(rel.Abundance_Sample~Phase * Dispersal * Development, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RS)
+m2<-lme(sqrt(rel.Abundance_Sample)~Phase * Dispersal * Development, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RS)
+m3<-lme(rel.Abundance_SampleTuk~Phase * Dispersal * Development, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RS)
+AIC(m1, m2, m3) #m2 lowest AIC
+
+MODEL<-m3
+par(mfrow=c(2,2))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="response"),lpars=list(col="red",lty=1))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+qqnorm(residuals(MODEL,type="response"));qqline(residuals(MODEL,type="response"))
+qqnorm(unlist(ranef(MODEL))); qqline(unlist(ranef(MODEL)))
+par(mfrow=c(1,1))
+```
+
+simplify?
+```{r}
+m3<-lme(rel.Abundance_SampleTuk~Phase * Dispersal * Development, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RS, method = "REML")
+m3a <- lme(rel.Abundance_SampleTuk~Phase + Development + Dispersal, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RS, method = "REML") # 
+m3b <- lme(rel.Abundance_SampleTuk~Phase + Development, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RS, method = "REML") # 
+m1.2a <- lme(rel.Abundance_SampleTuk~Phase + Development, random = ~1|Lineage, weights=vf2, control = lmeControl(opt="optim"), data=RS)
+
+m3b2 <- lme(rel.Abundance_SampleTuk~Phase * Development, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RS, method = "REML")
+
+AIC(m3, m3a, m3b, m1.2a)#m3b lowest AIC
+anova(m3, m3a)
+anova(m3b, m3b2)
+AIC(m3b, m3b2)
+Anova(m3) 
+Anova(m3a)  
+Anova(m3b) # choose this one
+Anova(m3b2)
+Anova(m1.2a)
+```
+
+post hoc
+```{r}
+HSD_Dev <- emmeans(m3b, pairwise ~ Development, adjust = "tukey")
+HSD_Phase <- emmeans(m3b, pairwise ~ Phase, adjust = "tukey")
+HSD_PhaseDev <- emmeans(m3b, pairwise ~ Phase|Development, adjust = "tukey")
+
+#create compact letters
+marginal_Dev = emmeans(m3b, ~ Development)
+CLD.RS1 <- cld(marginal_Dev, alpha = 0.05, Letters = letters, adjust = "tukey") ### Use lower-case letters for .group, Tukey-adjusted comparisons
+marginal_Ph = emmeans(m3b, ~ Phase)
+CLD.RS2 <- cld(marginal_Ph, alpha = 0.05, Letters = letters, adjust = "tukey")
+
+marginal_PhDev = emmeans(m3b, ~ Phase|Development)
+CLD.RS3 <- cld(marginal_PhDev, alpha = 0.05, Letters = letters, adjust = "tukey")
+```
+
+extracting the compact letter display and editing groups
+```{r}
+cldDev <- as.data.frame.list(CLD.RS1)
+cldDev$Development <- factor(cldDev$Development, labels = c("fast", "medium", "slow"))
+
+cldPh <- as.data.frame.list(CLD.RS2)
+cldPh$Phase <- factor(cldPh$Phase, labels = c("Phase1", "Phase2", "Phase3"))
+
+cldPhDev <- as.data.frame.list(CLD.RS3)
+cldPhDev$Phase <- factor(cldPhDev$Phase, labels = c("phase1", "phase2", "phase3"))
+cldPhDev$Development <- factor(cldPhDev$Development, labels = c("fast", "medium", "slow"))
+
+RS_funL_Dev <- RSP1 + geom_text(data = cldDev, aes(y = 110, label = trimws(.group)), size = 6, show.legend = FALSE, colour = "black")
+
+RS_funL_Ph <- RSP2 + geom_text(data = cldPh, aes(y = 110, label = trimws(.group)), size = 6, show.legend = FALSE, colour = "black")
+
+RS_funL_PhDev <- RSP3 + geom_text(data = cldDev, aes(y = 110, label = trimws(.group)), size = 6, show.legend = FALSE, colour = "black")
+
+plot_grid(RS_funL_Ph, RS_funL_Dev)
+```
+
+
+```{r}
+Sulph_new <- RS_funL_PhDev+
+theme(strip.text.x = element_blank())+theme(strip.background =element_rect(fill="white", color="white"))+
+  theme(axis.title.x = element_blank())+
+  theme(axis.text.x = element_blank())+
+  theme(axis.ticks.x = element_blank())
+```
+
+__*R. canadensis*__
+```{r}
+RC$Phase <- as.factor(RC$Phase)
+RC <- within(RC, Phase <- relevel(Phase, ref = "phase1"))
+RC$Development <- as.factor(RC$Development)
+RC <- within(RC, Development <- relevel(Development, ref = "medium"))
+RC$parental_Productivity <- as.factor(RC$parental_Productivity)
+RC <- within(RC, parental_Productivity <- relevel(parental_Productivity, ref = "low"))
+RC$success_rate <- as.factor(RC$success_rate)
+RC <- within(RC, success_rate <- relevel(success_rate, ref = "average"))
+
+# plot
+RC$Development <- factor(RC$Development, levels = c("fast", "medium", "slow"))
+RC$Dispersal <- factor(RC$Dispersal, levels = c("early", "middle", "late"))
+RC$Phase <- factor(RC$Phase, labels = c("Phase1", "Phase2", "Phase3"))
+RCP <- ggboxplot(RC, y = "rel.Abundance_Sample", x = "Development", fill = "Species") +
+        #ggtitle("rel. abundance of Raffaelea canadensis in all samples for Development Phase") +
+        scale_fill_manual(values=c("goldenrod"))+
+        geom_jitter()+
+        theme_bw()+
+        facet_grid(~ Phase)+
+        theme(strip.text.x=element_text(size=14, face="bold"))
+
+RCP <- ggpar(RCP, ylab = "Relative Abundance (%)", xlab = "Development Speed")+
+            rremove("legend")+
+            #font("title", size = 15)+
+            font("xy.text", size = 14)+
+            font("xy.title", size = 16, face = "bold")
+RCP
+
+RCP2 <- ggboxplot(RC, y = "rel.Abundance_Sample", x = "Dispersal", fill = "Species") +
+        #ggtitle("rel. abundance of Raffaelea canadensis in all samples for Development Phase") +
+        scale_fill_manual(values=c("goldenrod"))+
+        geom_jitter()+
+        theme_bw()+
+        facet_grid(~ Phase)+
+        theme(strip.text.x=element_text(size=14, face="bold"))
+
+RCP2 <- ggpar(RCP2, ylab = "Relative Abundance (%)", xlab = "Dispersal Time")+
+            rremove("legend")+
+            #font("title", size = 15)+
+            font("xy.text", size = 14)+
+            font("xy.title", size = 16, face = "bold")
+RCP2
+```
+
+```{r}
+hist(RC$rel.Abundance_Sample)
+```
+
+check for variance structure
+```{r}
+RC$rel.Abundance_SampleTuk <- rcompanion::transformTukey(RC$rel.Abundance_Sample) # lambda = 0.175
+RC$rel.Abundance_SampleLog <- logistic(RC$rel.Abundance_Sample) #NAs
+
+m <- lme(rel.Abundance_Sample ~ Phase * Dispersal * Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=RC)
+Anova(m)
+m1 <- lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage,control = lmeControl(opt="optim"),data=RC)
+m2 <- gls(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,control = lmeControl(opt="optim"),data=RC)
+AIC(m, m1, m2) #m1 has lower AIC --> include rf
+
+MODEL<-m1
+par(mfrow=c(2,2))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="response"),lpars=list(col="red",lty=1))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+qqnorm(residuals(MODEL,type="response"));qqline(residuals(MODEL,type="response"))
+qqnorm(unlist(ranef(MODEL))); qqline(unlist(ranef(MODEL)))
+par(mfrow=c(1,1))
+scatter.smooth(RC$rel.Abundance_SampleTuk,residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+boxplot(residuals(MODEL,type="normalized")~RC$Phase * RC$Development,drop=TRUE)
+boxplot(residuals(MODEL,type="normalized")~RC$Dispersal,drop=TRUE)
+
+# Variance differs between Phase and possibly Development
+vf1<-varIdent(form=~1|Phase)
+vf2<-varIdent(form=~1|Development)
+vf3<-varIdent(form=~1|Dispersal)
+vf4<-varIdent(form=~1|Phase*Development)
+vf5<-varIdent(form=~1|Phase*Dispersal)
+vf6<-varIdent(form=~1|Phase*Development*Dispersal)
+
+
+m1.1<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf1, control = lmeControl(opt="optim"), data=RC)
+m1.2<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf2, control = lmeControl(opt="optim"), data=RC)
+m1.3<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf3, control = lmeControl(opt="optim"), data=RC)
+m1.4<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf4, control = lmeControl(opt="optim"), data=RC)
+m1.5<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf5, control = lmeControl(opt="optim"), data=RC) 
+m1.6<-lme(rel.Abundance_SampleTuk ~ Phase * Dispersal * Development,random=~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RC) 
+
+AIC(m1,m1.1,m1.2,m1.3, m1.4, m1.5, m1.6) #m1.6 lowest AIC, then m1.4
+anova(m1,m1.1,m1.2,m1.3, m1.4, m1.5, m1.6) #lowest m1.6
+compare_performance(m1,m1.1,m1.2,m1.3, m1.4, m1.5, m1.6, rank = TRUE) #best m1.6
+
+Anova(m1.4)
+
+par(mfrow=c(2,2))
+plot(m1, which = c(1), add.smooth = FALSE)
+plot(m1.4, which = c(1), add.smooth = FALSE)
+plot(m1.6, which = c(1), add.smooth = FALSE)
+```
+
+```{r eval=FALSE, include=FALSE}
+#coplot of residuals versus Phase, conditional on Development
+E <- resid(m1)
+coplot(E~Phase|Development, data = RC)
+
+E1 <- resid(m1.6)
+coplot(E1~Phase|Development, ylab = "ordinary residuals", data = RC)
+
+E2 <- resid(m1.6, type = "normalized")
+coplot(E2~Phase|Development, ylab = "Normalised residuals", data = RC)
+```
+
+Choose transformation if necessary
+```{r}
+par(mfrow=c(2,2));hist(RC$rel.Abundance_Sample);hist(sqrt(RC$rel.Abundance_Sample));hist(RC$rel.Abundance_SampleTuk);par(mfrow=c(1,1))
+m1<-lme(rel.Abundance_Sample~Phase * Dispersal * Development, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RC)
+m2<-lme(sqrt(rel.Abundance_Sample)~Phase * Dispersal * Development, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RC)
+m3<-lme(rel.Abundance_SampleTuk~Phase * Dispersal * Development, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RC)
+AIC(m1, m2, m3) #m3 lowest AIC
+
+MODEL<-m3
+par(mfrow=c(2,2))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="response"),lpars=list(col="red",lty=1))
+scatter.smooth(fitted(MODEL),residuals(MODEL,type="normalized"),lpars=list(col="red",lty=1))
+qqnorm(residuals(MODEL,type="response"));qqline(residuals(MODEL,type="response"))
+qqnorm(unlist(ranef(MODEL))); qqline(unlist(ranef(MODEL)))
+par(mfrow=c(1,1))
+```
+
+simplify?
+```{r}
+m3<-lme(rel.Abundance_SampleTuk~Phase * Dispersal * Development, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RC, method = "REML")
+m3a <- lme(rel.Abundance_SampleTuk~Phase * Development + Phase * Dispersal, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RC, method = "REML") # 
+m3b <- lme(rel.Abundance_SampleTuk~Phase * Development + Dispersal, random = ~1|Lineage, weights=vf6, control = lmeControl(opt="optim"), data=RC, method = "REML") # 
+
+AIC(m3, m3a, m3b, m1.2a)#m3b lowest AIC
+anova(m3, m3a)
+Anova(m3) 
+Anova(m3a) # choose this one 
+Anova(m3b)
+```
+
+post hoc
+```{r}
+HSD_DevP <- emmeans(m3a, pairwise ~ Development|Phase, adjust = "tukey")
+HSD_DisP <- emmeans(m3a, pairwise ~ Dispersal|Phase, adjust = "tukey")
+
+#create compact letters
+marginal_DevP = emmeans(m3a, ~ Development|Phase)
+CLD.RC1 <- cld(marginal_DevP, alpha = 0.05, Letters = letters, adjust = "tukey") ### Use lower-case letters for .group, Tukey-adjusted comparisons
+marginal_DisP = emmeans(m3a,~ Dispersal|Phase)
+CLD.RC2 <- cld(marginal_DisP, alpha = 0.05, Letters = letters, adjust = "tukey")
+```
+
+extracting the compact letter display and editing groups
+```{r}
+cldDevP <- as.data.frame.list(CLD.RC1)
+cldDevP$Development <- factor(cldDevP$Development, labels = c("fast", "medium", "slow"))
+cldDevP$Phase <- factor(cldDevP$Phase, labels = c("Phase1", "Phase2", "Phase3"))
+
+cldDisP <- as.data.frame.list(CLD.RC2)
+cldDisP$Phase <- factor(cldDisP$Phase, labels = c("Phase1", "Phase2", "Phase3"))
+cldDisP$Dispersal <- factor(cldDisP$Dispersal, levels = c("early", "middle", "late"))
+
+RC_funL_DevP <- RCP + geom_text(data = cldDevP, aes(y = 110, label = trimws(.group)), size = 6, show.legend = FALSE, colour = "black")
+
+RC_funL_DisP <- RCP2 + geom_text(data = cldDisP, aes(y = 110, label = trimws(.group)), size = 6, show.legend = FALSE, colour = "black")
+
+plot_grid(RC_funL_DevP, RC_funL_DisP)
+```
+
+```{r}
+Cana_new <- RC_funL_DevP+
+theme(strip.text.x = element_blank())+theme(strip.background =element_rect(fill="white", color="white"))+
+  theme(axis.title.x = element_blank())+
+  theme(axis.text.x = element_blank())+
+  theme(axis.ticks.x = element_blank())
+
+plot_grid(Sulph_new, Cana_new, Chaet_new, ncol = 1, align = "lr", labels = c("R. sulphurea", "R. canadensis", "C. globosum"))
+```
